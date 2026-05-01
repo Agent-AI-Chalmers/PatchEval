@@ -17,6 +17,9 @@ logs
 .env
 *.pem
 
+# output
+evaluation_output/
+
 # python
 __pycache__/
 *.pyc
