@@ -1,7 +1,7 @@
 [
   {
     "cve_id": "CVE-2021-21384",
-    "cve_description": "shescape is a simple shell escape package for JavaScript. In shescape, anyone using _Shescape_ to defend against shell injection may still be vulnerable against shell injection if the attacker manages to insert a backslash into the payload.",
+    "cve_description": "shescape is a simple shell escape package for JavaScript. In shescape, anyone using _Shescape_ to defend against shell injection may still be vulnerable against shell injection if the attacker manages to insert a null character into the payload.",
     "cwe_info": {
       "CWE-88": {
         "name": "Improper Neutralization of Argument Delimiters in a Command ('Argument Injection')",
@@ -633,7 +633,7 @@
   },
   {
     "cve_id": "CVE-2020-26237",
-    "cve_description": "Highlight.js is a syntax highlighter written in JavaScript. Highlight.js is vulnerable to Prototype Pollution. A malicious HTML code block can be crafted that will result in prototype pollution of the base object's prototype during highlighting. If you allow users to insert custom HTML code blocks into your page or app via parsing Markdown code blocks or similar mechanisms and do not filter the language names the user can provide, you may be vulnerable. The pollution should just be harmless data, but this can cause problems for applications not expecting these properties to exist and can result in strange behavior or application crashes, i.e. a potential denial-of-service vector. If your website or application does not render user-provided data, it should be unaffected.",
+    "cve_description": "Highlight.js is a syntax highlighter written in JavaScript. Highlight.js is vulnerable to Prototype Pollution. A malicious HTML code block can be crafted that will result in prototype pollution of the base object's prototype during highlighting. If you allow users to insert custom HTML code blocks into your page/app via parsing Markdown code blocks (or similar) and do not filter the language names the user can provide you may be vulnerable. The pollution should just be harmless data but this can cause problems for applications not expecting these properties to exist and can result in strange behavior or application crashes, i.e. a potential DOS vector. If your website or application does not render user provided data it should be unaffected.",
     "cwe_info": {
       "CWE-471": {
         "name": "Modification of Assumed-Immutable Data (MAID)",
@@ -993,7 +993,7 @@
   },
   {
     "cve_id": "CVE-2024-49750",
-    "cve_description": "The Snowflake Connector for Python provides an interface for developing Python applications that can connect to Snowflake and perform all standard operations. When the logging level is set by the user to DEBUG, the Connector may log Duo passcodes when specified via the `passcode` parameter and Azure SAS tokens. Additionally, the SecretDetector logging formatter, if enabled, contains bugs which cause it to not fully redact JWT tokens and certain private key formats.",
+    "cve_description": "The Snowflake Connector for Python provides an interface for developing Python applications that can connect to Snowflake and perform all standard operations. When the logging level was set by the user to DEBUG, the Connector could have logged Duo passcodes (when specified via the `passcode` parameter) and Azure SAS tokens. Additionally, the SecretDetector logging formatter, if enabled, contained bugs which caused it to not fully redact JWT tokens and certain private key formats.",
     "cwe_info": {
       "CWE-532": {
         "name": "Insertion of Sensitive Information into Log File",
@@ -1073,7 +1073,7 @@
   },
   {
     "cve_id": "CVE-2022-29217",
-    "cve_description": "PyJWT is a Python implementation of RFC 7519. PyJWT supports multiple different JWT signing algorithms. With JWT, an attacker submitting the JWT token can choose the used signing algorithm. The PyJWT library requires that the application chooses what algorithms are supported. The application can specify `jwt.algorithms.get_default_algorithms()` to get support for all algorithms, or specify a single algorithm. The issue is not that big as `algorithms=jwt.algorithms.get_default_algorithms()` has to be used.",
+    "cve_description": "PyJWT is a Python implementation of RFC 7519. PyJWT supports multiple different JWT signing algorithms. With JWT, an attacker submitting the JWT token can choose the used signing algorithm. The PyJWT library requires that the application chooses what algorithms are supported. The application can specify `jwt.algorithms.get_default_algorithms()` to get support for all algorithms, or specify a single algorithm. The issue is not that big as `algorithms=jwt.algorithms.get_default_algorithms()` has to be used. Always be explicit with the algorithms that are accepted and expected when decoding.",
     "cwe_info": {
       "CWE-327": {
         "name": "Use of a Broken or Risky Cryptographic Algorithm",
@@ -1665,7 +1665,7 @@
   },
   {
     "cve_id": "CVE-2023-40029",
-    "cve_description": "Argo CD is a declarative continuous deployment for Kubernetes. Argo CD Cluster secrets might be managed declaratively using Argo CD / kubectl apply. As a result, the full secret body is stored in `kubectl.kubernetes.io/last-applied-configuration` annotation. Pull request #7139 introduced the ability to manage cluster labels and annotations. Since clusters are stored as secrets it also exposes the `kubectl.kubernetes.io/last-applied-configuration` annotation which includes full secret body. In order to view the cluster annotations via the Argo CD API, the user must have `clusters, get` RBAC access. In many cases, cluster secrets do not contain any actually secret information, but sometimes, as in bearer-token auth, the contents might be very sensitive.",
+    "cve_description": "Argo CD is a declarative continuous deployment for Kubernetes. Argo CD Cluster secrets might be managed declaratively using Argo CD / kubectl apply. As a result, the full secret body is stored in`kubectl.kubernetes.io/last-applied-configuration` annotation. Since clusters are stored as secrets it also exposes the `kubectl.kubernetes.io/last-applied-configuration` annotation which includes full secret body. In order to view the cluster annotations via the Argo CD API, the user must have `clusters, get` RBAC access. **Note:** In many cases, cluster secrets do not contain any actually-secret information. But sometimes, as in bearer-token auth, the contents might be very sensitive. Update/deploy cluster secret with `server-side-apply` flag which does not use or rely on `kubectl.kubernetes.io/last-applied-configuration` annotation. Note: annotation for existing secrets will require manual removal.",
     "cwe_info": {
       "CWE-532": {
         "name": "Insertion of Sensitive Information into Log File",
@@ -2077,7 +2077,7 @@
   },
   {
     "cve_id": "CVE-2024-45043",
-    "cve_description": "The OpenTelemetry Collector module AWS firehose receiver is for ingesting AWS Kinesis Data Firehose delivery stream messages and parsing the records received based on the configured record type. `awsfirehosereceiver` allows unauthenticated remote requests, even when configured to require a key. OpenTelemetry Collector can be configured to receive CloudWatch metrics via an AWS Firehose Stream. Firehose sets the header `X-Amz-Firehose-Access-Key` with an arbitrary configured string. The OpenTelemetry Collector awsfirehosereceiver can optionally be configured to require this key on incoming requests. However, when this is configured it still accepts incoming requests with no key. Only OpenTelemetry Collector users configured with the alpha `awsfirehosereceiver` module are affected. This module was added in version v0.49.0 of the Contrib distribution or may be included in custom builds. There is a risk of unauthorized users writing metrics. Carefully crafted metrics could hide other malicious activity. There is no risk of exfiltrating data. It is likely these endpoints will be exposed to the public internet, as Firehose does not support private HTTP endpoints.",
+    "cve_description": "The OpenTelemetry Collector module AWS firehose receiver is for ingesting AWS Kinesis Data Firehose delivery stream messages and parsing the records received based on the configured record type. `awsfirehosereceiver` allows unauthenticated remote requests, even when configured to require a key. OpenTelemetry Collector can be configured to receive CloudWatch metrics via an AWS Firehose Stream. Firehose sets the header `X-Amz-Firehose-Access-Key` with an arbitrary configured string. The OpenTelemetry Collector awsfirehosereceiver can optionally be configured to require this key on incoming requests. However, when this is configured it **still accepts incoming requests with no key**. Only OpenTelemetry Collector users configured with the “alpha” `awsfirehosereceiver` module are affected. This module was added in version v0.49.0 of the “Contrib” distribution (or may be included in custom builds). There is a risk of unauthorized users writing metrics. Carefully crafted metrics could hide other malicious activity. There is no risk of exfiltrating data. It’s likely these endpoints will be exposed to the public internet, as Firehose does not support private HTTP endpoints.",
     "cwe_info": {
       "CWE-285": {
         "name": "Improper Authorization",
@@ -2373,7 +2373,7 @@
   },
   {
     "cve_id": "CVE-2023-50726",
-    "cve_description": "Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Local sync is an Argo CD feature that allows developers to temporarily override an Application's manifests with locally-defined manifests. Use of the feature should generally be limited to highly trusted users, since it allows the user to bypass any merge protections in git. An improper validation bug allows users who have `create` privileges but not `override` privileges to sync local manifests on app creation. All other restrictions, including AppProject restrictions, are still enforced. The only restriction which is not enforced is that the manifests come from some approved git, Helm, or OCI source. The bug was introduced when the local manifest sync feature was added.",
+    "cve_description": "Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. \"Local sync\" is an Argo CD feature that allows developers to temporarily override an Application's manifests with locally-defined manifests. Use of the feature should generally be limited to highly-trusted users, since it allows the user to bypass any merge protections in git. An improper validation bug allows users who have `create` privileges but not `override` privileges to sync local manifests on app creation. All other restrictions, including AppProject restrictions are still enforced. The only restriction which is not enforced is that the manifests come from some approved git/Helm/OCI source. The bug was introduced when the local manifest sync feature was added.",
     "cwe_info": {
       "CWE-285": {
         "name": "Improper Authorization",
@@ -2605,7 +2605,7 @@
   },
   {
     "cve_id": "CVE-2021-43798",
-    "cve_description": "Grafana is an open-source platform for monitoring and observability. Grafana are vulnerable to directory traversal, allowing access to local files. The vulnerable URL path is `<grafana_host_url>/public/plugins//`, where the plugin ID is for any installed plugin. At no time has Grafana Cloud been vulnerable.",
+    "cve_description": "Grafana is an open-source platform for monitoring and observability. Grafana is vulnerable to directory traversal, allowing access to local files. The vulnerable URL path is `<grafana_host_url>/public/plugins//`, where the plugin ID is for any installed plugin. At no time has Grafana Cloud been vulnerable.",
     "cwe_info": {
       "CWE-73": {
         "name": "External Control of File Name or Path",
@@ -2837,7 +2837,7 @@
   },
   {
     "cve_id": "CVE-2022-39340",
-    "cve_description": "OpenFGA is an authorization and permission engine. The `streamed-list-objects` endpoint was not validating the authorization header, resulting in disclosure of objects in the store. Users exposing OpenFGA service to the internet are vulnerable.",
+    "cve_description": "OpenFGA is an authorization/permission engine. The `streamed-list-objects` endpoint was not validating the authorization header, resulting in disclosure of objects in the store. Users who are exposing the OpenFGA service to the internet are vulnerable.",
     "cwe_info": {
       "CWE-862": {
         "name": "Missing Authorization",
@@ -3093,7 +3093,7 @@
   },
   {
     "cve_id": "CVE-2021-36157",
-    "cve_description": "An issue was discovered in Grafana Cortex. The header value X-Scope-OrgID is used to construct file paths for rules files, and if crafted to conduct directory traversal such as ae././sensitive/path/in/deployment pathname, then Cortex will attempt to parse a rules file at that location and include some of the contents in the error message. (Other Cortex API requests can also be sent a malicious OrgID header, e.g., tricking the ingester into writing metrics to a different location, but the effect is nuisance rather than information disclosure.)",
+    "cve_description": "An issue was discovered in Grafana Cortex. The header value X-Scope-OrgID is used to construct file paths for rules files, and if crafted to conduct directory traversal such as ae ../../sensitive/path/in/deployment pathname, then Cortex will attempt to parse a rules file at that location and include some of the contents in the error message. (Other Cortex API requests can also be sent a malicious OrgID header, e.g., tricking the ingester into writing metrics to a different location, but the effect is nuisance rather than information disclosure.)",
     "cwe_info": {
       "CWE-73": {
         "name": "External Control of File Name or Path",
@@ -4094,7 +4094,7 @@
   },
   {
     "cve_id": "CVE-2021-32783",
-    "cve_description": "Contour is a Kubernetes ingress controller using Envoy proxy. In Contour, a specially crafted ExternalName type Service may be used to access Envoy's admin interface, which Contour normally prevents from access outside the Envoy container. This can be used to shut down Envoy remotely as a denial of service, or to expose the existence of any Secret that Envoy is using for its configuration, including most notably TLS keypairs. However, it cannot be used to get the content of those secrets. Since this attack allows access to the administration interface, a variety of administration options are available, such as shutting down Envoy or draining traffic. In general, the Envoy admin interface cannot easily be used for making changes to the cluster, in-flight requests, or backend services, but it could be used to shut down or drain Envoy, change traffic routing, or retrieve secret metadata.",
+    "cve_description": "Contour is a Kubernetes ingress controller using Envoy proxy. In Contour a specially crafted ExternalName type Service may be used to access Envoy's admin interface, which Contour normally prevents from access outside the Envoy container. This can be used to shut down Envoy remotely (a denial of service), or to expose the existence of any Secret that Envoy is using for its configuration, including most notably TLS Keypairs. However, it *cannot* be used to get the *content* of those secrets. Since this attack allows access to the administration interface, a variety of administration options are available, such as shutting down the Envoy or draining traffic. In general, the Envoy admin interface cannot easily be used for making changes to the cluster, in-flight requests, or backend services, but it could be used to shut down or drain Envoy, change traffic routing, or to retrieve secret metadata, as mentioned above.",
     "cwe_info": {
       "CWE-610": {
         "name": "Externally Controlled Reference to a Resource in Another Sphere",
@@ -4182,7 +4182,7 @@
   },
   {
     "cve_id": "CVE-2025-29778",
-    "cve_description": "Kyverno is a policy engine designed for cloud native platform engineering teams. Kyverno ignores subjectRegExp and IssuerRegExp while verifying an artifact's signature with keyless mode. It allows an attacker to deploy Kubernetes resources with artifacts that were signed by an unexpected certificate. Deploying these unauthorized Kubernetes resources can lead to full compromise of a Kubernetes cluster.",
+    "cve_description": "Kyverno is a policy engine designed for cloud native platform engineering teams. Kyverno ignores subjectRegExp and IssuerRegExp while verifying artifact's sign with keyless mode. It allows the attacker to deploy kubernetes resources with the artifacts that were signed by unexpected certificate. Deploying these unauthorized kubernetes resources can lead to full compromise of kubernetes cluster.",
     "cwe_info": {
       "CWE-285": {
         "name": "Improper Authorization",
@@ -4350,7 +4350,7 @@
   },
   {
     "cve_id": "CVE-2024-45388",
-    "cve_description": "Hoverfly is a lightweight service virtualization/ API simulation / API mocking tool for developers and testers. The `/api/v2/simulation` POST handler allows users to create new simulation views from the contents of a user-specified file. This feature can be abused by an attacker to read arbitrary files from the Hoverfly server. Note that, although the code prevents absolute paths from being specified, an attacker can escape out of the `hf.Cfg.ResponsesBodyFilesPath` base path by using `./` segments and reach any arbitrary files. This issue was found using the Uncontrolled data used in path expression CodeQL query for python.",
+    "cve_description": "Hoverfly is a lightweight service virtualization/ API simulation / API mocking tool for developers and testers. The `/api/v2/simulation` POST handler allows users to create new simulation views from the contents of a user-specified file. This feature can be abused by an attacker to read arbitrary files from the Hoverfly server. Note that, although the code prevents absolute paths from being specified, an attacker can escape out of the `hf.Cfg.ResponsesBodyFilesPath` base path by using `../` segments and reach any arbitrary files. This issue was found using the Uncontrolled data used in path expression CodeQL query for python. Users are advised to make sure the final path (`filepath.Join(hf.Cfg.ResponsesBodyFilesPath, filePath)`) is contained within the expected base path (`filepath.Join(hf.Cfg.ResponsesBodyFilesPath, \"/\")`).",
     "cwe_info": {
       "CWE-200": {
         "name": "Exposure of Sensitive Information to an Unauthorized Actor",
@@ -4594,7 +4594,7 @@
   },
   {
     "cve_id": "CVE-2023-25173",
-    "cve_description": "containerd is an open source container runtime. A bug was found in containerd where supplementary groups are not set up properly inside a container. If an attacker has direct access to a container and manipulates their supplementary group access, they may be able to use supplementary group access to bypass primary group restrictions in some cases, potentially gaining access to sensitive information or gaining the ability to execute code in that container. Downstream applications that use the containerd client library may be affected as well.",
+    "cve_description": "containerd is an open source container runtime. A bug was found in containerd where supplementary groups are not set up properly inside a container. If an attacker has direct access to a container and manipulates their supplementary group access, they may be able to use supplementary group access to bypass primary group restrictions in some cases, potentially gaining access to sensitive information or gaining the ability to execute code in that container. Downstream applications that use the containerd client library may be affected as well. As a workaround, ensure that the `\"USER $USERNAME\"` Dockerfile instruction is not used. Instead, set the container entrypoint to a value similar to `ENTRYPOINT [\"su\", \"-\", \"user\"]` to allow `su` to properly set up supplementary groups.",
     "cwe_info": {
       "CWE-285": {
         "name": "Improper Authorization",
@@ -4866,7 +4866,7 @@
   },
   {
     "cve_id": "CVE-2021-32701",
-    "cve_description": "ORY Oathkeeper is an Identity & Access Proxy (IAP) and Access Control Decision API that authorizes HTTP requests based on sets of Access Rules. When you make a request to an endpoint that requires the scope `foo` using an access token granted with that `foo` scope, introspection will be valid and that token will be cached. The problem comes when a second requests to an endpoint that requires the scope `bar` is made before the cache has expired. Whether the token is granted or not to the `bar` scope, introspection will be valid.",
+    "cve_description": "ORY Oathkeeper is an Identity & Access Proxy (IAP) and Access Control Decision API that authorizes HTTP requests based on sets of Access Rules. When you make a request to an endpoint that requires the scope `foo` using an access token granted with that `foo` scope, introspection will be valid and that token will be cached. The problem comes when a second requests to an endpoint that requires the scope `bar` is made before the cache has expired. Whether the token is granted or not to the `bar` scope, introspection will be valid. Per default, caching is disabled for the `oauth2_introspection` authenticator. When caching is disabled, this vulnerability does not exist. The cache is checked in [`func (a *AuthenticatorOAuth2Introspection) Authenticate(...)`](https://github.com/ory/oathkeeper/blob/6a31df1c3779425e05db1c2a381166b087cb29a4/pipeline/authn/authenticator_oauth2_introspection.go#L152). From [`tokenFromCache()`](https://github.com/ory/oathkeeper/blob/6a31df1c3779425e05db1c2a381166b087cb29a4/pipeline/authn/authenticator_oauth2_introspection.go#L97) it seems that it only validates the token expiration date, but ignores whether the token has or not the proper scopes.",
     "cwe_info": {
       "CWE-863": {
         "name": "Incorrect Authorization",
@@ -4962,7 +4962,7 @@
   },
   {
     "cve_id": "CVE-2021-21411",
-    "cve_description": "OAuth2-Proxy is an open source reverse proxy that provides authentication with Google, Github or other providers. The `--gitlab-group` flag for group-based authorization in the GitLab provider stopped working in the v7.0.0 release. Regardless of the flag settings, authorization was not restricted. Additionally, any authenticated users had whichever groups were set in `--gitlab-group` added to the new `X-Forwarded-Groups` header to the upstream application. While adding GitLab project based authorization support in #630, a bug was introduced where the user session's groups field was populated with the `--gitlab-group` config entries instead of pulling the individual user's group membership from the GitLab Userinfo endpoint. When the session groups were compared against the allowed groups for authorization, they matched improperly since both lists were populated with the same data, so authorization was allowed. This impacts GitLab provider users who rely on group membership for authorization restrictions. Any authenticated users in a GitLab environment can access applications regardless of `--gitlab-group` membership restrictions.",
+    "cve_description": "OAuth2-Proxy is an open source reverse proxy that provides authentication with Google, Github or other providers. The `--gitlab-group` flag for group-based authorization in the GitLab provider stopped working in the v7.0.0 release. Regardless of the flag settings, authorization wasn't restricted. Additionally, any authenticated users had whichever groups were set in `--gitlab-group` added to the new `X-Forwarded-Groups` header to the upstream application. While adding GitLab project based authorization support in #630, a bug was introduced where the user session's groups field was populated with the `--gitlab-group` config entries instead of pulling the individual user's group membership from the GitLab Userinfo endpoint. When the session groups where compared against the allowed groups for authorization, they matched improperly (since both lists were populated with the same data) so authorization was allowed. This impacts GitLab Provider users who relies on group membership for authorization restrictions. Any authenticated users in your GitLab environment can access your applications regardless of `--gitlab-group` membership restrictions.",
     "cwe_info": {
       "CWE-863": {
         "name": "Incorrect Authorization",
@@ -6287,7 +6287,7 @@
   },
   {
     "cve_id": "CVE-2023-34233",
-    "cve_description": "The Snowflake Connector for Python provides an interface for developing Python applications that can connect to Snowflake and perform all standard operations. It is vulnerable to command injection via single sign-on browser URL authentication. To exploit this, an attacker would need to establish a malicious resource and redirect users to utilize the resource. The attacker could set up a malicious, publicly accessible server which responds to the SSO URL with an attack payload. If the attacker then tricked a user into visiting the maliciously crafted connection URL, the user's local machine would render the malicious payload, leading to remote code execution.",
+    "cve_description": "The Snowflake Connector for Python provides an interface for developing Python applications that can connect to Snowflake and perform all standard operations. The Snowflake Connector for Python is vulnerable to command injection via single sign-on(SSO) browser URL authentication. In order to exploit the potential for command injection, an attacker would need to be successful in (1) establishing a malicious resource and (2) redirecting users to utilize the resource. The attacker could set up a malicious, publicly accessible server which responds to the SSO URL with an attack payload. If the attacker then tricked a user into visiting the maliciously crafted connection URL, the user’s local machine would render the malicious payload, leading to a remote code execution.",
     "cwe_info": {
       "CWE-94": {
         "name": "Improper Control of Generation of Code ('Code Injection')",
@@ -6612,7 +6612,7 @@
   },
   {
     "cve_id": "CVE-2023-33977",
-    "cve_description": "Kiwi TCMS is an open source test management system for both manual and automated testing. Kiwi TCMS allows users to upload attachments to test plans, test cases, and similar objects. Earlier versions had introduced upload validators in order to prevent potentially dangerous files from being uploaded and a Content-Security-Policy definition to prevent cross-site-scripting attacks. The upload validation checks were not fully robust, which left the possibility to circumvent them and upload a potentially dangerous file that allows execution of arbitrary JavaScript in the browser. Additionally, Nginx `proxy_pass` can strip some headers, negating protections built into Kiwi TCMS when served behind a reverse proxy.",
+    "cve_description": "Kiwi TCMS is an open source test management system for both manual and automated testing. Kiwi TCMS allows users to upload attachments to test plans, test cases, etc. Earlier versions of Kiwi TCMS had introduced upload validators in order to prevent potentially dangerous files from being uploaded and Content-Security-Policy definition to prevent cross-site-scripting attacks. The upload validation checks were not 100% robust which left the possibility to circumvent them and upload a potentially dangerous file which allows execution of arbitrary JavaScript in the browser. Additionally we've discovered that Nginx's `proxy_pass` directive will strip some headers negating protections built into Kiwi TCMS when served behind a reverse proxy.",
     "cwe_info": {
       "CWE-79": {
         "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -6753,7 +6753,7 @@
   },
   {
     "cve_id": "CVE-2025-23042",
-    "cve_description": "Gradio is an open-source Python package that allows quick building of demos and web applications for machine learning models, APIs, or arbitrary Python functions. Gradio's access control list for file paths can be bypassed by altering the letter case of a blocked file or directory path. This vulnerability arises due to the lack of case normalization in the file path validation logic. On case-insensitive file systems, such as those used by Windows and macOS, this flaw enables attackers to circumvent security restrictions and access sensitive files that should be protected. This can lead to unauthorized data access, exposing sensitive information and undermining the integrity of Gradio's security model. Given Gradio's popularity for building web applications, particularly in machine learning and AI, this vulnerability may pose a substantial threat if exploited in production environments.",
+    "cve_description": "Gradio is an open-source Python package that allows quick building of demos and web application for machine learning models, API, or any arbitrary Python function. Gradio's Access Control List (ACL) for file paths can be bypassed by altering the letter case of a blocked file or directory path. This vulnerability arises due to the lack of case normalization in the file path validation logic. On case-insensitive file systems, such as those used by Windows and macOS, this flaw enables attackers to circumvent security restrictions and access sensitive files that should be protected. This issue can lead to unauthorized data access, exposing sensitive information and undermining the integrity of Gradio's security model. Given Gradio's popularity for building web applications, particularly in machine learning and AI, this vulnerability may pose a substantial threat if exploited in production environments.",
     "cwe_info": {
       "CWE-285": {
         "name": "Improper Authorization",
@@ -6957,7 +6957,7 @@
   },
   {
     "cve_id": "CVE-2024-0243",
-    "cve_description": "With the following crawler configuration: ```python from bs4 import BeautifulSoup as Soup url = \"https://example.com\" loader = RecursiveUrlLoader( url=url, max_depth=2, extractor=lambda x: Soup(x, \"html.parser\").text ) docs = loader.load() ``` An attacker in control of the contents of `https://example.com` could place a malicious HTML file in there with links like \"https://example.completely.different/my_file.html\" and the crawler would proceed to download that file as well even though `prevent_outside=True`. https://github.com/langchain-ai/langchain/blob/bf0b3cc0b5ade1fb95a5b1b6fa260e99064c2e22/libs/community/langchain_community/document_loaders/recursive_url_loader.py#L51-L51 Resolved in https://github.com/langchain-ai/langchain/pull/15559",
+    "cve_description": "With the following crawler configuration:  ```python from bs4 import BeautifulSoup as Soup  url = \"https://example.com\" loader = RecursiveUrlLoader(     url=url, max_depth=2, extractor=lambda x: Soup(x, \"html.parser\").text ) docs = loader.load() ```  An attacker in control of the contents of `https://example.com` could place a malicious HTML file in there with links like \"https://example.completely.different/my_file.html\" and the crawler would proceed to download that file as well even though `prevent_outside=True`. https://github.com/langchain-ai/langchain/blob/bf0b3cc0b5ade1fb95a5b1b6fa260e99064c2e22/libs/community/langchain_community/document_loaders/recursive_url_loader.py#L51-L51",
     "cwe_info": {
       "CWE-918": {
         "name": "Server-Side Request Forgery (SSRF)",
@@ -7850,7 +7850,7 @@
   },
   {
     "cve_id": "CVE-2022-39286",
-    "cve_description": "Jupyter Core is a package for the core common functionality of Jupyter projects. Jupyter Core contains an arbitrary code execution vulnerability in `jupyter_core` that stems from `jupyter_core` executing untrusted files in the current working directory. This vulnerability allows one user to run code as another.",
+    "cve_description": "Jupyter Core is a package for the core common functionality of Jupyter projects. Jupyter Core contains an arbitrary code execution vulnerability in `jupyter_core` that stems from `jupyter_core` executing untrusted files in CWD. This vulnerability allows one user to run code as another.",
     "cwe_info": {
       "CWE-285": {
         "name": "Improper Authorization",
@@ -7978,7 +7978,7 @@
   },
   {
     "cve_id": "CVE-2021-39163",
-    "cve_description": "Matrix is an ecosystem for open federated instant messaging and voice over IP. Unauthorized users can access the name, avatar, topic, and number of members of a room if they know the room ID. This vulnerability is limited to homeservers where the vulnerable homeserver is in the room and untrusted users are permitted to create groups or communities. By default, only homeserver administrators can create groups. However, homeserver administrators can already access this information in the database or using the admin API. As a result, only homeservers where the configuration setting `enable_group_creation` has been set to `true` are impacted.",
+    "cve_description": "Matrix is an ecosystem for open federated Instant Messaging and Voice over IP. Unauthorised users can access the name, avatar, topic and number of members of a room if they know the ID of the room. This vulnerability is limited to homeservers where the vulnerable homeserver is in the room and untrusted users are permitted to create groups (communities). By default, only homeserver administrators can create groups. However, homeserver administrators can already access this information in the database or using the admin API. As a result, only homeservers where the configuration setting `enable_group_creation` has been set to `true` are impacted.",
     "cwe_info": {
       "CWE-863": {
         "name": "Incorrect Authorization",
@@ -8082,7 +8082,7 @@
   },
   {
     "cve_id": "CVE-2021-41125",
-    "cve_description": "Scrapy is a high-level web crawling and scraping framework for Python. If you use `HttpAuthMiddleware` (i.e. the `http_user` and `http_pass` spider attributes) for HTTP authentication, all requests will expose your credentials to the request target. This includes requests generated by Scrapy components, such as `robots.txt` requests sent by Scrapy when the `ROBOTSTXT_OBEY` setting is set to `True`, or as requests reached through redirects.",
+    "cve_description": "Scrapy is a high-level web crawling and scraping framework for Python. If you use `HttpAuthMiddleware` (i.e. the `http_user` and `http_pass` spider attributes) for HTTP authentication, all requests will expose your credentials to the request target. This includes requests generated by Scrapy components, such as `robots.txt` requests sent by Scrapy when the `ROBOTSTXT_OBEY` setting is set to `True`, or as requests reached through redirects. Use the new `http_auth_domain` spider attribute to control which domains are allowed to receive the configured HTTP authentication credentials. Set your HTTP authentication credentials on a per-request basis, using for example the `w3lib.http.basic_auth_header` function to convert your credentials into a value that you can assign to the `Authorization` header of your request, instead of defining your credentials globally using `HttpAuthMiddleware`.",
     "cwe_info": {
       "CWE-522": {
         "name": "Insufficiently Protected Credentials",
@@ -8434,7 +8434,7 @@
   },
   {
     "cve_id": "CVE-2022-36087",
-    "cve_description": "OAuthLib is an implementation of the OAuth request signing logic for Python 3.6+. In OAuthLib, an attacker providing a malicious redirect URI can cause denial of service. An attacker can also leverage usage of `uri_validate` functions depending on where it is used.",
+    "cve_description": "OAuthLib is an implementation of the OAuth request-signing logic for Python 3.6+. An attacker providing malicious redirect uri can cause denial of service. An attacker can also leverage usage of `uri_validate` functions depending where it is used. OAuthLib applications using OAuth2.0 provider support or use directly `uri_validate` are affected by this issue.",
     "cwe_info": {
       "CWE-601": {
         "name": "URL Redirection to Untrusted Site ('Open Redirect')",
@@ -8518,7 +8518,7 @@
   },
   {
     "cve_id": "CVE-2023-41040",
-    "cve_description": "GitPython is a Python library used to interact with Git repositories. To resolve some Git references, GitPython reads files from the `.git` directory. In some places the name of the file being read is provided by the user, and GitPython does not check whether this file is located outside the `.git` directory. This allows an attacker to make GitPython read any file from the system. This vulnerability cannot be used to read file contents directly but could in theory be used to trigger a denial of service for the program.",
+    "cve_description": "GitPython is a python library used to interact with Git repositories. In order to resolve some git references, GitPython reads files from the `.git` directory, in some places the name of the file being read is provided by the user, GitPython doesn't check if this file is located outside the `.git` directory. This allows an attacker to make GitPython read any file from the system. This vulnerability cannot be used to read the contents of files but could in theory be used to trigger a denial of service for the program.",
     "cwe_info": {
       "CWE-73": {
         "name": "External Control of File Name or Path",
@@ -8977,7 +8977,7 @@
   },
   {
     "cve_id": "CVE-2022-35949",
-    "cve_description": "undici is an HTTP/1.1 client written from scratch for Node.js. `undici` is vulnerable to server-side request forgery when an application takes user input into the `path` or `pathname` option of `undici.request`. If a user specifies a URL such as `http://127.0.0.1` or `//127.0.0.1`, the request can be sent to `http://127.0.0.1/` instead of remaining under the expected origin. If a developer passes user input into the `path` parameter of `undici.request`, it can result in SSRF because they may assume the hostname cannot change when in fact it can.",
+    "cve_description": "undici is an HTTP/1.1 client, written from scratch for Node.js.`undici` is vulnerable to SSRF (Server-side Request Forgery) when an application takes in **user input** into the `path/pathname` option of `undici.request`. If a user specifies a URL such as `http://127.0.0.1` or `//127.0.0.1` ```js const undici = require(\"undici\") undici.request({origin: \"http://example.com\", pathname: \"//127.0.0.1\"}) ``` Instead of processing the request as `http://example.org//127.0.0.1` (or `http://example.org/http://127.0.0.1` when `http://127.0.0.1 is used`), it actually processes the request as `http://127.0.0.1/` and sends it to `http://127.0.0.1`. If a developer passes in user input into `path` parameter of `undici.request`, it can result in an _SSRF_ as they will assume that the hostname cannot change, when in actual fact it can change because the specified path parameter is combined with the base URL.",
     "cwe_info": {
       "CWE-918": {
         "name": "Server-Side Request Forgery (SSRF)",
@@ -10063,7 +10063,7 @@
   },
   {
     "cve_id": "CVE-2020-15084",
-    "cve_description": "In express-jwt (NPM package), the algorithms entry to be specified in the configuration is not being enforced. When algorithms is not specified in the configuration, with the combination of jwks-rsa, it may lead to authorization bypass. You are affected by this vulnerability if all of the following conditions apply: - You are using express-jwt - You do not have **algorithms** configured in your express-jwt configuration. - You are using libraries such as jwks-rsa as the **secret**.",
+    "cve_description": "In express-jwt (NPM package) the algorithms entry to be specified in the configuration is not being enforced. When algorithms is not specified in the configuration, with the combination of jwks-rsa, it may lead to authorization bypass. You are affected by this vulnerability if all of the following conditions apply: - You are using express-jwt - You do not have **algorithms** configured in your express-jwt configuration. - You are using libraries such as jwks-rsa as the **secret**. You can fix this by specifying **algorithms** in the express-jwt configuration.",
     "cwe_info": {
       "CWE-285": {
         "name": "Improper Authorization",
@@ -11069,7 +11069,7 @@
   },
   {
     "cve_id": "CVE-2021-3664",
-    "cve_description": "url-parse is vulnerable to URL Redirection to Untrusted Site.",
+    "cve_description": "url-parse is vulnerable to URL Redirection to Untrusted Site",
     "cwe_info": {
       "CWE-601": {
         "name": "URL Redirection to Untrusted Site ('Open Redirect')",
@@ -11305,7 +11305,7 @@
   },
   {
     "cve_id": "CVE-2020-26299",
-    "cve_description": "ftp-srv is an open-source FTP server designed to be simple yet configurable. There is a path-traversal vulnerability affecting clients of FTP servers utilizing ftp-srv hosted on Windows machines. Attackers can escape the FTP user's defined root folder using expected FTP commands such as CWD and UPDR. When Windows separators exist within the path (`\\`), `path.resolve` leaves upper pointers intact and allows the user to move beyond the root folder defined for that user.",
+    "cve_description": "ftp-srv is an open-source FTP server designed to be simple yet configurable. Clients of FTP servers utilizing ftp-srv hosted on Windows machines can escape the FTP user's defined root folder using the expected FTP commands, for example, CWD and UPDR. When windows separators exist within the path (`\\`), `path.resolve` leaves the upper pointers intact and allows the user to move beyond the root folder defined for that user. We did not take that into account when creating the path resolve function.",
     "cwe_info": {
       "CWE-73": {
         "name": "External Control of File Name or Path",
@@ -11373,7 +11373,7 @@
   },
   {
     "cve_id": "CVE-2021-37712",
-    "cve_description": "The npm package tar, also known as node-tar, has arbitrary file creation, overwrite, and arbitrary code execution vulnerabilities. node-tar aims to guarantee that any file whose location would be modified by a symbolic link is not extracted. This is in part achieved by ensuring that extracted directories are not symlinks. To prevent unnecessary `stat` calls to determine whether a given path is a directory, paths are cached when directories are created. This logic was insufficient when extracting tar files that contained both a directory and a symlink with names containing Unicode values that normalized to the same value. Additionally, on Windows systems, long path portions can resolve to the same file system entities as their 8.3 short path counterparts. A specially crafted tar archive could include a directory with one form of the path, followed by a symbolic link with a different string that resolves to the same file system entity, followed by a file using the first form. By first creating a directory and then replacing that directory with a symlink that had a different apparent name but resolved to the same filesystem entry, it was possible to bypass node-tar symlink checks on directories, allowing an untrusted tar file to symlink into an arbitrary location and subsequently extract arbitrary files into that location, thus allowing arbitrary file creation and overwrite.",
+    "cve_description": "The npm package \"tar\" (aka node-tar) has an arbitrary file creation/overwrite and arbitrary code execution vulnerability. node-tar aims to guarantee that any file whose location would be modified by a symbolic link is not extracted. This is, in part, achieved by ensuring that extracted directories are not symlinks. Additionally, in order to prevent unnecessary stat calls to determine whether a given path is a directory, paths are cached when directories are created. This logic was insufficient when extracting tar files that contained both a directory and a symlink with names containing unicode values that normalized to the same value. Additionally, on Windows systems, long path portions would resolve to the same file system entities as their 8.3 \"short path\" counterparts. A specially crafted tar archive could thus include a directory with one form of the path, followed by a symbolic link with a different string that resolves to the same file system entity, followed by a file using the first form. By first creating a directory, and then replacing that directory with a symlink that had a different apparent name that resolved to the same entry in the filesystem, it was thus possible to bypass node-tar symlink checks on directories, essentially allowing an untrusted tar file to symlink into an arbitrary location and subsequently extracting arbitrary files into that location, thus allowing arbitrary file creation and overwrite.",
     "cwe_info": {
       "CWE-73": {
         "name": "External Control of File Name or Path",
@@ -11476,7 +11476,7 @@
   },
   {
     "cve_id": "CVE-2021-32804",
-    "cve_description": "The npm package tar, also known as node-tar, has an arbitrary file creation and overwrite vulnerability due to insufficient absolute path sanitization. node-tar aims to prevent extraction of absolute file paths by turning absolute paths into relative paths when the `preservePaths` flag is not set to `true`. This is achieved by stripping the absolute path root from any absolute file paths contained in a tar file. For example, `/home/user/.bashrc` would turn into `home/user/.bashrc`. This logic was insufficient when file paths contained repeated path roots such as `////home/user/.bashrc`. node-tar would only strip a single path root from such paths. When given an absolute file path with repeating path roots, the resulting path, such as `///home/user/.bashrc`, would still resolve to an absolute path, thus allowing arbitrary file creation and overwrite.",
+    "cve_description": "The npm package \"tar\" (aka node-tar) has a arbitrary File Creation/Overwrite vulnerability due to insufficient absolute path sanitization. node-tar aims to prevent extraction of absolute file paths by turning absolute paths into relative paths when the `preservePaths` flag is not set to `true`. This is achieved by stripping the absolute path root from any absolute file paths contained in a tar file. For example `/home/user/.bashrc` would turn into `home/user/.bashrc`. This logic was insufficient when file paths contained repeated path roots such as `////home/user/.bashrc`. `node-tar` would only strip a single path root from such paths. When given an absolute file path with repeating path roots, the resulting path (e.g. `///home/user/.bashrc`) would still resolve to an absolute path, thus allowing arbitrary file creation and overwrite.",
     "cwe_info": {
       "CWE-73": {
         "name": "External Control of File Name or Path",
@@ -11560,7 +11560,7 @@
   },
   {
     "cve_id": "CVE-2021-41246",
-    "cve_description": "Express OpenID Connect is Express.js middleware implementing sign-on for Express web apps using OpenID Connect. It does not regenerate the session ID and session cookie when a user logs in. This behavior opens up the application to various session fixation vulnerabilities.",
+    "cve_description": "Express OpenID Connect is express JS middleware implementing sign on for Express web apps using OpenID Connect. It does not regenerate the session id and session cookie when user logs in. This behavior opens up the application to various session fixation vulnerabilities.",
     "cwe_info": {
       "CWE-384": {
         "name": "Session Fixation",
