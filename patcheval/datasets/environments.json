@@ -1,0 +1,5622 @@
+{
+  "CVE-2015-1326": {
+    "source_image": "sha256:8885ba21c609f88da79829bad85c5364790c6807c3ca2ce602e4659e01978de5",
+    "work_dir": "/workspace/python-dbusmock",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2015-1326",
+      "PYTHONPATH": "/workspace/python-dbusmock",
+      "PATH": "/workspace/PoC_env/CVE-2015-1326/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "4e7d0df909.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2015-1326/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2015-1326",
+      "version": "3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59) \n[GCC 7.5.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2015-1326",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2015-3295": {
+    "source_image": "sha256:b3f65465bf41d3704148a32c43e416b827c5c1bd7cf525102043b0f3dc071655",
+    "work_dir": "/workspace/markdown-it",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "f76d3beb46abd12.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2015-8213": {
+    "source_image": "sha256:8e062467539df7b608785a8b3613fc6f7afb6b8c4f36e0cbc4e1da395f19353a",
+    "work_dir": "/workspace/django",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2015-8213",
+      "PYTHONPATH": "/workspace/django",
+      "PATH": "/workspace/PoC_env/CVE-2015-8213/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "316bc3fc943.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2015-8213/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2015-8213",
+      "version": "3.5.6 |Anaconda, Inc.| (default, Jun  4 2021, 13:57:47) \n[GCC 7.5.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2015-8213",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2016-1000232": {
+    "source_image": "sha256:f524be9b84cf148145f1286bb5de2f59537ea83a2d94a27189c784055244617d",
+    "work_dir": "/workspace/tough-cookie",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "6156272063.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2016-10548": {
+    "source_image": "sha256:0651ea4202e562c80453c041323b204de957b9022f14abe83c5389eabb7df89e",
+    "work_dir": "/workspace/reduce-css-calc",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "da7bce7d90.patch",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2017-0360": {
+    "source_image": "sha256:b52329dfc765d3007942d53751bb3d9cf7972ae1c45068cb976f8eebe7aa7d1a",
+    "work_dir": "/workspace/trytond",
+    "environment": {
+      "PYTHONPATH": "/workspace/trytond",
+      "PATH": "/workspace/PoC_env/CVE-2017-0360/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "a67a7f03c3.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2017-0360/bin/python",
+      "version": "2.7.18 (default, Dec  9 2024, 18:47:23) \n[GCC 11.4.0]",
+      "prefix": "/usr",
+      "environment_directory": "/workspace/PoC_env/CVE-2017-0360",
+      "isolated_prefix": false
+    }
+  },
+  "CVE-2017-1000189": {
+    "source_image": "sha256:ca8177ffe984816088d43c771c2840670343a7863120399836ea872f87d4e3fc",
+    "work_dir": "/workspace/ejs",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "49264e0037.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2017-1001003": {
+    "source_image": "sha256:f9f64cffdc5e2490dff5a54c7b630b3b33f653b78227b6bc6e325c5a9a6c9f29",
+    "work_dir": "/workspace/mathjs",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "a60f3c8d9d.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2017-1001004": {
+    "source_image": "sha256:48bfd99a62fbb3481a14d4c55868b82ce863f897f5518201bf2963023bd1032b",
+    "work_dir": "/workspace/typed-function",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "6478ef4f2c.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2017-16025": {
+    "source_image": "sha256:51c0fe6ee6e16c979ef2ba808210fcc42216dd43ca3822e5fec0fd559dd8853a",
+    "work_dir": "/workspace/nes",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "71e9232bb8.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2017-16042": {
+    "source_image": "sha256:e79ff866d532118f7a6c0c397acac29b8d75027f9eb815deddae782102e4f47c",
+    "work_dir": "/workspace/node-growl",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dc8aae046d.patch",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2017-16083": {
+    "source_image": "sha256:8361d15264404737a051a761055ff2ea613af04d2a37b14876d32f25f4115411",
+    "work_dir": "/workspace/node-simple-router",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "91da4299ae.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2017-16100": {
+    "source_image": "sha256:3c747f1786ba7a0ca5c780890727ff91416517ce7f0dc792cf174299052796e1",
+    "work_dir": "/workspace/node-dns-sync",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "d9abaae.patch",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2017-16198": {
+    "source_image": "sha256:00c6e76df093b149e10a47ae756da5ad3723989b512b484796dbe7545ec9fc98",
+    "work_dir": "/workspace/ritp",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "d2ba4b97dd.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2017-7233": {
+    "source_image": "sha256:8dbdf3785bf0211aec7e1250536d6841e94d643effda6d28e7445d87a8c7529b",
+    "work_dir": "/workspace/django",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2017-7233",
+      "PYTHONPATH": "/workspace/django",
+      "PATH": "/workspace/PoC_env/CVE-2017-7233/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "254326cb36.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "version": "3.5.6 |Anaconda, Inc.| (default, Jun  4 2021, 13:57:47) \n[GCC 7.5.0]",
+      "prefix": "/workspace/PoC_env/CVE-2017-7233",
+      "executable": "/workspace/PoC_env/CVE-2017-7233/bin/python",
+      "environment_directory": "/workspace/PoC_env/CVE-2017-7233",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2018-12976": {
+    "source_image": "sha256:648593c6443c8b4214c2a3be8e75b9ba8bc2bb4bc1a575db3b85ee6773f232f3",
+    "work_dir": "/workspace/gddo",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "20d68f9.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "daffe1f90ec57f.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2018-14574": {
+    "source_image": "sha256:58c8f173c268ce3171df7f61162ac45670ce6236418552c3893dad652a5c0320",
+    "work_dir": "/workspace/django",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2018-14574",
+      "PYTHONPATH": "/workspace/django",
+      "PATH": "/workspace/PoC_env/CVE-2018-14574/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "6fffc3c6d420e4.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2018-14574/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2018-14574",
+      "version": "3.7.16 (default, Jan 17 2023, 22:20:44) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2018-14574",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2018-16482": {
+    "source_image": "sha256:aa173d4def42433b83983eb180cf22db6ff9f23cbd200923f3603a61a7bc49a0",
+    "work_dir": "/workspace/mcstatic",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "7743af5a6f.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2018-18074": {
+    "source_image": "sha256:e4997f9b21db268cecc2dcddcbe39a07a1cdbe02a1b44dfc1f0ad3f106c9d2ca",
+    "work_dir": "/workspace/requests",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2018-18074",
+      "PYTHONPATH": "/workspace/requests",
+      "PATH": "/workspace/PoC_env/CVE-2018-18074/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "c45d7c49ea.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2018-18074/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2018-18074",
+      "version": "3.7.16 (default, Jan 17 2023, 22:20:44) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2018-18074",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2018-20834": {
+    "source_image": "sha256:dcbd345989f16a5bd611052251b400f6c05d543361913eb1b0c4af476d37bcbb",
+    "work_dir": "/workspace/node-tar",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "7ecef07da6.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2018-3733": {
+    "source_image": "sha256:37b64548249b736021993866d630f66fe1263170f967e32b19613de78ff2f447",
+    "work_dir": "/workspace/crud-file-server",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "833e7fcc2b.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2018-3734": {
+    "source_image": "sha256:cd37888698ece99ca8959ce40f9691e45657d7a7bf603f0b5f9637f18c1732ef",
+    "work_dir": "/workspace/stattic",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "952c1455ea.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2018-3772": {
+    "source_image": "sha256:e1f2b3ee84cc5e0d5262019eb5eb5bc0ae014f1b9b0c2645ebfa7c3d6dd5cddf",
+    "work_dir": "/workspace/node-whereis",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "b8b642b116.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2018-3778": {
+    "source_image": "sha256:b7e556cbb417b3b11d6deab8efac7ab234b1bff82aa0d537aa0d1034e220cc56",
+    "work_dir": "/workspace/aedes",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "1189ffe7b1.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2018-3785": {
+    "source_image": "sha256:c95c434dc1a1855ac438c5b10470dfd5915fa49085b2f24aec8cb392117e60cd",
+    "work_dir": "/workspace/git-dummy-commit",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "927a226f24.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2018-7753": {
+    "source_image": "sha256:7868870fbddef901128859b16af10376750e1eec2d92de250388638173995615",
+    "work_dir": "/workspace/bleach",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2018-7753",
+      "PYTHONPATH": "/workspace/bleach",
+      "PATH": "/workspace/PoC_env/CVE-2018-7753/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "c5df5789ec.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2018-7753/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2018-7753",
+      "version": "3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59) \n[GCC 7.5.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2018-7753",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2019-10787": {
+    "source_image": "sha256:4141881b660615287bbeb3d02640575246cd1fc24299abef32d2712ebdbf8322",
+    "work_dir": "/workspace/node-im-resize",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "499fe82028.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2019-10788": {
+    "source_image": "sha256:68adf4d330b16847b115c57c0be5c0c0096362771eee8e7cac8d8ebf85d2db07",
+    "work_dir": "/workspace/node-im-metadata",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "049ce24dbb.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2019-10792": {
+    "source_image": "sha256:0825ba03db748bea0668dd7f80b7facde23f0f405db53ae17488c49b85115719",
+    "work_dir": "/workspace/bodymen",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "5d52e8cf36.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2019-10795": {
+    "source_image": "sha256:44c8639017277b6bda27e5234ec451c2c9ed2b00adb4f33a38c6e520488c9c54",
+    "work_dir": "/workspace/undefsafe",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "f272681b3a.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2019-10856": {
+    "source_image": "sha256:cfa01e3e30dc27dc049c13b8cf12d9ecbce8d94aa6af9d542df5ae789b615940",
+    "work_dir": "/workspace/notebook",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2019-10856",
+      "PYTHONPATH": "/workspace/notebook",
+      "PATH": "/workspace/PoC_env/CVE-2019-10856/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "979e0bd15e.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2019-10856/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2019-10856",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2019-10856",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2019-15597": {
+    "source_image": "sha256:f4251f4d24cc042c3d2a89f91acf2828f9b02664f679dece06bec6b5fe0de487",
+    "work_dir": "/workspace/node-df",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "c0b554a9ed.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "test2.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2019-16789": {
+    "source_image": "sha256:9f79b41670c630332f9bc9c14e2e0641efa9958ac6db3571e926969f3b325431",
+    "work_dir": "/workspace/waitress",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2019-16789",
+      "PYTHONPATH": "/workspace/waitress",
+      "PATH": "/workspace/PoC_env/CVE-2019-16789/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "11d9e13812.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2019-16789/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2019-16789",
+      "version": "3.7.16 (default, Jan 17 2023, 22:20:44) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2019-16789",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2019-19499": {
+    "source_image": "sha256:aeae3ef0feee7b8efbe4e12318712fdd352853823458ad3c69d2f5484462a3b6",
+    "work_dir": "/workspace/grafana",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "19dbd27.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2019-7539": {
+    "source_image": "sha256:761b11b7033b8a7362c0179d30cf0800b12c571e12b6d91b9330a07291ca94e1",
+    "work_dir": "/workspace/ipycache",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2019-7539",
+      "PYTHONPATH": "/workspace/ipycache",
+      "PATH": "/workspace/PoC_env/CVE-2019-7539/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "9cc7cb891f.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2019-7539/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2019-7539",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2019-7539",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2020-10691": {
+    "source_image": "sha256:40aae4b3403fcd81616b50d8560ddbd342a21b4822fb509785d19875ee5783c7",
+    "work_dir": "/workspace/ansible",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2020-10691",
+      "PYTHONPATH": "/workspace/ansible:/workspace/ansible/lib",
+      "PATH": "/workspace/PoC_env/CVE-2020-10691/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "b2551bb694.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2020-10691/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2020-10691",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2020-10691",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2020-11053": {
+    "source_image": "sha256:9a93cf9248a0397eb41083ad97aa33da086546fc09c2db3a460f95a6533d733b",
+    "work_dir": "/workspace/oauth2-proxy",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "0d5fa21.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-15084": {
+    "source_image": "sha256:034a9e33cffca9a13b36ad5f9b484338b10a7b103bd02df1c99775e0e9a2c59a",
+    "work_dir": "/workspace/express-jwt",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "e9ed6d240d.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-15233": {
+    "source_image": "sha256:a9538002b159fb9a574aad7bb7db16afd2bd0847a8b19c3a39287f8dfe37f721",
+    "work_dir": "/workspace/fosite",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "cdee51e.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-15278": {
+    "source_image": "sha256:92ce6f66056a37bd13b416aa5d6b0c60dc6598c28c9e750629e5e2c6fd4826e5",
+    "work_dir": "/workspace/Red-DiscordBot",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2020-15278",
+      "PYTHONPATH": "/workspace/Red-DiscordBot",
+      "PATH": "/workspace/PoC_env/CVE-2020-15278/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "726bfd38ad.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2020-15278/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2020-15278",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2020-15278",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2020-17479": {
+    "source_image": "sha256:7da52a0e258989428f856f01deced9911a28842df24fe8213fa5de931238ce48",
+    "work_dir": "/workspace/jpv",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "e3eec1215c.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-25459": {
+    "source_image": "sha256:1e562e22247c4d09934d16814e16e5b128c7c18cbed372055fb5080885ac164c",
+    "work_dir": "/workspace/FATE",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2020-25459",
+      "PYTHONPATH": "/workspace/FATE",
+      "PATH": "/workspace/PoC_env/CVE-2020-25459/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "6feccf6d75.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2020-25459/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2020-25459",
+      "version": "3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59) \n[GCC 7.5.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2020-25459",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2020-26215": {
+    "source_image": "sha256:49f5d598d2642fbe2bf25ae3fb518e9a84dde3674e5dac6b92c38dc5eff8c215",
+    "work_dir": "/workspace/notebook",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2020-26215",
+      "PYTHONPATH": "/workspace/notebook",
+      "PATH": "/workspace/PoC_env/CVE-2020-26215/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "3cec4bbe21.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2020-26215/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2020-26215",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2020-26215",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2020-26226": {
+    "source_image": "sha256:90bc64ebe1cc084338ccc06b880d8e5be08a5043d63213eb36653a809cf9b984",
+    "work_dir": "/workspace/semantic-release",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "ca90b34c4a.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-26237": {
+    "source_image": "sha256:1b147ea735f6a9f0319068e2436c4657824b09c1271c87bb5342325e97577263",
+    "work_dir": "/workspace/highlight.js",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "7241013ae0.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-26294": {
+    "source_image": "sha256:1d9e3ff18fc82c0d87c5d386584d01e4530b9737c567671b8ce7b49b9a01a534",
+    "work_dir": "/workspace/compiler",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "f1ace5f.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-26299": {
+    "source_image": "sha256:e696a12eef3d4f80fb87d9eb40b2553dd4e77d43ee857a6e6eb345ee4a499751",
+    "work_dir": "/workspace/ftp-srv",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "722da60a82.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-28360": {
+    "source_image": "sha256:24c2c020f557480f5b317dac091d0bccaf3a9d9043fb5170246a37b0f5301d8e",
+    "work_dir": "/workspace/private-ip",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "840664c4b9.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-28437": {
+    "source_image": "sha256:a4ddb5f6a1da4d48844fcdc6a21b08c03ddd0ffcd568527de19a97556a0a023a",
+    "work_dir": "/workspace/node-heroku-env",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "e3d881b487.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-28494": {
+    "source_image": "sha256:6423129140fd31e05c5f2c79a5043a5c7f189f470bfb89a4073b8463134da9cf",
+    "work_dir": "/workspace/framework",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "79e84ada0a.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-29529": {
+    "source_image": "sha256:d99a199da4922b26c26e136fc07d375fc3ea8e2e1490db467b0bea800d9d1436",
+    "work_dir": "/workspace/go-slug",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "28cafc5.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-4037": {
+    "source_image": "sha256:225d9ccf48f9e00b3e9e1250a369b399402fb5283989090d54427fd05f31b943",
+    "work_dir": "/workspace/oauth2-proxy",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "ee5662e.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-4053": {
+    "source_image": "sha256:61abcfa03ea6d01caeed6b5001ce26206be42e0710918811a8ec696e10da5fd3",
+    "work_dir": "/workspace/helm",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "0ad800e.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-7613": {
+    "source_image": "sha256:029db73778fca455114ddab548e53f1a6683efb9bfd701587094428f223900dc",
+    "work_dir": "/workspace/clamscan",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "d474da7b89.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-7627": {
+    "source_image": "sha256:6a189697b1009fefbc9e63ac8290e42ec52a83006ce255a367880b51603f7313",
+    "work_dir": "/workspace/node-key-sender",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "795eafea5f.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-7631": {
+    "source_image": "sha256:4169aebc8f706dc68eeebfdec81d5f0cdfa80fefbe7e0dca04e37c32464e267b",
+    "work_dir": "/workspace/node-diskusage-ng",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "53c5055065.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-7640": {
+    "source_image": "sha256:c05bfd19dd4d249f6498d3751d0fe6db1415948e4489c3e8ed240087318cf68e",
+    "work_dir": "/workspace/pixl-class",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "cd79906612.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-7649": {
+    "source_image": "sha256:d88ad177d5556232a65a7c3e98c376fc5518b842d27c2a8fe8a8b6d1f06cd87d",
+    "work_dir": "/workspace/broker",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "57c8741d7b.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-7674": {
+    "source_image": "sha256:507c4b592fa1c6bdc39ba73042be0779d2fbbcbf188d8b61e5d1fdcaddc964ce",
+    "work_dir": "/workspace/access-policy",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "64d9bdbc32.patch",
+      "b5b12e22887.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-7675": {
+    "source_image": "sha256:a4150129effdfd69321f88b0fb786d81ccc937afc20028a01aba33e8ac4469e9",
+    "work_dir": "/workspace/cd-messenger",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "f0ebcfffec.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-7687": {
+    "source_image": "sha256:9ed97f629dd374d310ab5ee3e74d9f6731b9373285dc64ef0c5a521775089bae",
+    "work_dir": "/workspace/fast-http",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "a827da286c.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-7764": {
+    "source_image": "sha256:96a58deaba96423798911c34acbd1951305821a1e2620610b3ccc655475afac1",
+    "work_dir": "/workspace/find-my-way",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "ab40835469.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-7781": {
+    "source_image": "sha256:3b533237987b7c600a1291f802178c6b0c062be14b15bd8c1cb55a1da2f57b9c",
+    "work_dir": "/workspace/node-connection-tester",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "7d7b7112d4.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-7795": {
+    "source_image": "sha256:905dc84ed3acabd05db175bd296ad5f9fadff5e5515672901894f60e9ee1fab7",
+    "work_dir": "/workspace/get-npm-package-version",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "52797864df.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-8132": {
+    "source_image": "sha256:e56220ee510e00376d13ee850649bcdefb8b2e73e7688e2ff3eb1be86b4d8041",
+    "work_dir": "/workspace/node-pdf-image",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "5803471830.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2020-8559": {
+    "source_image": "sha256:1acf29bc209e4ce23b4f3c1f43f1d4fafd5b4ef0195d3a53d93382d7f1142b0b",
+    "work_dir": "/workspace/kubernetes",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dcf60e04dd.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-21291": {
+    "source_image": "sha256:e30f7c0290a7c2878f98d5e025483b07a8c5aa961108ebed99106a232f0527c8",
+    "work_dir": "/workspace/oauth2-proxy",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "780ae4f.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-21321": {
+    "source_image": "sha256:35abf1eb5eabb9661c477f32e2a42bc03da3e16f5c360bfefaf1973c103d39fc",
+    "work_dir": "/workspace/fastify-reply-from",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dea227dda6.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-21354": {
+    "source_image": "sha256:f2d2be34c926f55352d7bc08ac15cccd20c735fddadefd2f6b302e8fa8454708",
+    "work_dir": "/workspace/PollBot",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2021-21354",
+      "PYTHONPATH": "/workspace/PollBot",
+      "PATH": "/workspace/PoC_env/CVE-2021-21354/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "6db74a4fcb.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2021-21354/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2021-21354",
+      "version": "3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59) \n[GCC 7.5.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2021-21354",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2021-21360": {
+    "source_image": "sha256:53f09c53998c3fb506849a6eecfc56534e8eee62e4067231c1f1de14b9791829",
+    "work_dir": "/workspace/Products.GenericSetup",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2021-21360",
+      "PYTHONPATH": "/workspace/Products.GenericSetup:/workspace/Products.GenericSetup/src",
+      "PATH": "/workspace/PoC_env/CVE-2021-21360/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "700319512b.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2021-21360/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2021-21360",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2021-21360",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2021-21384": {
+    "source_image": "sha256:c63187c5d78610ea0bfe5c1df3985a3f53336730eca0d5869490c8a7962a5911",
+    "work_dir": "/workspace/shescape",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "07a069a664.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-21411": {
+    "source_image": "sha256:ec8431f39a95e6cddd80b2165efc15c93c812bd036055d3df67d847e2dace995",
+    "work_dir": "/workspace/oauth2-proxy",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "0279fa7df.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-21432": {
+    "source_image": "sha256:a394f43f2af1e2c7fe8d501f075124847ef25db3e6257c0f1fe5ccbe05b5c125",
+    "work_dir": "/workspace/server",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "cb43529.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-22538": {
+    "source_image": "sha256:d5148b1ecb6216087bc3bd6e47c3b521695095738764e960c9d7a00023dc385d",
+    "work_dir": "/workspace/exposure-notifications-verification-server",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "eb8cf40b12db.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-23363": {
+    "source_image": "sha256:676cb87722b6db8d098ab3ab9744f6340764bb2d87027b6f50324faab55350c4",
+    "work_dir": "/workspace/kill-by-port",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "16dcbe264b.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-23376": {
+    "source_image": "sha256:2f93a5d7ca161c0d077ceeafc61e9b9e5ad7da819b107441ba13b32906045170",
+    "work_dir": "/workspace/ffmpegdotjs",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "b7395daf0b.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-23384": {
+    "source_image": "sha256:4414c71b8e2deaa2c508fad7ff464f8bb7af6981fcfd152df4601ac1bf8290ee",
+    "work_dir": "/workspace/koa-remove-trailing-slashes",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "b7da3627de.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-23387": {
+    "source_image": "sha256:a75514aa9b7ca75fc20073610d69470755a67f096d24640d771c0a5e84c3c88a",
+    "work_dir": "/workspace/trailing-slash",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "003b706cb0.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-23727": {
+    "source_image": "sha256:26df6662ef8a6523cc0dffb8e038348ab320babb663425fbb9991081900f5a51",
+    "work_dir": "/workspace/celery",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2021-23727",
+      "PYTHONPATH": "/workspace/celery",
+      "PATH": "/workspace/PoC_env/CVE-2021-23727/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "1f7ad7e6df.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2021-23727/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2021-23727",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2021-23727",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2021-26921": {
+    "source_image": "sha256:8d0a84fa7aeb7402c4cae2b19a17c7758061076addb568a3ea2548933a826d99",
+    "work_dir": "/workspace/argo-cd",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "f5b0db240b.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-29417": {
+    "source_image": "sha256:cd8a6fc91750e52acbe382c0df909fbd255ecc8ae86ad867b63b9101d9449564",
+    "work_dir": "/workspace/gitjacker",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "GOFLAGS": "-mod=readonly",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "d72a53a.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-31542": {
+    "source_image": "sha256:f59f9313fab734e802c59cef87a2bb77c9c8c293b8927939ec245695146ca87f",
+    "work_dir": "/workspace/django",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2021-31542",
+      "PYTHONPATH": "/workspace/django",
+      "PATH": "/workspace/PoC_env/CVE-2021-31542/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "04ac1624bd.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2021-31542/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2021-31542",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2021-31542",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2021-3155": {
+    "source_image": "sha256:895c8e074f479a5c0ebc5385265b90fcdcb351d6674f1b4479b4e863d197a957",
+    "work_dir": "/workspace/snapd",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "7d2a966620.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-32701": {
+    "source_image": "sha256:217054ce612e44abde65495d7156821640bb333bf4cf41551e99bdd99307cbd4",
+    "work_dir": "/workspace/oathkeeper",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "1f9f625c1a.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-32783": {
+    "source_image": "sha256:91070e7f4745cffc0f47424dd431753b86ee92cfea383e6c5ea62b9f06ebff27",
+    "work_dir": "/workspace/contour",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "b53a5c4.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-32796": {
+    "source_image": "sha256:570ccc4b14c6082d9b9f3f0d601cdbeb04d6ab40040d66b6636b083224baae4c",
+    "work_dir": "/workspace/xmldom",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "7b4b743917.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-32803": {
+    "source_image": "sha256:85ae058a8fc393f849c5671240a2967f44061632c7d8114409ec58f560ae9b7f",
+    "work_dir": "/workspace/node-tar",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "81ab967889.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-32804": {
+    "source_image": "sha256:9903ce2c2bd89adc6fc18b4ade111a05a2a48507177992f47e2bb5cf06d13667",
+    "work_dir": "/workspace/node-tar",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "1b94260e87.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-3281": {
+    "source_image": "sha256:6995f5de1762dc76b76e64214251abe2cd4e9b1f2996d6b90dff34eec07bdd88",
+    "work_dir": "/workspace/django",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2021-3281",
+      "PYTHONPATH": "/workspace/django",
+      "PATH": "/workspace/PoC_env/CVE-2021-3281/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "02e6592835.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2021-3281/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2021-3281",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2021-3281",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2021-33203": {
+    "source_image": "sha256:287b726dfed3111a37561eac5beb5d23d3219b6f4b47469ba34e98a49df1b36d",
+    "work_dir": "/workspace/django",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2021-33203",
+      "PYTHONPATH": "/workspace/django",
+      "PATH": "/workspace/PoC_env/CVE-2021-33203/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dfaba12cda.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2021-33203/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2021-33203",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2021-33203",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2021-33420": {
+    "source_image": "sha256:7a0ef7d321cbf134dfe79358b5f9e3df1e7ccc646c6a6841f143e9a1e921e1b5",
+    "work_dir": "/workspace/replicator",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "2c626242fb.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-35042": {
+    "source_image": "sha256:4a88fb24e9fd6ed40233df8d626bb588cc42217cf965cd9aa855ee6d45d92a24",
+    "work_dir": "/workspace/django",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2021-35042",
+      "PYTHONPATH": "/workspace/django",
+      "PATH": "/workspace/PoC_env/CVE-2021-35042/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "0bd57a879a.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2021-35042/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2021-35042",
+      "version": "3.7.16 (default, Jan 17 2023, 22:20:44) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2021-35042",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2021-3583": {
+    "source_image": "sha256:42a486f638ed6e9eec1f9d8b407ac7f6fd30dd610a5f6a3ae634889cd15f5635",
+    "work_dir": "/workspace/ansible",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2021-3583",
+      "PYTHONPATH": "/workspace/ansible:/workspace/ansible/lib",
+      "PATH": "/workspace/PoC_env/CVE-2021-3583/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "8b17e5b922.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2021-3583/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2021-3583",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2021-3583",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2021-36157": {
+    "source_image": "sha256:94843bb42079f52abc4ca54546f40ea8e436e2d43c26126da5846241064ec785",
+    "work_dir": "/workspace/cortex",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "d9e1f81.patch",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-3664": {
+    "source_image": "sha256:cf0a60dada4c73b9dcd173387f2bd4ff5c1f622ae2316fcff075382ef3b99d73",
+    "work_dir": "/workspace/url-parse",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "81ab967889.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "ee22050a48.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-37712": {
+    "source_image": "sha256:8600ae38201d64bd4d262e312aa96468acd72e7ecb54fabef85e0600ef1e5e31",
+    "work_dir": "/workspace/node-tar",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "d56f790bda.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-37713": {
+    "source_image": "sha256:b6004c1e9dd86a8cc39d734d96f91f7f5f982f4fd5024530e8eb4b2ed7e13f92",
+    "work_dir": "/workspace/node-tar",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "bb93ba2437.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-39163": {
+    "source_image": "sha256:4a057e3495cbc4d9c933695e8139621c1da7585ce56bde70abf05df506c82965",
+    "work_dir": "/workspace/synapse",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2021-39163",
+      "PYTHONPATH": "/workspace/synapse",
+      "PATH": "/workspace/PoC_env/CVE-2021-39163/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "cb35df940a.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2021-39163/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2021-39163",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2021-39163",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2021-3987": {
+    "source_image": "sha256:afb24467ac86564d42944d7f1fe33ed9647a932c3ee9c0bdd72634fed0f3e639",
+    "work_dir": "/workspace/calibre-web",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2021-3987",
+      "PYTHONPATH": "/workspace/calibre-web",
+      "PATH": "/workspace/PoC_env/CVE-2021-3987/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "bcdc976414.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2021-3987/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2021-3987",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2021-3987",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2021-41125": {
+    "source_image": "sha256:af2b646ccaa29f8a9a6d654a42ef8f3324112c814bd8e992a29e4a925a72941a",
+    "work_dir": "/workspace/scrapy",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2021-41125",
+      "PYTHONPATH": "/workspace/scrapy",
+      "PATH": "/workspace/PoC_env/CVE-2021-41125/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "b01d69a1bf.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2021-41125/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2021-41125",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2021-41125",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2021-41246": {
+    "source_image": "sha256:1852c67ad00a321cc73848d65c8c60557d653196f3c6dff90f59ca473e7e5da3",
+    "work_dir": "/workspace/express-openid-connect",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "1a0c328921.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-41803": {
+    "source_image": "sha256:ff84aafb4757db2c21ad95c2dfca5234eff8a6b398708402eed9826f7821339f",
+    "work_dir": "/workspace/consul",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "706866f.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-4315": {
+    "source_image": "sha256:934bf830aeff084b4bfaca98130059b7fc543767d9967c416ed912506b2d8ffd",
+    "work_dir": "/workspace/psiTurk",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2021-4315",
+      "PYTHONPATH": "/workspace/psiTurk",
+      "PATH": "/workspace/PoC_env/CVE-2021-4315/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "47787e15cec.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2021-4315/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2021-4315",
+      "version": "3.7.16 (default, Jan 17 2023, 22:20:44) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2021-4315",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2021-43798": {
+    "source_image": "sha256:356c49c42238d3549fb775f6760f7eee1e2614905a71f39f9cf9e459c7618a4c",
+    "work_dir": "/workspace/grafana",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "c798c0e.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2021-45452": {
+    "source_image": "sha256:e2214fd3750cf64733f3ebcc02f6a26975d8a4df6540a24199f26bfa260c6d18",
+    "work_dir": "/workspace/django",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2021-45452",
+      "PYTHONPATH": "/workspace/django",
+      "PATH": "/workspace/PoC_env/CVE-2021-45452/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "4cb35b38.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2021-45452/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2021-45452",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2021-45452",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2021-46561": {
+    "source_image": "sha256:3ca33b38960853cfe71ac6f71d2f24e9f83e5665d41c40614eb8d9630926cf3e",
+    "work_dir": "/workspace/cve-services",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "7bd7989045.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-0155": {
+    "source_image": "sha256:41520287b30372ecd592fcaf47e25bf4da64937a178c63b08b13966717c793ff",
+    "work_dir": "/workspace/follow-redirects",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "6f5029ae1a.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-0235": {
+    "source_image": "sha256:fa09be46819eb861a85749aa0bb10b0d36e0872af72e2cff8efc71030eb852d7",
+    "work_dir": "/workspace/node-fetch",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "f2c3d56375.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-0436": {
+    "source_image": "sha256:ff61f2990d86039336dff768e4335005426e3a54cb65080c8fdb979bab3df7c4",
+    "work_dir": "/workspace/grunt",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fdc7056b9a.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-0512": {
+    "source_image": "sha256:b004c13369af920e634b95ed79692367b589d457a313f3294a6f887623e30d85",
+    "work_dir": "/workspace/url-parse",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "82c4908ab3.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-0577": {
+    "source_image": "sha256:515fcd9026dc15efe319a91b2b9e884e84ff47e032e1415c8640a00d77a937c3",
+    "work_dir": "/workspace/scrapy",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2022-0577",
+      "PYTHONPATH": "/workspace/scrapy",
+      "PATH": "/workspace/PoC_env/CVE-2022-0577/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "8ce01b3b76.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2022-0577/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2022-0577",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2022-0577",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2022-0639": {
+    "source_image": "sha256:20ceb46f479fd378b17c07855028e93a1d59556586298d0e844386fcc39ccdd1",
+    "work_dir": "/workspace/url-parse",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "88df234685.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-0686": {
+    "source_image": "sha256:07660a15541e4b391674a3b46a3c33e745e26b93c35513b5a20bb1ca9bdacd08",
+    "work_dir": "/workspace/url-parse",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "4f2ae676fe.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-0691": {
+    "source_image": "sha256:f125af654a01fea2e04e4894194c881c9e57cba236377e8dd6ba45fb0e86459a",
+    "work_dir": "/workspace/url-parse",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "61864a8ecc.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-0722": {
+    "source_image": "sha256:1c1ff5011e744f5d2017efd9b78c6536d9ff4e5e7cbea517b12f0579cff5d3ea",
+    "work_dir": "/workspace/parse-url",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fa488b2f26.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-1883": {
+    "source_image": "sha256:e031eee898d599f593c079359781b8beabc7a162f61c90009ed8da68ed076184",
+    "work_dir": "/workspace/terraboard",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "2a5dbaa.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-1986": {
+    "source_image": "sha256:36f264b4c0b975f8e8ea33e5aa4e78f7974698e6efd5e9153c67cad599e9ca21",
+    "work_dir": "/workspace/gogs",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "38aff73.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-1992": {
+    "source_image": "sha256:521527beb3c1ffcb6ea29f079586de03212b5bd2b41d56b140578a2940e716fc",
+    "work_dir": "/workspace/gogs",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "2ca0142.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-2024": {
+    "source_image": "sha256:fd2f731f9bdda9bbb0165c8a2354e1c67e38d1a0829f9ac968cbe79b5b3af087",
+    "work_dir": "/workspace/gogs",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "15d0d6a.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-21683": {
+    "source_image": "sha256:40ed88b12749cd0b14ad44f38dc3e97dfdd6e2fe8a9523cd8603a819e22cabcf",
+    "work_dir": "/workspace/wagtail",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2022-21683",
+      "PYTHONPATH": "/workspace/wagtail",
+      "PATH": "/workspace/PoC_env/CVE-2022-21683/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "5fe901e5d8.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2022-21683/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2022-21683",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2022-21683",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2022-21699": {
+    "source_image": "sha256:490fff16d714ebc941d41aec2ace95358e7e91554c6f06bea402fc67e8f1c224",
+    "work_dir": "/workspace/ipython",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2022-21699",
+      "PYTHONPATH": "/workspace/ipython",
+      "PATH": "/workspace/PoC_env/CVE-2022-21699/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "46a51ed69cdf41b4.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2022-21699/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2022-21699",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2022-21699",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2022-21712": {
+    "source_image": "sha256:32c4cd54549010b38fce0996b873269bea5803f65cb6b621b9b0bda3abe20986",
+    "work_dir": "/workspace/twisted",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2022-21712",
+      "PYTHONPATH": "/workspace/twisted:/workspace/twisted/src",
+      "PATH": "/workspace/PoC_env/CVE-2022-21712/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "af8fe78542.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2022-21712/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2022-21712",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2022-21712",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2022-23536": {
+    "source_image": "sha256:c5d8ccb591f9d874739d515046fb4960144ad8d3149c6bc37365d342efcac490",
+    "work_dir": "/workspace/cortex",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "03e023d.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-23538": {
+    "source_image": "sha256:223afe4ed86ab316060bf115ec563e4b837e94202734196a314564f7611d228d",
+    "work_dir": "/workspace/scs-library-client",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "68ac4cab5c.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-23542": {
+    "source_image": "sha256:f97c615a64564296f9955aa5f786473346484888ac25eb2850be7137061fc253",
+    "work_dir": "/workspace/openfga",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "cdf2c76.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-23857": {
+    "source_image": "sha256:93723be16c8aff0628a455e3598131897e099523171f49d8705eb904500df568",
+    "work_dir": "/workspace/navidrome",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "9e79b5c.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-24065": {
+    "source_image": "sha256:a54cd6dbc4485c20cf8ab79d3def1ce016bd2b7bcd3cb7f07ee3d98b2511881d",
+    "work_dir": "/workspace/cookiecutter",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2022-24065",
+      "PYTHONPATH": "/workspace/cookiecutter",
+      "PATH": "/workspace/PoC_env/CVE-2022-24065/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fdffddb31f.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2022-24065/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2022-24065",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2022-24065",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2022-2421": {
+    "source_image": "sha256:00c9a9c335741ec6a9e3cd6a102916329484234cea043c22b4c1c445834ccfea",
+    "work_dir": "/workspace/socket.io-parser",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "6a59237ed0.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-24450": {
+    "source_image": "sha256:451f7fe3af07a1828e3bec336d8181114ab75077c6ffbd771a76aea75ae49e9d",
+    "work_dir": "/workspace/nats-server",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "55b7f11.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-24738": {
+    "source_image": "sha256:41df91d555aa1d3955b54b04038daab51713899757b2ff2a7e5c2903c73963a4",
+    "work_dir": "/workspace/evmos",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "28870258d4.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-24794": {
+    "source_image": "sha256:d78b3bffa063a8362aa18e128d8809c491f85e09d67ceaf3e4afbb97a4445f2f",
+    "work_dir": "/workspace/express-openid-connect",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "c619f67e90.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-24825": {
+    "source_image": "sha256:d9589d19e467ca8e05fae25972d08561b3fd8d0879b94b0433a0fb1108cbbe28",
+    "work_dir": "/workspace/smokescreen",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fafb6ae.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-28346": {
+    "source_image": "sha256:eaf81f164ca240872e87030d556a7647853a5a86295f04d7c5dec794d98c361d",
+    "work_dir": "/workspace/django",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2022-28346",
+      "PYTHONPATH": "/workspace/django",
+      "PATH": "/workspace/PoC_env/CVE-2022-28346/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "2044dac5c6.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2022-28346/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2022-28346",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2022-28346",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2022-28347": {
+    "source_image": "sha256:3e3b19d2d8870c00de40bff6399a1665e94136cf793bbb6d42ede2c88c96e243",
+    "work_dir": "/workspace/django",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2022-28347",
+      "PYTHONPATH": "/workspace/django",
+      "PATH": "/workspace/PoC_env/CVE-2022-28347/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "00b0fc50e1.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2022-28347/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2022-28347",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2022-28347",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2022-2900": {
+    "source_image": "sha256:8bc22337e6c1ee0d5b06f3d0197080aabdd380d16bb8761e10ec6b42ab757172",
+    "work_dir": "/workspace/parse-url",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "e4968ffc2a.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-29188": {
+    "source_image": "sha256:962bf9f51d8afa221fcd66c6a81142604c70748b5834a37f1f4b13a7f52e57ae",
+    "work_dir": "/workspace/smokescreen",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dea7b3c.patch",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-29217": {
+    "source_image": "sha256:8f5a7ca8aa5c434abe742aaf331a01fdf4ce0d90b4f1475ad59d83210dbdc3f8",
+    "work_dir": "/workspace/pyjwt",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2022-29217",
+      "PYTHONPATH": "/workspace/pyjwt",
+      "PATH": "/workspace/PoC_env/CVE-2022-29217/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "9c528670c4.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2022-29217/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2022-29217",
+      "version": "3.9.23 (main, Jun  5 2025, 13:40:20) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2022-29217",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2022-29822": {
+    "source_image": "sha256:6d19543cd13494fcba75b4b9afcb370762fcf72e432c5b508eb927f32b505dac",
+    "work_dir": "/workspace/feathers-sequelize",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "0f2d85f0.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-31130": {
+    "source_image": "sha256:cc2d4b6f825e79e39c375ed22840f200ce523394d36b7369e09b793448e5ee0e",
+    "work_dir": "/workspace/grafana",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "4dd56e4.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-31145": {
+    "source_image": "sha256:c387c64e4ef0804582621d89f5132ae572ce7497b4bd8f80d9f08d9da1db83ef",
+    "work_dir": "/workspace/flyteadmin",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "a1ec282d02.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-31506": {
+    "source_image": "sha256:60dfd4b8eb44ac9e9ff444613669bf09152417176b0eefa0ac8f7c760725ff87",
+    "work_dir": "/workspace/opendiamond",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2022-31506",
+      "PYTHONPATH": "/workspace/opendiamond",
+      "PATH": "/workspace/PoC_env/CVE-2022-31506/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "398049c187.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2022-31506/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2022-31506",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2022-31506",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2022-3298": {
+    "source_image": "sha256:e29a0623ef27aeb6dd9e29f4fbb865999b80a75605d8651c3bee8cde2d3fd43a",
+    "work_dir": "/workspace/rdiffweb",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2022-3298",
+      "PYTHONPATH": "/workspace/rdiffweb",
+      "PATH": "/workspace/PoC_env/CVE-2022-3298/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "626cca1b75.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2022-3298/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2022-3298",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2022-3298",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2022-35936": {
+    "source_image": "sha256:2a8b480e60cf2eb39c1e888ff7b290ff9979b578b6739952a743d50177c8cb7f",
+    "work_dir": "/workspace/ethermint",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "144741832007a2.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-35949": {
+    "source_image": "sha256:f08c538ee39bb7f8e8b7c8df184bac22eda6c658f03e608e683d1c3cfcf7fef4",
+    "work_dir": "/workspace/undici",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "aef314c7fd.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-36009": {
+    "source_image": "sha256:27a3dbca00c8d490259b8b2d647d2b6e30424ea87bd213b8a7ea64bbd4727461",
+    "work_dir": "/workspace/gomatrixserverlib",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "723fd495dd.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-36087": {
+    "source_image": "sha256:7f381d8f975ec837c08987653dec6856337a87315fae11dbdae2f10f657a061b",
+    "work_dir": "/workspace/oauthlib",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2022-36087",
+      "PYTHONPATH": "/workspace/oauthlib",
+      "PATH": "/workspace/PoC_env/CVE-2022-36087/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "2e40b412c8.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2022-36087/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2022-36087",
+      "version": "3.12.11 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:09:17) [GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2022-36087",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2022-36103": {
+    "source_image": "sha256:f80aa761cfb00e342ebafa77528bab1a39e7bd059121253fa4318e7147e47605",
+    "work_dir": "/workspace/talos",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "9eaf33f3f2.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-37109": {
+    "source_image": "sha256:48f8a84619ab641b5af3224d050571e1c16ae4cfc6b2f6a667bfeebb15662038",
+    "work_dir": "/workspace/camp",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2022-37109",
+      "PYTHONPATH": "/workspace/camp",
+      "PATH": "/workspace/PoC_env/CVE-2022-37109/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "bf6af5c2e5.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2022-37109/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2022-37109",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2022-37109",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2022-3920": {
+    "source_image": "sha256:25482cc3319708b20f9a45da7cdcb0d36c2255ac9f4524bd8f99d59a719e9212",
+    "work_dir": "/workspace/consul",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "706866f.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-39286": {
+    "source_image": "sha256:1fdf58ee4b128210ef6863f6ad4cb48ee5a439649342869026dda5620e04117e",
+    "work_dir": "/workspace/jupyter_core",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2022-39286",
+      "PYTHONPATH": "/workspace/jupyter_core",
+      "PATH": "/workspace/PoC_env/CVE-2022-39286/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "1118c8ce01.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2022-39286/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2022-39286",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2022-39286",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2022-39340": {
+    "source_image": "sha256:d5717eb64d45292dee6699f3d903543fb26489ec66e7d7982d3fccdb3495c32e",
+    "work_dir": "/workspace/openfga",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "779d73d.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-41672": {
+    "source_image": "sha256:93db12ced49d9d1538b821769c04aaa1bc0cc8fefbab07dc9be93dc48fa66828",
+    "work_dir": "/workspace/airflow",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2022-41672",
+      "PYTHONPATH": "/workspace/airflow",
+      "PATH": "/workspace/PoC_env/CVE-2022-41672/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "12bfb57.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2022-41672/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2022-41672",
+      "version": "3.10.16 (main, Dec 11 2024, 16:24:50) [GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2022-41672",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2022-46146": {
+    "source_image": "sha256:fa1dbfd56f29e11cadfac0c6e1b246a11833785a9517735725a402c1d2164048",
+    "work_dir": "/workspace/exporter-toolkit",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "5b1eab3448.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-4643": {
+    "source_image": "sha256:47d7866740f27366ce2a0dbcbc9c06fcf37205b022cd565ee49c316e67e444ec",
+    "work_dir": "/workspace/docconv",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "b19021ade3d.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "master.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2022-4724": {
+    "source_image": "sha256:2feb97d56016e6b482f147b205acf53490b8d4e86764b43964422fa0355e2f42",
+    "work_dir": "/workspace/rdiffweb",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2022-4724",
+      "PYTHONPATH": "/workspace/rdiffweb",
+      "PATH": "/workspace/PoC_env/CVE-2022-4724/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "c4a19cf67d.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2022-4724/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2022-4724",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2022-4724",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2023-22480": {
+    "source_image": "sha256:0313ad1e3ea830c908cbfc76052e4d435c2199abc81714341749b1ccce26d30c",
+    "work_dir": "/workspace/KubeOperator",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "7ef42bf1c1.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-22736": {
+    "source_image": "sha256:51103138c813ed3201ad1313308a6adcbb1995a489c825db375e954bff0dc6fc",
+    "work_dir": "/workspace/argo-cd",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "9b6815f06f0f5.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-23947": {
+    "source_image": "sha256:2ac9dbea704f7caaeb12340c20c8debebc4a1f5d5f3d929f595ebe0c09b10962",
+    "work_dir": "/workspace/argo-cd",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fbb0b99b1a.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-24623": {
+    "source_image": "sha256:e2e7a623de54abab69de3f5814b16d54534064ca98b0c916419c4de6b9df05e6",
+    "work_dir": "/workspace/paranoidhttp",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "07f671d.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-25165": {
+    "source_image": "sha256:3accd5c9a1a296dc88c4f09ce6227786107af0cf3b94ceebd0faed2da40bb283",
+    "work_dir": "/workspace/helm",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "5abcf74227.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-25168": {
+    "source_image": "sha256:3859cbdc9514ab72119b19121f5753f9e0b48fef15eb6e55d70dc72df26820f4",
+    "work_dir": "/workspace/wings",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "429ac62dba.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-25173": {
+    "source_image": "sha256:6f3c3a2ba1daa2f73fce521249f3abddd4ffd6074617f191c88a31162ffe3e70",
+    "work_dir": "/workspace/containerd",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "133f6bb6cd.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-26125": {
+    "source_image": "sha256:cd989aae88b74daaf538bc8b29677df6fdf2e26a51edf58692dff7d286464fe9",
+    "work_dir": "/workspace/gin",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fd9f98e70.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "master.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-26145": {
+    "source_image": "sha256:3808bfcae96d2c9341a4324a40383b8b369fc4b27d2233573c9ad69f67d6c4b6",
+    "work_dir": "/workspace/pydash",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2023-26145",
+      "PYTHONPATH": "/workspace/pydash:/workspace/pydash/src",
+      "PATH": "/workspace/PoC_env/CVE-2023-26145/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "6ff0831ad2.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2023-26145/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2023-26145",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2023-26145",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2023-28155": {
+    "source_image": "sha256:dc4e0c9dc6347a8a99b5d63916370a349cb13b2ac3110a5bd3106f71983132f6",
+    "work_dir": "/workspace/request",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "0664780557.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-29159": {
+    "source_image": "sha256:060f95e5fa90a46dd1548ffdfba6eaea6b325e3201840a7e020d505548d61cf2",
+    "work_dir": "/workspace/starlette",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2023-29159",
+      "PYTHONPATH": "/workspace/starlette",
+      "PATH": "/workspace/PoC_env/CVE-2023-29159/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "1797de4641.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2023-29159/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2023-29159",
+      "version": "3.10.16 (main, Dec 11 2024, 16:24:50) [GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2023-29159",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2023-30172": {
+    "source_image": "sha256:8b8bce94b2092451470d727c711cbd96bc05d33266455d72f677aa2378d04640",
+    "work_dir": "/workspace/mlflow",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2023-30172",
+      "PYTHONPATH": "/workspace/mlflow",
+      "PATH": "/workspace/PoC_env/CVE-2023-30172/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "ac4b697.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2023-30172/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2023-30172",
+      "version": "3.9.23 (main, Jun  5 2025, 13:40:20) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2023-30172",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2023-30625": {
+    "source_image": "sha256:fa52572718c19f64022ba30f77c6b6a9914af91d161929568efaf5c3928590e2",
+    "work_dir": "/workspace/rudder-server",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "0d061ff.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-32303": {
+    "source_image": "sha256:68813630ca9f32acae9d72e80b7121e92f234525574d146e74de2df0036179ad",
+    "work_dir": "/workspace/planet-client-python",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2023-32303",
+      "PYTHONPATH": "/workspace/planet-client-python",
+      "PATH": "/workspace/PoC_env/CVE-2023-32303/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "d71415a831.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2023-32303/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2023-32303",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2023-32303",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2023-33967": {
+    "source_image": "sha256:35a1938d563683f9b70abf18d8db6641ecb9178fe132492284cd85296f15e809",
+    "work_dir": "/workspace/easeprobe",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "caaf586.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "debug.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-33977": {
+    "source_image": "sha256:f6377a9463d29521a5db76177bd0f0c1a010e6204a8bd01e4fb040bc931787f6",
+    "work_dir": "/workspace/kiwi",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2023-33977",
+      "PYTHONPATH": "/workspace/kiwi",
+      "PATH": "/workspace/PoC_env/CVE-2023-33977/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "d789f4b510.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2023-33977/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2023-33977",
+      "version": "3.9.23 (main, Jun  5 2025, 13:40:20) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2023-33977",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2023-34233": {
+    "source_image": "sha256:50756c46b4817ab1fe3632c3366097a509e91f72540ec93198ae7b0faf376b28",
+    "work_dir": "/workspace/snowflake-connector-python",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2023-34233",
+      "PYTHONPATH": "/workspace/snowflake-connector-python:/workspace/snowflake-connector-python/src",
+      "PATH": "/workspace/PoC_env/CVE-2023-34233/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "1cdbd3b140.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2023-34233/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2023-34233",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2023-34233",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2023-34457": {
+    "source_image": "sha256:2fdb8b06f3205f0ddfcaf5c9afeee696e191961f794586413a4917dd0a2e6fb9",
+    "work_dir": "/workspace/MechanicalSoup",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2023-34457",
+      "PYTHONPATH": "/workspace/MechanicalSoup",
+      "PATH": "/workspace/PoC_env/CVE-2023-34457/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "d57c4a269b.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2023-34457/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2023-34457",
+      "version": "3.9.23 (main, Jun  5 2025, 13:40:20) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2023-34457",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2023-39631": {
+    "source_image": "sha256:c28302561d12b6a0b63e68fe847a554f6ce3cf07b09d99de32997010a2ffc447",
+    "work_dir": "/workspace/numexpr",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2023-39631",
+      "PYTHONPATH": "/workspace/numexpr",
+      "PATH": "/workspace/PoC_env/CVE-2023-39631/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "4b2d89cf14.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2023-39631/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2023-39631",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2023-39631",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2023-39660": {
+    "source_image": "sha256:d31557ed7e518886d1d81e5658a5bc61feb8c562e62f7bd6ce1e4b31e1b21171",
+    "work_dir": "/workspace/pandas-ai",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2023-39660",
+      "PYTHONPATH": "/workspace/pandas-ai",
+      "PATH": "/workspace/PoC_env/CVE-2023-39660/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "3aac79be8f.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2023-39660/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2023-39660",
+      "version": "3.9.23 (main, Jun  5 2025, 13:40:20) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2023-39660",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2023-40029": {
+    "source_image": "sha256:903c638d540b862a8b60c469d4cf76f882f45d56a42d6dac4205ca148aaacb3d",
+    "work_dir": "/workspace/argo-cd",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "4b2e5b06bf.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-40267": {
+    "source_image": "sha256:8bc11b2620f8e0952d7c1999973902477d10039196a4486e782c3f946ef98218",
+    "work_dir": "/workspace/GitPython",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2023-40267",
+      "PYTHONPATH": "/workspace/GitPython",
+      "PATH": "/workspace/PoC_env/CVE-2023-40267/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "ca965ecc81.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2023-40267/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2023-40267",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2023-40267",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2023-41039": {
+    "source_image": "sha256:7507d1edf34c88035f09f92da779b6e856d3d6129be5d6ad714844365e4363a9",
+    "work_dir": "/workspace/RestrictedPython",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2023-41039",
+      "PYTHONPATH": "/workspace/RestrictedPython:/workspace/RestrictedPython/src",
+      "PATH": "/workspace/PoC_env/CVE-2023-41039/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "4134aedcff.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2023-41039/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2023-41039",
+      "version": "3.9.23 (main, Jun  5 2025, 13:40:20) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2023-41039",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2023-41040": {
+    "source_image": "sha256:9328fecb209209f3677c2d0ae5b4a4dcbdab5f844b0b4cfff30477e54e5a3db8",
+    "work_dir": "/workspace/GitPython",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2023-41040",
+      "PYTHONPATH": "/workspace/GitPython",
+      "PATH": "/workspace/PoC_env/CVE-2023-41040/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "e98f57b81f.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2023-41040/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2023-41040",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2023-41040",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2023-41891": {
+    "source_image": "sha256:a0817cd39efdb78d0704603d20249f8e5a8858bdc83f655dd17cede532eefb42",
+    "work_dir": "/workspace/flyteadmin",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "b3177ef.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-45128": {
+    "source_image": "sha256:75ba8ac4b404c89979c14e453c5a615a4de009b5ad387799943a6e9a8143ebf9",
+    "work_dir": "/workspace/fiber",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "8c3916dbf4.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-45809": {
+    "source_image": "sha256:c051d1112a1e876cd3ea8f61f4223791316467504e05259de4040993b8d7975f",
+    "work_dir": "/workspace/wagtail",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2023-45809",
+      "PYTHONPATH": "/workspace/wagtail",
+      "PATH": "/workspace/PoC_env/CVE-2023-45809/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "bc96aed6ac.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2023-45809/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2023-45809",
+      "version": "3.9.23 (main, Jun  5 2025, 13:40:20) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2023-45809",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2023-49736": {
+    "source_image": "sha256:857e1c2180127b6d73f93b315edbfc22e78c65924cb01f542d68a6dba2ffd15f",
+    "work_dir": "/workspace/superset",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2023-49736",
+      "PYTHONPATH": "/workspace/superset",
+      "PATH": "/workspace/PoC_env/CVE-2023-49736/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "1d403dab98.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2023-49736/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2023-49736",
+      "version": "3.10.16 (main, Dec 11 2024, 16:24:50) [GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2023-49736",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2023-50726": {
+    "source_image": "sha256:57a438ce54b9d9b3a206224afb16c6b41656b7d4d51cc2340541bf211a4d7baa",
+    "work_dir": "/workspace/argo-cd",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "3b8f67d.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-5122": {
+    "source_image": "sha256:67dc444a1cc40ac1a76fafed82027f662b3195dff135f3236ee29b36c03dedeb",
+    "work_dir": "/workspace/grafana-csv-datasource",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "aedd016bd.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-52081": {
+    "source_image": "sha256:d59c0b43fb5d071ab1b9979d3190c61eab81b598d292c44d6b2b05a0dd187456",
+    "work_dir": "/workspace/ffcss",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "f9c491874b.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2023-6831": {
+    "source_image": "sha256:7acd26ed0c86a6fbc4b2c773adbb81d04aae913b640e9e7909fb10d7f1425a98",
+    "work_dir": "/workspace/mlflow",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2023-6831",
+      "PYTHONPATH": "/workspace/mlflow",
+      "PATH": "/workspace/PoC_env/CVE-2023-6831/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "1da75df.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2023-6831/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2023-6831",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2023-6831",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2024-0243": {
+    "source_image": "sha256:1e61a7e80317a5103af05bb9db8367b714aeab778100253d7e5f04c7a8f709e0",
+    "work_dir": "/workspace/langchain",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2024-0243",
+      "PYTHONPATH": "/workspace/langchain:/workspace/langchain/libs/cli:/workspace/langchain/libs/community:/workspace/langchain/libs/core:/workspace/langchain/libs/experimental:/workspace/langchain/libs/langchain",
+      "PATH": "/workspace/PoC_env/CVE-2024-0243/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "bf0b3cc.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2024-0243/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2024-0243",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2024-0243",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2024-10220": {
+    "source_image": "sha256:0963d2ff984cc1440181d617ba729bdea5a8453f9856d2d5da29bf0d2e93f179",
+    "work_dir": "/workspace/kubernetes",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "1ab06ef.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-1724": {
+    "source_image": "sha256:dacaafd1aeb7ae4c93a528a5ca835bf95ddc3ae489568e412c797ea387346790",
+    "work_dir": "/workspace/snapd",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "aa191f977.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-21542": {
+    "source_image": "sha256:6ad7d0266f7009b82d64bf0d75602a5d85474fda5ad002bf69a43f5199afd90d",
+    "work_dir": "/workspace/luigi",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2024-21542",
+      "PYTHONPATH": "/workspace/luigi",
+      "PATH": "/workspace/PoC_env/CVE-2024-21542/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "b5d1b965ead7.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2024-21542/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2024-21542",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2024-21542",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2024-22199": {
+    "source_image": "sha256:7bfd0a955f294b2603c28de853d67394d1a69dd3c8f99d070c27b59f8fdd46fd",
+    "work_dir": "/workspace/template",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "28cff3ac4d.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-23334": {
+    "source_image": "sha256:91685054d7ce945b1f9140c8175517b97d86b6510e47d5cafe586d34a6cfff33",
+    "work_dir": "/workspace/aiohttp",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2024-23334",
+      "PYTHONPATH": "/workspace/aiohttp",
+      "PATH": "/workspace/PoC_env/CVE-2024-23334/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "1c335944d6.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2024-23334/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2024-23334",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2024-23334",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2024-24579": {
+    "source_image": "sha256:c2602882fa7a07fde9390be839a10ec400a95768c6eb85d9fa2b9a12f02df8b8",
+    "work_dir": "/workspace/stereoscope",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "09dacab.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-24747": {
+    "source_image": "sha256:7bd4433d5faa54d7c56a9229e036c0f44518b4f93fbe16a25edcd67cf339c08d",
+    "work_dir": "/workspace/minio",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "0ae4915a93.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-25620": {
+    "source_image": "sha256:2b6e823a92aa3a24aeb9b355cb9873bf6316179e991f012c321b93e0cbd61233",
+    "work_dir": "/workspace/helm",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "0d0f91d.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-27289": {
+    "source_image": "sha256:0e7083b5e2f8435593ac7295dd22591708aa6a0166eb9877b79e800243da33f8",
+    "work_dir": "/workspace/pgx",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "f94eb0e.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-27302": {
+    "source_image": "sha256:33622309ec1afddcb596d1c83c9338691dbe941bff63d37e319e70b73cb90442",
+    "work_dir": "/workspace/go-zero",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "d9d79e9.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-29041": {
+    "source_image": "sha256:089c68dc078a2722ccf30e8aed6aa3de41b733b321d492ca4668890e665a5fcf",
+    "work_dir": "/workspace/express",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "567c9c665d.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-30260": {
+    "source_image": "sha256:b99b4c7226a5cb1e9f5f2734a503fbb7cc539240f4157fee158d78f17dd06f68",
+    "work_dir": "/workspace/undici",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "ee5f892f39.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-3571": {
+    "source_image": "sha256:812bcd02a695cc6cfab332208129f6fbcc2799098b3e779d4ea573d974fbcf1b",
+    "work_dir": "/workspace/langchain",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2024-3571",
+      "PYTHONPATH": "/workspace/langchain:/workspace/langchain/libs/cli:/workspace/langchain/libs/community:/workspace/langchain/libs/core:/workspace/langchain/libs/experimental:/workspace/langchain/libs/langchain",
+      "PATH": "/workspace/PoC_env/CVE-2024-3571/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "aad3d8bd47.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2024-3571/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2024-3571",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2024-3571",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2024-3848": {
+    "source_image": "sha256:8e864f77c3fd32bed9780e2e4737759e3a0eccd0102b0190c99b12b2a3c6fcff",
+    "work_dir": "/workspace/mlflow",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2024-3848",
+      "PYTHONPATH": "/workspace/mlflow",
+      "PATH": "/workspace/PoC_env/CVE-2024-3848/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "f8d51e2152.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2024-3848/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2024-3848",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2024-3848",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2024-39330": {
+    "source_image": "sha256:f6212c189c0758fc3413e6af92e92484315684943fcf05a8c93caa1128840dc4",
+    "work_dir": "/workspace/django",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2024-39330",
+      "PYTHONPATH": "/workspace/django",
+      "PATH": "/workspace/PoC_env/CVE-2024-39330/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "2b00edc015.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2024-39330/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2024-39330",
+      "version": "3.9.23 (main, Jun  5 2025, 13:40:20) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2024-39330",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2024-39877": {
+    "source_image": "sha256:3925934465cbb5d02f3691d666335895e165218b007d32284ab8a4367126aa42",
+    "work_dir": "/workspace/airflow",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2024-39877",
+      "PYTHONPATH": "/workspace/airflow",
+      "PATH": "/workspace/PoC_env/CVE-2024-39877/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "8159f6e247.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2024-39877/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2024-39877",
+      "version": "3.10.16 (main, Dec 11 2024, 16:24:50) [GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2024-39877",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2024-42005": {
+    "source_image": "sha256:ead73bd919def17ac76d5e729b3a4d3e5e5a5e62aa0aa620271e907ba50ec67f",
+    "work_dir": "/workspace/django",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2024-42005",
+      "PYTHONPATH": "/workspace/django:/workspace/django:",
+      "PATH": "/workspace/PoC_env/CVE-2024-42005/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "32ebcbf2.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2024-42005/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2024-42005",
+      "version": "3.10.16 (main, Dec 11 2024, 16:24:50) [GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2024-42005",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2024-43405": {
+    "source_image": "sha256:d7c91f00ac29d7c4227123f5817f189758d639ddfde452cbbefef0a510e59db1",
+    "work_dir": "/workspace/nuclei",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "0da993a.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-45043": {
+    "source_image": "sha256:6955207cd21ef36b04c3e2b7d9cdef0fe006ba3b41198251623c8d73f2fe6e3e",
+    "work_dir": "/workspace/opentelemetry-collector-contrib",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "371bf6a.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-45388": {
+    "source_image": "sha256:65ad7192855e8b13c0eae676eaa6de54f5bbbb82c3ccdfaf4cf5dda68c305a0c",
+    "work_dir": "/workspace/hoverfly",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "40f9b44.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-47616": {
+    "source_image": "sha256:6d83d73dbf33608804a80dbb521a734742c8841ca3a289956cea8dc20a74c1e9",
+    "work_dir": "/workspace/pomerium",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "e018cf0fc0.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-48911": {
+    "source_image": "sha256:c13a9e1c38036fa4dc1b1b95ac0c7129b34d7e47211832459c93edba463fb08c",
+    "work_dir": "/workspace/opencanary",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2024-48911",
+      "PYTHONPATH": "/workspace/opencanary",
+      "PATH": "/workspace/PoC_env/CVE-2024-48911/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "2c11575b1a3dd8b0df26a879ba856c0aa350c049.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2024-48911/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2024-48911",
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2024-48911",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2024-49750": {
+    "source_image": "sha256:f8b2acfb9e793d93223dbd627a7abcc6f06e3cedaccd22fad84478094f3091d8",
+    "work_dir": "/workspace/snowflake-connector-python",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2024-49750",
+      "PYTHONPATH": "/workspace/snowflake-connector-python:/workspace/snowflake-connector-python/src",
+      "PATH": "/workspace/PoC_env/CVE-2024-49750/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "dbc9284a3c.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2024-49750/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2024-49750",
+      "version": "3.9.23 (main, Jun  5 2025, 13:40:20) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2024-49750",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2024-5138": {
+    "source_image": "sha256:e8754f895865b8e0e5f521be6824baeff2de156814c2c4b0811265675c26a884",
+    "work_dir": "/workspace/snapd",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "68ee9c6.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-52010": {
+    "source_image": "sha256:1e499ad0dc54ec13166df200401eb58a4afefc468506ad2aad97ea43e83ce5b9",
+    "work_dir": "/workspace/zoraxy",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "2e9bc77.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-52309": {
+    "source_image": "sha256:6f4c75e8ab6035c2d258e68f054add96ceb3617c1c2519e46e7e25623cf87376",
+    "work_dir": "/workspace/sftpgo",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "88b1850b58.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-53900": {
+    "source_image": "sha256:b6586c81aca2284f4635b4a1e8bc5d4cc744df9cb23ea958f3611a62d7900f9b",
+    "work_dir": "/workspace/mongoose",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "b34aba65bd.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-54132": {
+    "source_image": "sha256:4e2eefc153edd287b6b56bc1fe0f25a7a8cb043d8d34d491708f4647884ecb94",
+    "work_dir": "/workspace/cli",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "1136764.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-56362": {
+    "source_image": "sha256:4dc65027628bfdd7067fd5557615de26bbe79d38157b6fc730ebf5ca58cdbec5",
+    "work_dir": "/workspace/navidrome",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "7f030b0859.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2024-5823": {
+    "source_image": "sha256:d441d6ee87da1519461ef632bb4100a10b67dcd20cce675e8a89172963973e67",
+    "work_dir": "/workspace/chuanhuchatgpt",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2024-5823",
+      "PYTHONPATH": "/workspace/chuanhuchatgpt",
+      "PATH": "/workspace/PoC_env/CVE-2024-5823/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "720c23d755.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2024-5823/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2024-5823",
+      "version": "3.10.16 (main, Dec 11 2024, 16:24:50) [GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2024-5823",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2024-6257": {
+    "source_image": "sha256:a34928a2290f8263f270781af6d49e9493ae74856054b4e6d0690e343934fdb0",
+    "work_dir": "/workspace/go-getter",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "268c11c.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2025-23042": {
+    "source_image": "sha256:809ff4632a624e9dd3c6051f2093234fb210fa5db6de2163e2a2f314c40db488",
+    "work_dir": "/workspace/gradio",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2025-23042",
+      "PYTHONPATH": "/workspace/gradio",
+      "PATH": "/workspace/PoC_env/CVE-2025-23042/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "6b63fdec44.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2025-23042/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2025-23042",
+      "version": "3.10.16 (main, Dec 11 2024, 16:24:50) [GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2025-23042",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2025-23221": {
+    "source_image": "sha256:43e6f5a117207fe92af40e8b3aa435571c2114d23257640aef133a367e3346e7",
+    "work_dir": "/workspace/fedify",
+    "environment": {
+      "PATH": "/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "c505eb82fc.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2025-24366": {
+    "source_image": "sha256:4844c4f5a26eab192e90b59636b2b801aafb94e2b06235308f7c9a93d2ddcf27",
+    "work_dir": "/workspace/sftpgo",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "b347ab6.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2025-24806": {
+    "source_image": "sha256:8b813ca9bbee5182e2c2216d6cef230ed2a3fb8283ed242b46d9cfee1e4f2306",
+    "work_dir": "/workspace/authelia",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "d4a54189aa6563912f9427b96dcb01eacafa785c.patch",
+      "dep.patch",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2025-24882": {
+    "source_image": "sha256:d093f5f7fb7ad9d4122337c718f579406b0923b6870f0dd19c6463edc0507a2e",
+    "work_dir": "/workspace/regclient",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "7d17cff26c22196b5ddd66bda8c5ee4abf3d1269.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2025-24976": {
+    "source_image": "sha256:1ca3cfd2fa87366560ea847fa634beee62912a55eec00f715829094410fa46df",
+    "work_dir": "/workspace/distribution",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "5ea9aa0.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2025-27154": {
+    "source_image": "sha256:21e5a6703fc2ba073fda5f2b275600e8923194c396aaf5555cc4ad9c9128230e",
+    "work_dir": "/workspace/spotipy",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2025-27154",
+      "PYTHONPATH": "/workspace/spotipy",
+      "PATH": "/workspace/PoC_env/CVE-2025-27154/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "1ca453f6ef.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2025-27154/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2025-27154",
+      "version": "3.9.23 (main, Jun  5 2025, 13:40:20) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2025-27154",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2025-29778": {
+    "source_image": "sha256:712a2b0737a286f16c9eb187b001460698860bcece36efa75349e5d07d314e12",
+    "work_dir": "/workspace/kyverno",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "8777672.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2025-43859": {
+    "source_image": "sha256:b7734fdd9c2543cb35bb16f873011cc7adffc0f6efa4593c4155b4b311234116",
+    "work_dir": "/workspace/h11",
+    "environment": {
+      "VIRTUAL_ENV": "/workspace/PoC_env/CVE-2025-43859",
+      "PYTHONPATH": "/workspace/h11",
+      "PATH": "/workspace/PoC_env/CVE-2025-43859/bin:/root/miniconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [
+      "PoC_env"
+    ],
+    "removed_workspace_entries": [
+      "114803a29c.patch",
+      "Miniconda3-py38_4.10.3-Linux-x86_64.sh",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": {
+      "executable": "/workspace/PoC_env/CVE-2025-43859/bin/python",
+      "prefix": "/workspace/PoC_env/CVE-2025-43859",
+      "version": "3.9.23 (main, Jun  5 2025, 13:40:20) \n[GCC 11.2.0]",
+      "environment_directory": "/workspace/PoC_env/CVE-2025-43859",
+      "isolated_prefix": true
+    }
+  },
+  "CVE-2025-46331": {
+    "source_image": "sha256:36f4cfab81337e0769cc729c2f51d5688b9b0c925bcb55f717debaae6153334f",
+    "work_dir": "/workspace/openfga",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.2.linux-amd64/bin:/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "244302e.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  },
+  "CVE-2025-48374": {
+    "source_image": "sha256:691cc34be46aca390d931d43c5ba532054d891f79fe92f86725f3f8c7cbc77f2",
+    "work_dir": "/workspace/zot",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "PATH": "/root/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.2.linux-amd64/bin:/root/miniconda3/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    },
+    "preserved_workspace_siblings": [],
+    "removed_workspace_entries": [
+      "8a99a3ed23.patch",
+      "check_git_changes.sh",
+      "clean_git.sh",
+      "fix-run.sh",
+      "fix.patch",
+      "prepare.sh",
+      "test.patch",
+      "unit_test.sh",
+      "vul-run.sh"
+    ],
+    "python_runtime": null
+  }
+}
