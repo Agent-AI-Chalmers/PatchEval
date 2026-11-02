@@ -59,3 +59,5 @@ patcheval/evaluation/evaluation_output/results/<prefix>/
 - Failure categories are inferred heuristically from validation logs.
 
 Evaluation containers use Docker network mode `none`. Dependencies must already be installed; tests requiring external services or downloads cannot run successfully.
+
+Pass `--container_label KEY=VALUE` to attach a caller-selected Docker label to this invocation's containers. A supervising caller can then clean only those containers after interruption. Evaluation removes each container in `finally`; removal errors and failures to start or execute a container appear as execution errors rather than ordinary repair failures. The caller remains responsible for process-group termination and final cleanup after forced termination.

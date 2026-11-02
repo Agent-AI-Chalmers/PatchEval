@@ -11,7 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from __future__ import annotations
 
 import secrets
 import logging
@@ -32,10 +31,16 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 class DockerManager:
     """A small facade around Docker Python SDK."""
 
-    def __init__(self, logger: logging.Logger, cve: str):
+    def __init__(self, logger: logging.Logger, cve: str, container_label: str | None = None):
         self.logger = logger
         self.cve = cve
         self.client = docker.from_env()
+        self.container_labels = {}
+        if container_label is not None:
+            key, separator, value = container_label.partition("=")
+            if not separator or not key:
+                raise ValueError("container_label must be KEY=VALUE")
+            self.container_labels[key] = value
 
     def start_container(self, image_name: str, container_name: str, llm_patch: str) -> str | None:
         """
@@ -61,6 +66,7 @@ class DockerManager:
                 tty=True,
                 stdin_open=True,
                 network_mode="none",
+                labels=self.container_labels,
                 volumes=volumes
             )
             return container_name
@@ -77,10 +83,9 @@ class DockerManager:
         """Stop and remove the container if it exists. Also remove temp patch file if exists."""
         try:
             container = self.client.containers.get(container_name)
-            container.stop()
             container.remove(force=True)
-        except Exception as e:
-            self.logger.debug(f"Failed to remove container: {e}", extra={"cve": self.cve})
+        except docker.errors.NotFound:
+            pass
 
     def exec_container(self, container_name: str, cmd: str, timeout: int = 600) -> Tuple[Optional[str], Optional[str]]:
         """Execute a command inside the container using bash -c."""
@@ -124,10 +129,10 @@ class DockerManager:
 class Evaluation:
     """Evaluation orchestrator using DockerManager."""
 
-    def __init__(self, logger: logging.Logger, cve: str=""):
+    def __init__(self, logger: logging.Logger, cve: str="", container_label: str | None = None):
         self.logger = logger
         self.cve = cve
-        self.docker_manager = DockerManager(self.logger, self.cve)
+        self.docker_manager = DockerManager(self.logger, self.cve, container_label)
 
     def _run_script(self, container_name: str, script_name: str) -> Tuple[Optional[bool], Optional[str]]:
         """Run a script inside the container and return result."""
@@ -162,17 +167,17 @@ class Evaluation:
         
         container_name = f"{test_name}_{cve.lower()}_tmp_{secrets.token_hex(4)}"
 
-        if not self.docker_manager.start_container(image_name, container_name, llm_patch):
-            fail_msg = f"Failed to start container {container_name}"
-            self.logger.error(fail_msg)
-            return None, fail_msg, None
+        try:
+            if not self.docker_manager.start_container(image_name, container_name, llm_patch):
+                fail_msg = f"Failed to start container {container_name}"
+                self.logger.error(fail_msg)
+                return None, fail_msg, None
 
-        run_poc_result, run_poc_msg = self._run_sh_cmd(container_name)
-        run_poc_msg = "="*30 + " Run PoC " + "="*30 + "\n" + run_poc_msg
-        self.logger.debug(f"Successfully Evaluate")
-
-        self.docker_manager.rm_container(container_name)
-        self.logger.info(f"Finish eval and remove container {container_name}")
+            run_poc_result, run_poc_msg = self._run_sh_cmd(container_name)
+            run_poc_msg = "="*30 + " Run PoC " + "="*30 + "\n" + run_poc_msg
+        finally:
+            self.docker_manager.rm_container(container_name)
+            self.logger.info(f"Finish eval and remove container {container_name}")
 
         if run_poc_result:
             errpr_type="Repair Success"
@@ -263,7 +268,7 @@ def main():
         buffer_handler = MemoryHandler(capacity=1024, target=main_file_handler)
         
         task_logger.addHandler(buffer_handler)
-        evaluation = Evaluation(logger=task_logger)
+        evaluation = Evaluation(logger=task_logger, container_label=args.container_label)
         
         language = patch.get("language") or cve2lang[cve]
         image_name = patch.get("image_url") or cve2image.get(cve)
@@ -285,7 +290,7 @@ def main():
             else:
                 with open(f"{log_dir}/error_output.log", 'w') as f: f.write(output)
             
-            return (cve, language, validation_type, image_name, is_success, False)
+            return (cve, language, validation_type, image_name, is_success, validation_type is None)
         except Exception as e:
             task_logger.error(f"{image_name} RUN ERROR")
             task_logger.error(e)
@@ -407,6 +412,7 @@ def main():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    parser.add_argument("--container_label", help="Optional Docker container label as KEY=VALUE")
     parser.add_argument("--output", type=str, required=False)
     parser.add_argument("--patch_file", type=str, required=True)
     parser.add_argument("--input_file", type=str, required=False, default="../datasets/patcheval_verified_cleaned.json")
