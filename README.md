@@ -112,7 +112,10 @@ python -c "import docker; print(docker.__version__)"
 ├── docs/
 ├── patcheval/
 │   ├── datasets/
-│   │   └── patcheval_verified.json   # metadata and image URL for 230 verified cases
+│   │   ├── patcheval_verified_cleaned.json   # current default, edited in place
+│   │   ├── patcheval_verified.json           # pre-review snapshot
+│   │   ├── DATASET_NOTES.md                  # dataset audit and in-place changes
+│   │   └── apply_description_fixes.py        # idempotent patch script
 │   ├── evaluation/
 │   │   ├── README.md
 │   │   ├── run_evaluation.py         # Docker-based patch evaluator
@@ -139,8 +142,14 @@ python -c "import docker; print(docker.__version__)"
 The metadata used by both patch generation and evaluation is:
 
 ```text
-patcheval/datasets/patcheval_verified.json
+patcheval/datasets/patcheval_verified_cleaned.json
 ```
+
+Four description fragments destroyed by markdown stripping were restored in place; see
+[patcheval/datasets/DATASET_NOTES.md](patcheval/datasets/DATASET_NOTES.md) for the
+per-entry diff, the audit of the original verified data, and the comparability caveat.
+Because the file was edited in place, results are not comparable to published leaderboard
+numbers.
 
 It contains 230 entries with fields including:
 
@@ -201,6 +210,10 @@ cd patcheval/exp_agent
 
 export CODEX_BIN=/path/to/codex
 export CODEX_CONFIG=/path/to/codex-home/<profile>.config.toml
+export CODEX_MODEL_PROVIDER=my_provider
+export MODEL_API_UPSTREAM=https://provider.example/v1
+export MODEL_API_MODEL=<model-id-sent-upstream>
+export MODEL_API_PROVIDER=<vendor-label>
 
 LIMIT=1 CONCURRENCY=1 bash run_infer.sh codex codex_smoke
 MAX_WORKERS=1 bash run_eval.sh codex_smoke
@@ -215,6 +228,8 @@ cd patcheval/exp_agent
 CONCURRENCY=10 bash run_infer.sh codex codex_full
 MAX_WORKERS=4 bash run_eval.sh codex_full
 ```
+
+Generation and evaluation containers have networking disabled. Generation reaches only the configured model API through a host Unix-socket proxy and a container loopback bridge; it cannot download dependencies or use arbitrary network tools. The proxy rejects any request whose model differs from `MODEL_API_MODEL`. Configure the API upstream and provider key before running; see the adapter README for protocol requirements. This offline protocol does not establish the conditions of historical leaderboard runs.
 
 `CONCURRENCY` controls parallel patch-generation containers, while `MAX_WORKERS` controls parallel evaluation containers. Replace `codex` with `opencode` or `traecli` to use another adapter. See [patcheval/exp_agent/README.md](patcheval/exp_agent/README.md) for the required agent-specific environment variables.
 
@@ -236,7 +251,7 @@ cd patcheval/evaluation
 python run_evaluation.py \
   --output my_run \
   --patch_file /path/to/patches.jsonl \
-  --input_file ../datasets/patcheval_verified.json \
+  --input_file ../datasets/patcheval_verified_cleaned.json \
   --max_workers 4 \
   --log_level INFO
 ```

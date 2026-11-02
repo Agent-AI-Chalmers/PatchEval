@@ -3701,7 +3701,7 @@
   },
   {
     "cve_id": "CVE-2021-32804",
-    "cve_description": "The npm package \"tar\" (aka node-tar) has an arbitrary File Creation/Overwrite vulnerability due to insufficient absolute path sanitization. node-tar aims to prevent extraction of absolute file paths by turning absolute paths into relative paths when the `preservePaths` flag is not set to `true`. This is achieved by stripping the absolute path root from any absolute file paths contained in a tar file. For example `/home/user/.bashrc` would turn into `home/user/.bashrc`. This logic was insufficient when file paths contained repeated path roots such as `////home/user/.bashrc`. `node-tar` would only strip a single path root from such paths. When given an absolute file path with repeating path roots, the resulting path (e.g. `///home/user/.bashrc`) would still resolve to an absolute path, thus allowing arbitrary file creation and overwrite. Users may work around this vulnerability by creating a custom `onentry` method which sanitizes the `entry.path` or a `filter` method which removes entries with absolute paths. See referenced GitHub Advisory for details. CVE-2021-32803 concerns a similar bug.",
+    "cve_description": "The npm package \"tar\" (aka node-tar) has an arbitrary File Creation/Overwrite vulnerability due to insufficient absolute path sanitization. node-tar aims to prevent extraction of absolute file paths by turning absolute paths into relative paths when the `preservePaths` flag is not set to `true`. This is achieved by stripping the absolute path root from any absolute file paths contained in a tar file. For example `/home/user/.bashrc` would turn into `home/user/.bashrc`. This logic was insufficient when file paths contained repeated path roots such as `////home/user/.bashrc`. `node-tar` would only strip a single path root from such paths. When given an absolute file path with repeating path roots, the resulting path (e.g. `///home/user/.bashrc`) would still resolve to an absolute path, thus allowing arbitrary file creation and overwrite. Users may work around this vulnerability by creating a custom `onentry` method which sanitizes the `entry.path` or a `filter` method which removes entries with absolute paths. CVE-2021-32803 concerns a similar bug.",
     "cwe_info": {
       "CWE-73": {
         "name": "External Control of File Name or Path",
@@ -8172,7 +8172,7 @@
   },
   {
     "cve_id": "CVE-2020-26294",
-    "cve_description": "Vela is a Pipeline Automation (CI/CD) framework built on Linux container technology written in Golang. In Vela compiler there is a vulnerability which allows exposure of server configuration. It impacts all users of Vela. An attacker can use Sprig's `env` function to retrieve configuration information, see referenced GHSA for an example. It is recommended to rotate all secrets.",
+    "cve_description": "Vela is a Pipeline Automation (CI/CD) framework built on Linux container technology written in Golang. In Vela compiler there is a vulnerability which allows exposure of server configuration. It impacts all users of Vela. An attacker can use Sprig's `env` function to retrieve configuration information. It is recommended to rotate all secrets.",
     "cwe_info": {
       "CWE-94": {
         "name": "Improper Control of Generation of Code ('Code Injection')",
@@ -11562,7 +11562,7 @@
   },
   {
     "cve_id": "CVE-2021-21384",
-    "cve_description": "shescape is a simple shell escape package for JavaScript. In shescape, anyone using _Shescape_ to defend against shell injection may still be vulnerable against shell injection if the attacker manages to insert a into the payload. For an example see the referenced GitHub Security Advisory.",
+    "cve_description": "shescape is a simple shell escape package for JavaScript. In shescape, anyone using _Shescape_ to defend against shell injection may still be vulnerable against shell injection if the attacker manages to insert a null character into the payload.",
     "cwe_info": {
       "CWE-88": {
         "name": "Improper Neutralization of Argument Delimiters in a Command ('Argument Injection')",
@@ -13665,7 +13665,7 @@
   },
   {
     "cve_id": "CVE-2021-43798",
-    "cve_description": "Grafana is an open-source platform for monitoring and observability. Grafana is vulnerable to directory traversal, allowing access to local files. The vulnerable URL path is: `<grafana_host_url>/public/plugins//`, where is the plugin ID for any installed plugin. At no time has Grafana Cloud been vulnerable. The GitHub Security Advisory contains more information about vulnerable URL paths, mitigation, and the disclosure timeline.",
+    "cve_description": "Grafana is an open-source platform for monitoring and observability. Grafana is vulnerable to directory traversal, allowing access to local files. The vulnerable URL path is: `<grafana_host_url>/public/plugins/<plugin-id>/`, where `<plugin-id>` is the plugin ID for any installed plugin. At no time has Grafana Cloud been vulnerable. The GitHub Security Advisory contains more information about vulnerable URL paths, mitigation, and the disclosure timeline.",
     "cwe_info": {
       "CWE-73": {
         "name": "External Control of File Name or Path",

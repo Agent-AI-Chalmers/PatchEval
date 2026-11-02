@@ -8,7 +8,7 @@ fi
 
 PREFIX="$1"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DATASET="${DATASET:-${SCRIPT_DIR}/../datasets/patcheval_verified.json}"
+DATASET="${DATASET:-${SCRIPT_DIR}/../datasets/patcheval_verified_cleaned.json}"
 
 if [[ $# -eq 2 ]]; then
   RUNNER_OUTPUT="$2"

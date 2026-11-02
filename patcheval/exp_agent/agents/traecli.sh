@@ -8,6 +8,12 @@
 #   TRAE_HOME_SRC = dirname(TRAE_CONFIG)
 #   TRAE_PROFILE  = basename(TRAE_CONFIG) without .traecli.toml
 
+: "${TRAE_MODEL_PROVIDER:?Set TRAE_MODEL_PROVIDER to the provider key in the selected Trae profile}"
+if [[ ! "$TRAE_MODEL_PROVIDER" =~ ^[A-Za-z0-9_-]+$ ]]; then
+  echo "Invalid TRAE_MODEL_PROVIDER" >&2
+  exit 1
+fi
+
 : "${TRAE_BIN:?Set TRAE_BIN to the TraeX executable, e.g. /path/to/bin/traex}"
 : "${TRAE_CONFIG:?Set TRAE_CONFIG to a TraeCLI profile config file, e.g. /path/to/traecli-runtime/trae-home/doubao-8hp8j.traecli.toml}"
 
@@ -30,9 +36,18 @@ else
   exit 1
 fi
 
+TRAE_CODE_MODE_HOST="$(dirname "$TRAE_BIN")/traex-code-mode-host"
+if [[ ! -x "$TRAE_CODE_MODE_HOST" ]]; then
+  echo "Missing Trae Code Mode runtime: $TRAE_CODE_MODE_HOST; reinstall the complete Trae CLI distribution" >&2
+  exit 1
+fi
+
+AGENT_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/scripts"
 AGENT_MOUNTS=(
+  "${TRAE_CODE_MODE_HOST}:/usr/local/bin/traex-code-mode-host:ro"
   "${TRAE_BIN}:/usr/local/bin/traex:ro"
   "${TRAE_HOME_SRC}:/opt/trae-home-src:ro"
+  "${AGENT_SCRIPT_DIR}/trae-run.sh:/opt/agent-run.sh:ro"
 )
 AGENT_EXTRA_ARGS=()
-AGENT_COMMAND="tmp_trae_home=\"/tmp/trae-home-\${{PATCHAGENT_SESSION_ID:-traex}}\"; rm -rf \"\$tmp_trae_home\"; mkdir -p \"\$tmp_trae_home\"; cp -a /opt/trae-home-src/. \"\$tmp_trae_home\"/; RUST_LOG=off TRAE_HOME=\"\$tmp_trae_home\" /usr/local/bin/traex exec --profile ${TRAE_PROFILE} --json --skip-git-repo-check --ephemeral --ignore-rules -y --output-last-message /results/traex_last_message.txt - < {prompt_file}"
+AGENT_COMMAND="PATCHAGENT_PROFILE=${TRAE_PROFILE} PATCHAGENT_PROVIDER=${TRAE_MODEL_PROVIDER} bash /opt/agent-run.sh"

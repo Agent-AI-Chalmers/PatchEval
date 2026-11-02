@@ -15,9 +15,13 @@ import re
 import shlex
 import shutil
 import time
+import tempfile
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Optional
+
+from model_api_proxy import model_api_proxy
+from trajectory import write_trajectory
 
 DEFAULT_AGENT_TIMEOUT_S = 3600
 STREAM_READER_LIMIT = 16 * 1024 * 1024
@@ -97,7 +101,7 @@ def _repo_basename(repo_url: str) -> str:
 def _prompt(sample: dict[str, Any], workdir_hint: str) -> str:
     return (
         "## USER\n\n"
-        "Please fix the vulnerabilities in the code repository based on the following information:"
+        "Please fix the vulnerabilities in the code repository based on the following information:\n\n"
         + str(sample.get("cve_description") or "").strip()
         + "\n\n"
         + "Task runtime information:\n"
@@ -157,8 +161,46 @@ def _parse_mounts(items: list[str]) -> list[tuple[str, str, str]]:
     return mounts
 
 
+def isolated_agent_mounts(mounts, destination):
+    """Expose configuration/auth and runtime dependencies, never host histories."""
+    cleaned = []
+    for index, (host, target, mode) in enumerate(mounts):
+        source = Path(host)
+        if target not in {
+            "/opt/codex-home-src",
+            "/opt/trae-home-src",
+            "/opt/opencode-config-src",
+            "/opt/opencode-data-src",
+        }:
+            cleaned.append((host, target, mode))
+            continue
+        seed = destination / str(index)
+        seed.mkdir()
+        if target == "/opt/opencode-data-src":
+            allowed = [source / "opencode/auth.json", source / "opencode/bin"]
+        elif target == "/opt/opencode-config-src":
+            allowed = [source / "opencode/opencode.json"]
+        else:
+            allowed = [
+                source / name for name in ("config.toml", "traecli.toml", "auth.json")
+            ]
+            allowed += list(source.glob("*.config.toml")) + list(
+                source.glob("*.traecli.toml")
+            )
+        for item in allowed:
+            if item.exists():
+                output = seed / item.relative_to(source)
+                output.parent.mkdir(parents=True, exist_ok=True)
+                if item.is_dir():
+                    shutil.copytree(item, output)
+                else:
+                    shutil.copyfile(item, output)
+        cleaned.append((str(seed), target, "ro"))
+    return cleaned
+
+
 def _docker_run_args(container: str, image: str, result_dir: Path, mounts: list[tuple[str, str, str]]) -> list[str]:
-    cmd = ["docker", "run", "-d", "--name", container, "-v", f"{result_dir.resolve()}:/results:rw"]
+    cmd = ["docker", "run", "-d", "--network", "none", "--name", container, "-v", f"{result_dir.resolve()}:/results:rw"]
     for host, dst, mode in mounts:
         cmd.extend(["-v", f"{host}:{dst}:{mode}"])
     cmd.extend([image, "bash", "-lc", "tail -f /dev/null"])
@@ -229,33 +271,67 @@ find /workspace -mindepth 1 -maxdepth 1 ! -name "$top_name" -exec rm -rf -- {{}}
         raise RuntimeError(result.stderr or result.stdout)
 
 
-async def _run_agent(container: str, workdir: str, command_template: str, result_dir: Path, env: dict[str, str], timeout_s: int) -> CommandResult:
-    values = {
-        "prompt_file": "/results/prompt.txt",
-        "workdir": workdir,
-    }
-    command = command_template.format(**values)
-    started = time.monotonic()
-    proc = await asyncio.create_subprocess_exec(
-        "docker", "exec", "-w", workdir,
-        *sum((["-e", f"{k}={v}"] for k, v in env.items()), []),
-        container, "bash", "-lc", command,
-        stdout=asyncio.subprocess.PIPE,
-        stderr=asyncio.subprocess.PIPE,
-        limit=STREAM_READER_LIMIT,
+async def _run_agent(
+    container: str,
+    workdir: str,
+    command_template: str,
+    result_dir: Path,
+    env: dict[str, str],
+    timeout_s: int,
+) -> CommandResult:
+    env = dict(
+        env,
+        HOME="/tmp/patchagent-home",
+        XDG_CONFIG_HOME="/tmp/patchagent-home/config",
+        XDG_DATA_HOME="/tmp/patchagent-home/data",
+        XDG_STATE_HOME="/tmp/patchagent-home/state",
+        XDG_CACHE_HOME="/tmp/patchagent-home/cache",
+        PATCHAGENT_WORKDIR=workdir,
+        PATCHAGENT_PROMPT_FILE="/results/prompt.txt",
     )
-    try:
-        out_b, err_b = await asyncio.wait_for(proc.communicate(), timeout=timeout_s)
-        timed_out = False
-    except asyncio.TimeoutError:
-        proc.kill()
-        out_b, err_b = await proc.communicate()
-        timed_out = True
-    stdout = (out_b or b"").decode("utf-8", errors="replace")
-    stderr = (err_b or b"").decode("utf-8", errors="replace")
-    (result_dir / "agent_stdout.txt").write_text(stdout, encoding="utf-8")
-    (result_dir / "agent_stderr.txt").write_text(stderr, encoding="utf-8")
-    return CommandResult(["docker", "exec", container, "bash", "-lc", command], int(proc.returncode if proc.returncode is not None else 124), stdout, stderr, time.monotonic() - started, timed_out)
+    bridge = (
+        "mkdir -p /tmp/patchagent-home; "
+        "python3 /opt/model-api-bridge.py >/tmp/model-api-bridge.log 2>&1 & "
+        "bridge_pid=$!; trap 'kill $bridge_pid 2>/dev/null || true' EXIT; "
+        "python3 /opt/model-api-bridge.py --wait || { cat /tmp/model-api-bridge.log >&2; exit 1; }; "
+    )
+    command = bridge + command_template
+    started = time.monotonic()
+    stdout_path = result_dir / "agent_stdout.txt"
+    stderr_path = result_dir / "agent_stderr.txt"
+    # Persist output as it arrives: cancelling communicate() loses bytes it has
+    # already consumed, precisely when a timed-out case needs diagnostics.
+    with stdout_path.open("wb") as stdout_file, stderr_path.open("wb") as stderr_file:
+        proc = await asyncio.create_subprocess_exec(
+            "docker",
+            "exec",
+            "-w",
+            workdir,
+            *sum((["-e", f"{k}={v}"] for k, v in env.items()), []),
+            container,
+            "bash",
+            "-lc",
+            command,
+            stdout=stdout_file,
+            stderr=stderr_file,
+        )
+        try:
+            await asyncio.wait_for(proc.wait(), timeout=timeout_s)
+            timed_out = False
+        except asyncio.TimeoutError:
+            proc.kill()
+            await proc.wait()
+            timed_out = True
+    stdout = stdout_path.read_text(encoding="utf-8", errors="replace")
+    stderr = stderr_path.read_text(encoding="utf-8", errors="replace")
+    return CommandResult(
+        ["docker", "exec", container, "bash", "-lc", command],
+        int(proc.returncode if proc.returncode is not None else 124),
+        stdout,
+        stderr,
+        time.monotonic() - started,
+        timed_out,
+    )
 
 
 async def _collect_patch(container: str, workdir: str, result_dir: Path) -> CommandResult:
@@ -297,7 +373,9 @@ async def _run_one(sample: dict[str, Any], index: int, args: argparse.Namespace,
         agent_result: Optional[CommandResult] = None
         timed_out = False
         try:
-            env = {"PATCHAGENT_SESSION_ID": container}
+            env = {"PATCHAGENT_SESSION_ID": container, "PATCHAGENT_MODEL_API_BASE_URL": "http://127.0.0.1:18080/v1"}
+            if args.opencode_provider:
+                env["PATCHAGENT_OPENCODE_PROVIDER"] = args.opencode_provider
             run_result = await _run(_docker_run_args(container, image, work, mounts), timeout_s=1200)
             if run_result.exit_code != 0:
                 raise RuntimeError(f"docker run failed: {run_result.stderr or run_result.stdout}")
@@ -322,23 +400,57 @@ async def _run_one(sample: dict[str, Any], index: int, args: argparse.Namespace,
             _log(f"{run_id}: failed: {error}")
         finally:
             await _remove_container(container)
+        try:
+            write_trajectory(
+                work,
+                run_root / "trajectories",
+                cve,
+                agent_kind=args.agent,
+                model_provider=args.model_provider,
+                model_name=args.expect_model,
+            )
+        except Exception as exc:
+            _log(f"{run_id}: trajectory export failed: {exc}")
         result = GenerationResult(index, cve, instance_id, image, workdir, container, status, status == "generated", agent_result.exit_code if agent_result else None, timed_out, time.monotonic() - started, str(patch_path), error)
         return result
 
 
-async def _main(args: argparse.Namespace) -> int:
+async def _generate(args: argparse.Namespace) -> int:
     samples = _read_json(Path(args.input))
     indexed = list(enumerate(samples))
-    selected = indexed if args.limit < 0 else indexed[:args.limit]
+    if args.cve:
+        indexed = [(index, sample) for index, sample in indexed if sample["cve_id"] == args.cve]
+        if not indexed:
+            raise ValueError(f"CVE not found in dataset: {args.cve}")
+    selected = indexed if args.limit < 0 else indexed[: args.limit]
     _require_dataset_images([sample for _, sample in selected])
-    run_root = Path(args.output_dir) / f"{time.strftime('%Y%m%d_%H%M%S')}-{_safe_name(args.run_label or 'run')}"
+    _log("Selected cases: " + ", ".join(sample["cve_id"] for _, sample in selected))
+    run_root = (
+        Path(args.output_dir)
+        / f"{time.strftime('%Y%m%d_%H%M%S')}-{_safe_name(args.run_label or 'run')}"
+    )
     for sub in ["patches", ".work"]:
         (run_root / sub).mkdir(parents=True, exist_ok=True)
     args.run_root = str(run_root)
-    _write_json(run_root / "run_metadata.json", vars(args) | {"run_root": str(run_root), "total_cases": len(selected)})
-    mounts = _parse_mounts(args.mount)
+    _write_json(
+        run_root / "run_metadata.json",
+        vars(args)
+        | {
+            "run_root": str(run_root),
+            "total_cases": len(selected),
+            "network_mode": "none",
+            "selected_cves": [sample["cve_id"] for _, sample in selected],
+            "host_state": "config_auth_runtime_only",
+            "cross_case_memory": "disabled",
+            "model_api_transport": "unix_socket",
+        },
+    )
+    mounts = isolated_agent_mounts(_parse_mounts(args.mount), Path(args.seed_directory))
     sem = asyncio.Semaphore(args.concurrency)
-    tasks = [asyncio.create_task(_run_one(sample, idx, args, sem, mounts)) for idx, sample in selected]
+    tasks = [
+        asyncio.create_task(_run_one(sample, idx, args, sem, mounts))
+        for idx, sample in selected
+    ]
     results_path = run_root / "results.jsonl"
     results = []
     with results_path.open("w", encoding="utf-8") as f:
@@ -349,7 +461,14 @@ async def _main(args: argparse.Namespace) -> int:
             f.flush()
             _log(f"progress {i}/{len(tasks)}: {result.cve} {result.status}")
     generated = sum(r.patch_generated for r in results)
-    _write_json(run_root / "summary.json", {"total": len(results), "generated": generated, "failed": len(results) - generated})
+    _write_json(
+        run_root / "summary.json",
+        {
+            "total": len(results),
+            "generated": generated,
+            "failed": len(results) - generated,
+        },
+    )
     print(f"Run directory: {run_root}")
     print(f"Generated patches: {generated}/{len(results)}")
     return 0 if generated == len(results) else 1
@@ -357,16 +476,51 @@ async def _main(args: argparse.Namespace) -> int:
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--input", default="../datasets/patcheval_verified.json")
+    p.add_argument("--input", default="../datasets/patcheval_verified_cleaned.json")
     p.add_argument("--output-dir", default="outputs")
+    p.add_argument("--cve", help="Select one exact CVE instead of the dataset prefix")
     p.add_argument("--limit", type=int, default=1)
     p.add_argument("--concurrency", type=int, default=4)
     p.add_argument("--run-label", default="")
+    p.add_argument("--agent", choices=["codex", "opencode", "traecli"], default="codex")
     p.add_argument("--agent-command", required=True)
+    p.add_argument(
+        "--model-api-upstream",
+        required=True,
+        help="Fixed model API base URL, e.g. https://provider.example/v1",
+    )
+    p.add_argument(
+        "--expect-model",
+        required=True,
+        help="Exact model id every inference request must use",
+    )
+    p.add_argument(
+        "--model-provider",
+        help="Vendor label recorded as trajectory provenance, e.g. deepseek",
+    )
     p.add_argument("--mount", action="append", default=[])
+    p.add_argument(
+        "--opencode-provider", help="Provider key selected by the OpenCode adapter"
+    )
     p.add_argument("--agent-timeout", type=int, default=DEFAULT_AGENT_TIMEOUT_S)
     p.add_argument("--container-prefix", default="patcheval-agent")
     return p
+
+
+async def _main(args: argparse.Namespace) -> int:
+    with model_api_proxy(
+        args.model_api_upstream, expected_model=args.expect_model
+    ) as directory, tempfile.TemporaryDirectory(
+        prefix="patcheval-agent-seeds-"
+    ) as seeds:
+        args.seed_directory = seeds
+        args.mount.extend(
+            [
+                f"{directory}:/opt/model-api:ro",
+                f"{Path(__file__).with_name('model_api_bridge.py').resolve()}:/opt/model-api-bridge.py:ro",
+            ]
+        )
+        return await _generate(args)
 
 
 def main() -> int:

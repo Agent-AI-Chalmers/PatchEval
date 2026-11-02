@@ -15,17 +15,29 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--runner-output", type=Path, required=True, help="Run directory produced by patch_agent_runner.py")
     ap.add_argument("--process-data-path", type=Path, required=True)
-    ap.add_argument("--test-data-path", type=Path, required=True, help="patcheval_verified.json")
+    ap.add_argument("--test-data-path", type=Path, required=True, help="patcheval_verified_cleaned.json")
     args = ap.parse_args()
 
     dataset = read_json(args.test_data_path)
     cve2lang = {item["cve_id"]: item["programming_language"] for item in dataset}
     cve2image = {item["cve_id"]: item.get("image_url") for item in dataset if item.get("image_url")}
+    if len(cve2lang) != len(dataset):
+        raise SystemExit(
+            f"evaluation dataset has duplicate cve_id entries: {args.test_data_path}"
+        )
     patch_dir = args.runner_output / "patches"
     if not patch_dir.is_dir():
         raise SystemExit(f"missing patches dir: {patch_dir}")
+    patch_paths = sorted(patch_dir.glob("CVE-*.patch"))
+    unknown = [path.stem for path in patch_paths if path.stem not in cve2lang]
+    if unknown:
+        preview = ", ".join(unknown[:5]) + (" ..." if len(unknown) > 5 else "")
+        raise SystemExit(
+            f"{len(unknown)} generated patch(es) are missing from the evaluation dataset "
+            f"{args.test_data_path}: {preview}. Generation and evaluation must use the same dataset."
+        )
     rows = []
-    for patch_path in sorted(patch_dir.glob("CVE-*.patch")):
+    for patch_path in patch_paths:
         cve = patch_path.stem
         row = {
             "cve": cve,

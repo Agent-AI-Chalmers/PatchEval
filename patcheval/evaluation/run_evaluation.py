@@ -60,6 +60,7 @@ class DockerManager:
                 detach=True,
                 tty=True,
                 stdin_open=True,
+                network_mode="none",
                 volumes=volumes
             )
             return container_name
@@ -408,7 +409,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=str, required=False)
     parser.add_argument("--patch_file", type=str, required=True)
-    parser.add_argument("--input_file", type=str, required=False, default="../datasets/patcheval_verified.json")
+    parser.add_argument("--input_file", type=str, required=False, default="../datasets/patcheval_verified_cleaned.json")
     parser.add_argument("--log_level", type=str, required=False, default="INFO")
     parser.add_argument("--max_workers", type=int, default=4, required=False, help="max workers")
     args = parser.parse_args()

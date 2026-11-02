@@ -8,6 +8,12 @@
 #   CODEX_HOME_SRC = dirname(CODEX_CONFIG)
 #   CODEX_PROFILE  = basename(CODEX_CONFIG) without .config.toml
 
+: "${CODEX_MODEL_PROVIDER:?Set CODEX_MODEL_PROVIDER to the provider key in the selected Codex profile}"
+if [[ ! "$CODEX_MODEL_PROVIDER" =~ ^[A-Za-z0-9_-]+$ ]]; then
+  echo "Invalid CODEX_MODEL_PROVIDER" >&2
+  exit 1
+fi
+
 : "${CODEX_BIN:?Set CODEX_BIN to the Codex executable, e.g. /path/to/bin/codex}"
 : "${CODEX_CONFIG:?Set CODEX_CONFIG to a Codex profile config file, e.g. /path/to/codex-home/gpt54-gggso.config.toml}"
 
@@ -58,9 +64,18 @@ else
   exit 1
 fi
 
+CODEX_CODE_MODE_HOST="$(dirname "$CODEX_BIN")/codex-code-mode-host"
+if [[ ! -x "$CODEX_CODE_MODE_HOST" ]]; then
+  echo "Missing Codex Code Mode runtime: $CODEX_CODE_MODE_HOST; reinstall the complete Codex distribution" >&2
+  exit 1
+fi
+
+AGENT_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/scripts"
 AGENT_MOUNTS=(
+  "${CODEX_CODE_MODE_HOST}:/usr/local/bin/codex-code-mode-host:ro"
   "${CODEX_BIN}:/usr/local/bin/codex:ro"
   "${CODEX_HOME_SRC}:/opt/codex-home-src:ro"
+  "${AGENT_SCRIPT_DIR}/codex-run.sh:/opt/agent-run.sh:ro"
 )
 AGENT_EXTRA_ARGS=()
-AGENT_COMMAND="rm -rf /tmp/codex-home && cp -a /opt/codex-home-src /tmp/codex-home && CODEX_HOME=/tmp/codex-home /usr/local/bin/codex exec --profile ${CODEX_PROFILE} --json --dangerously-bypass-approvals-and-sandbox -C {workdir} < {prompt_file}"
+AGENT_COMMAND="PATCHAGENT_PROFILE=${CODEX_PROFILE} PATCHAGENT_PROVIDER=${CODEX_MODEL_PROVIDER} bash /opt/agent-run.sh"

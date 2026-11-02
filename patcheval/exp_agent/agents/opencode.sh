@@ -9,6 +9,12 @@
 # as a seed and copied to /tmp inside each case container so concurrent runs do
 # not write to the same host state/log files.
 
+: "${OPENCODE_PROVIDER:?Set OPENCODE_PROVIDER to the provider key selected by the OpenCode model configuration}"
+if [[ ! "$OPENCODE_PROVIDER" =~ ^[A-Za-z0-9_-]+$ ]]; then
+  echo "Invalid OPENCODE_PROVIDER" >&2
+  exit 1
+fi
+
 : "${OPENCODE_BIN:?Set OPENCODE_BIN to the OpenCode executable, e.g. /path/to/bin/opencode}"
 : "${OPENCODE_CONFIG:?Set OPENCODE_CONFIG to opencode.json, e.g. /path/to/opencode-home/config/opencode/opencode.json}"
 
@@ -27,7 +33,11 @@ fi
 OPENCODE_CONFIG_HOME="$(cd "$(dirname "$OPENCODE_CONFIG")/.." && pwd)"
 OPENCODE_DATA_HOME="$(cd "${OPENCODE_CONFIG_HOME}/../data" && pwd)"
 
+AGENT_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/scripts"
+
 AGENT_MOUNTS+=("${OPENCODE_BIN}:/usr/local/bin/opencode:ro")
 AGENT_MOUNTS+=("${OPENCODE_CONFIG_HOME}:/opt/opencode-config-src:ro")
 AGENT_MOUNTS+=("${OPENCODE_DATA_HOME}:/opt/opencode-data-src:ro")
-AGENT_COMMAND='rm -rf /tmp/opencode-config /tmp/opencode-data && mkdir -p /tmp/opencode-config /tmp/opencode-data && cp -a /opt/opencode-config-src/. /tmp/opencode-config/ && cp -a /opt/opencode-data-src/. /tmp/opencode-data/ && XDG_CONFIG_HOME=/tmp/opencode-config XDG_DATA_HOME=/tmp/opencode-data opencode run --format json --auto < {prompt_file}'
+AGENT_MOUNTS+=("${AGENT_SCRIPT_DIR}/opencode-run.sh:/opt/agent-run.sh:ro")
+AGENT_EXTRA_ARGS+=(--opencode-provider "$OPENCODE_PROVIDER")
+AGENT_COMMAND="bash /opt/agent-run.sh"
