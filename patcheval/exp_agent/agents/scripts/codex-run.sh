@@ -9,11 +9,14 @@ set -euo pipefail
 # are copied here so concurrent cases cannot share a CODEX_HOME.
 rm -rf /tmp/codex-home
 cp -a /opt/codex-home-src /tmp/codex-home
+# Persist this case's rollouts directly on the results mount, including partial
+# records on timeout. Keep credentials/config in the private container home.
+mkdir -p /results/codex-sessions
+ln -s /results/codex-sessions /tmp/codex-home/sessions
 
 CODEX_HOME=/tmp/codex-home exec /usr/local/bin/codex exec \
   --profile "${PATCHAGENT_PROFILE}" \
   --json \
-  --ephemeral \
   --ignore-rules \
   --disable memories \
   --disable external_agent_memory_import \

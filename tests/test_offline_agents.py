@@ -639,6 +639,10 @@ if sys.argv[1] == 'run':
     print('{"sessionID":"session-sentinel"}')
 elif sys.argv[1] == 'export':
     print('{"info":{"id":"session-sentinel"},"messages":[]}')
+if Path(sys.argv[0]).name == 'codex':
+    sessions = Path(os.environ['CODEX_HOME']) / 'sessions'
+    sessions.mkdir(parents=True, exist_ok=True)
+    (sessions / 'rollout-sentinel.jsonl').write_text('{"type":"token_usage_record","payload":{"response_id":"response-sentinel","usage":{"input_tokens":7}}}\\n')
 """
     for name in ("codex", "traex", "opencode"):
         binary = binaries / name
@@ -753,7 +757,14 @@ elif sys.argv[1] == 'export':
     else:
         argv = first["argv"]
         assert argv[argv.index("--profile") + 1] == "profile"
-        assert "--ephemeral" in argv and "--ignore-rules" in argv
+        assert ("--ephemeral" in argv) is (agent == "traecli")
+        assert "--ignore-rules" in argv
+        if agent == "codex":
+            rollout = results / "codex-sessions/rollout-sentinel.jsonl"
+            assert json.loads(rollout.read_text())["payload"]["usage"] == {
+                "input_tokens": 7
+            }
+            assert not (results / "auth.json").exists()
         disabled = [argv[i + 1] for i, arg in enumerate(argv) if arg == "--disable"]
         assert set(disabled) == {"memories", "external_agent_memory_import", "hooks"}
         overrides = [argv[i + 1] for i, arg in enumerate(argv) if arg == "-c"]
@@ -828,6 +839,6 @@ def test_agent_output_survives_timeout(modules, tmp_path, monkeypatch, agent, ti
             agent_kind=agent,
         )
         assert metrics["tool_calls"] == 1
-        assert metrics["tokens"] == {}
+        assert all(value is None for value in metrics["tokens"].values())
         assert metrics["notices"]
         assert records[-1]["message"]["content"] == "a.txt"
