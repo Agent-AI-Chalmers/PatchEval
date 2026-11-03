@@ -200,3 +200,17 @@ def test_conflicting_message_identity_fails_export(tmp_path):
     )
     with pytest.raises(ValueError, match="Conflicting observations"):
         build_trajectory(tmp_path, "codex")
+
+
+@pytest.mark.parametrize("agent", ["", "openai", "trae", "CODEX"])
+def test_invalid_agent_rejected_before_writing_artifacts(tmp_path, agent):
+    output = tmp_path / "output"
+    with pytest.raises(ValueError, match="Unsupported trajectory agent"):
+        write_trajectory(tmp_path, output, "CVE-test", agent_kind=agent)
+    assert not output.exists()
+
+
+def test_infers_trae_from_native_capture_directory(tmp_path):
+    (tmp_path / "trae-sessions").mkdir()
+    _, metrics = build_trajectory(tmp_path)
+    assert metrics["agent"] == "traecli"

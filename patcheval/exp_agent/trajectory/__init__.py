@@ -17,6 +17,8 @@ def build_trajectory(work_dir, agent_kind=None, model_provider=None, model_name=
     internal provider key: the runner knows them at launch, but neither CLI puts
     the upstream vendor in its event stream.
     """
+    if agent_kind is not None and agent_kind not in {"codex", "traecli", "opencode"}:
+        raise ValueError(f"Unsupported trajectory agent: {agent_kind!r}")
     work_dir = Path(work_dir)
     prompt_path = work_dir / "prompt.txt"
     prompt = (
@@ -24,13 +26,17 @@ def build_trajectory(work_dir, agent_kind=None, model_provider=None, model_name=
         if prompt_path.exists()
         else ""
     )
-    kind = agent_kind or (
-        "opencode"
-        if any(
-            (work_dir / name).exists()
-            for name in ("opencode-session.json", "opencode.db")
+    kind = (
+        agent_kind
+        if agent_kind is not None
+        else (
+            "opencode"
+            if any(
+                (work_dir / name).exists()
+                for name in ("opencode-session.json", "opencode.db")
+            )
+            else "traecli" if (work_dir / "trae-sessions").exists() else "codex"
         )
-        else "traecli" if (work_dir / "trae-sessions").exists() else "codex"
     )
     if kind == "opencode":
         records, metrics = opencode.read_trajectory(work_dir, prompt)
