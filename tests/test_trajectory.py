@@ -119,12 +119,12 @@ def test_codex_events_map_to_trajectory_messages():
         "reasoning_tokens": 5,
         "total_tokens": 110,
     }
-    usage = messages[2]["usage_metadata"]
-    assert usage["input_tokens"] == 100
-    assert usage["input_token_details"]["cache_read"] == 80
-    assert usage["output_token_details"]["reasoning"] == 5
-    assert usage["total_tokens"] == 110
-    assert messages[2]["response_metadata"]["usage_scope"] == "run_aggregate"
+    # Run totals cannot be attributed to an individual response.
+    assert all("usage_metadata" not in message for message in messages)
+    assert all(
+        "usage_scope" not in message.get("response_metadata", {})
+        for message in messages
+    )
 
 
 def test_opencode_session_export_maps_to_trajectory_messages():
@@ -211,6 +211,8 @@ def test_write_trajectory_records_sequence_and_metrics(tmp_path):
     assert payload["agent"] == "codex"
     assert payload["tool_calls"] == 1
     assert payload["messages"] == 4
+    assert payload["tokens"]["total_tokens"] == 110
+    assert all("usage_metadata" not in record["message"] for record in records)
 
 
 def test_write_trajectory_prefers_opencode_export(tmp_path):

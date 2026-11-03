@@ -277,7 +277,6 @@ def codex_messages(events, prompt):
             )
     if usage:
         metrics["tokens"] = _canonical_totals(usage)
-        _attach_aggregate_usage(messages, usage)
     elif events:
         metrics["notices"].append(
             "No turn.completed usage received; token usage is unavailable."
@@ -415,11 +414,3 @@ def opencode_messages(session, prompt):
     if prompt and not any(message["type"] == "human" for message in messages):
         messages.insert(0, {"type": "human", "id": "prompt", "content": prompt})
     return messages, metrics
-
-
-def _attach_aggregate_usage(messages, usage):
-    for message in reversed(messages):
-        if message["type"] == "ai":
-            message["usage_metadata"] = usage
-            message.setdefault("response_metadata", {})["usage_scope"] = "run_aggregate"
-            return
