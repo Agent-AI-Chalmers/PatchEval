@@ -161,7 +161,7 @@ def _opencode_records(sessions, prompt):
             for entry in session.get("messages") or []
             if entry.get("info", {}).get("sessionID") in {None, identity}
         ]
-        messages, metrics = opencode_messages(
+        messages = _messages_from_session(
             {**session, "messages": owned}, prompt if not info.get("parentID") else ""
         )
         ancestry = []
@@ -192,9 +192,12 @@ def _opencode_records(sessions, prompt):
                 ):
                     record["source"] = "summarization"
             records.append(record)
-        sources.append({"session_id": identity, "usage": metrics["source_usage"]})
-        costs.append(metrics["cost"])
-        notices.extend(metrics["notices"])
+        sources.append({"session_id": identity, "usage": info.get("tokens") or {}})
+        costs.append(info.get("cost"))
+    if any(usage is None for usage in usages):
+        notices.append(
+            "A recorded assistant response has no completed usage measurement."
+        )
     return records, {
         "tokens": usage_totals(aggregate_usage(usages)),
         "source_usage": sources,
@@ -242,7 +245,7 @@ def _opencode_usage(raw):
     )
 
 
-def opencode_messages(session, prompt):
+def _messages_from_session(session, prompt):
     """Map an OpenCode session export onto trajectory messages.
 
     The export already contains the user turn, so the prompt file is only used
@@ -252,12 +255,7 @@ def opencode_messages(session, prompt):
     not establish measured zero usage, even if the session has aggregate totals.
     """
     messages = []
-    metrics = {"tool_calls": 0, "tokens": {}, "cost": None, "notices": []}
-    info = session.get("info") or {}
-    raw = info.get("tokens") or {}
-    metrics["source_usage"] = raw
-    metrics["usage_complete"] = False
-    metrics["cost"] = info.get("cost")
+    tool_ordinal = 0
     for entry in session.get("messages") or []:
         meta = entry.get("info") or {}
         parts = entry.get("parts") or []
@@ -293,11 +291,7 @@ def opencode_messages(session, prompt):
                 blocks.append({"type": "thinking", "thinking": part.get("text") or ""})
             elif kind == "tool":
                 state = part.get("state") or {}
-                call_id = (
-                    part.get("callID")
-                    or part.get("id")
-                    or f"call-{metrics['tool_calls']}"
-                )
+                call_id = part.get("callID") or part.get("id") or f"call-{tool_ordinal}"
                 name = part.get("tool") or part.get("name") or SHELL_TOOL
                 call_args = state.get("input") or {}
                 blocks.append(
@@ -328,7 +322,7 @@ def opencode_messages(session, prompt):
                 if isinstance(diff, str) and diff:
                     additional["diff"] = diff
                     additional["diff_truncated"] = bool(metadata.get("truncated"))
-                metrics["tool_calls"] += 1
+                tool_ordinal += 1
                 if state.get("status") not in {"completed", "error"}:
                     continue
                 pending_tools.append(
@@ -378,22 +372,4 @@ def opencode_messages(session, prompt):
         messages.extend(pending_tools)
     if prompt and not any(message["role"] == "user" for message in messages):
         messages.insert(0, {"role": "user", "id": "prompt", "content": prompt})
-    messages = identify_messages(messages)
-    if any(
-        message["role"] == "assistant" and message.get("usage_metadata") is None
-        for message in messages
-    ):
-        metrics["notices"].append(
-            "A recorded assistant response has no completed usage measurement."
-        )
-    metrics["usage_scope"] = "recorded-responses"
-    metrics["tokens"] = usage_totals(
-        aggregate_usage(
-            [
-                message.get("usage_metadata")
-                for message in messages
-                if message["role"] == "assistant"
-            ]
-        )
-    )
-    return messages, metrics
+    return identify_messages(messages)

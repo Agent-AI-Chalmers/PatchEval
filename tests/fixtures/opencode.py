@@ -3,6 +3,8 @@
 import json
 import sqlite3
 
+from trajectory import build_trajectory
+
 OPENCODE_SESSION = {
     "info": {
         "id": "ses_1",
@@ -125,3 +127,11 @@ def opencode_database_session(identity, parent=None):
             }
         ],
     }
+
+
+def export_opencode_session(work_dir, session, prompt):
+    """Export a local session sample through the same entry point as the runner."""
+    (work_dir / "opencode-session.json").write_text(json.dumps(session))
+    (work_dir / "prompt.txt").write_text(prompt)
+    records, metrics = build_trajectory(work_dir, "opencode")
+    return [record["message"] for record in records], metrics

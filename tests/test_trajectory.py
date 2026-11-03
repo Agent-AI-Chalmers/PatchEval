@@ -5,15 +5,14 @@ import json
 import pytest
 from trajectory import build_trajectory, write_trajectory
 from trajectory.item_events import messages_from_events
-from trajectory.opencode import opencode_messages
 
 from .fixtures.codex import CODEX_EVENTS
-from .fixtures.opencode import OPENCODE_SESSION
+from .fixtures.opencode import OPENCODE_SESSION, export_opencode_session
 
 
-def test_both_clis_share_one_token_vocabulary():
+def test_both_clis_share_one_token_vocabulary(tmp_path):
     _, codex = messages_from_events(CODEX_EVENTS, "")
-    _, opencode = opencode_messages(OPENCODE_SESSION, "")
+    _, opencode = export_opencode_session(tmp_path, OPENCODE_SESSION, "")
 
     assert set(codex["tokens"]) == set(opencode["tokens"])
     assert codex["tokens"]["uncached_input_tokens"] is None

@@ -4,17 +4,19 @@ import json
 
 import pytest
 from trajectory import build_trajectory, write_trajectory
-from trajectory.opencode import opencode_messages
 
 from .fixtures.opencode import (
     OPENCODE_SESSION,
+    export_opencode_session,
     opencode_database_session,
     write_opencode_database,
 )
 
 
-def test_opencode_session_export_maps_to_trajectory_messages():
-    messages, metrics = opencode_messages(OPENCODE_SESSION, "fix the bug")
+def test_opencode_session_export_maps_to_trajectory_messages(tmp_path):
+    messages, metrics = export_opencode_session(
+        tmp_path, OPENCODE_SESSION, "fix the bug"
+    )
 
     assert [message["role"] for message in messages] == ["user", "assistant", "tool"]
     kinds = [block["type"] for block in messages[1]["content"]]
@@ -37,7 +39,7 @@ def test_opencode_session_export_maps_to_trajectory_messages():
     assert metrics["cost"] == 0.01
 
 
-def test_opencode_reasoning_is_inclusive_in_message_and_run_totals():
+def test_opencode_reasoning_is_inclusive_in_message_and_run_totals(tmp_path):
     tokens = {
         "input": 2257,
         "output": 57,
@@ -45,7 +47,8 @@ def test_opencode_reasoning_is_inclusive_in_message_and_run_totals():
         "total": 10223,
         "cache": {"read": 7808, "write": 0},
     }
-    messages, metrics = opencode_messages(
+    messages, metrics = export_opencode_session(
+        tmp_path,
         {
             "info": {"tokens": tokens},
             "messages": [
@@ -172,12 +175,14 @@ def test_opencode_interrupted_run_recovers_persisted_events(tmp_path, export):
 
 
 @pytest.mark.parametrize("count", [None, 0])
-def test_opencode_optional_buckets_preserve_unknown_and_zero(count):
+def test_opencode_optional_buckets_preserve_unknown_and_zero(count, tmp_path):
     raw = {"input": 10, "output": 2}
     if count is not None:
         raw.update(reasoning=count, cache={"read": count, "write": count})
-    messages, metrics = opencode_messages(
-        {"messages": [{"info": {"role": "assistant", "tokens": raw}, "parts": []}]}, ""
+    messages, metrics = export_opencode_session(
+        tmp_path,
+        {"messages": [{"info": {"role": "assistant", "tokens": raw}, "parts": []}]},
+        "",
     )
     usage = messages[0]["usage_metadata"]
     assert usage["input_tokens"] == 10
@@ -189,19 +194,20 @@ def test_opencode_optional_buckets_preserve_unknown_and_zero(count):
     assert metrics["tokens"]["uncached_input_tokens"] == (None if count is None else 10)
 
 
-def test_opencode_total_mismatch_keeps_raw_evidence():
+def test_opencode_total_mismatch_keeps_raw_evidence(tmp_path):
     raw = {"input": 10, "output": 2, "total": 999}
     with pytest.warns(RuntimeWarning, match="transcript_source_total_mismatch"):
-        messages, _ = opencode_messages(
-            {"messages": [{"info": {"role": "assistant", "tokens": raw}}]}, ""
+        messages, _ = export_opencode_session(
+            tmp_path, {"messages": [{"info": {"role": "assistant", "tokens": raw}}]}, ""
         )
     assert messages[0]["usage_metadata"]["total_tokens"] == 12
     assert messages[0]["response_metadata"]["token_usage"] == raw
 
 
-def test_opencode_session_totals_are_not_added_to_message_usage():
+def test_opencode_session_totals_are_not_added_to_message_usage(tmp_path):
     raw = {"input": 10, "output": 2}
-    _, metrics = opencode_messages(
+    _, metrics = export_opencode_session(
+        tmp_path,
         {
             "info": {"tokens": raw},
             "messages": [
@@ -213,11 +219,12 @@ def test_opencode_session_totals_are_not_added_to_message_usage():
     )
     assert metrics["tokens"]["total_tokens"] == 24
     assert metrics["usage_scope"] == "recorded-responses"
-    assert metrics["source_usage"] == raw
+    assert metrics["source_usage"] == [{"session_id": None, "usage": raw}]
 
 
-def test_opencode_missing_response_usage_keeps_aggregate_unknown():
-    _, metrics = opencode_messages(
+def test_opencode_missing_response_usage_keeps_aggregate_unknown(tmp_path):
+    _, metrics = export_opencode_session(
+        tmp_path,
         {
             "messages": [
                 {"info": {"role": "assistant", "tokens": {"input": 10, "output": 2}}},
@@ -231,8 +238,9 @@ def test_opencode_missing_response_usage_keeps_aggregate_unknown():
 
 
 @pytest.mark.parametrize("status", ["pending", "running", None])
-def test_opencode_unfinished_tool_has_no_fabricated_result(status):
-    messages, metrics = opencode_messages(
+def test_opencode_unfinished_tool_has_no_fabricated_result(status, tmp_path):
+    messages, metrics = export_opencode_session(
+        tmp_path,
         {
             "messages": [
                 {
@@ -285,22 +293,26 @@ def test_recovered_opencode_updates_do_not_repeat_tool_calls(tmp_path):
     assert metrics["tool_calls"] == 1
 
 
-def test_repeated_opencode_messages_do_not_double_count_usage():
+def test_repeated_opencode_messages_do_not_double_count_usage(tmp_path):
     entry = {
         "info": {"id": "m1", "role": "assistant", "tokens": {"input": 10, "output": 2}}
     }
-    messages, metrics = opencode_messages({"messages": [entry, entry]}, "")
+    messages, metrics = export_opencode_session(
+        tmp_path, {"messages": [entry, entry]}, ""
+    )
     assert len(messages) == 1
     assert metrics["tokens"]["total_tokens"] == 12
 
 
-def test_opencode_user_attachments_remain_in_original_content():
+def test_opencode_user_attachments_remain_in_original_content(tmp_path):
     parts = [
         {"type": "text", "text": "inspect"},
         {"type": "file", "mime": "image/png", "url": "data:image/png;base64,AA=="},
     ]
-    messages, _ = opencode_messages(
-        {"messages": [{"info": {"id": "u1", "role": "user"}, "parts": parts}]}, ""
+    messages, _ = export_opencode_session(
+        tmp_path,
+        {"messages": [{"info": {"id": "u1", "role": "user"}, "parts": parts}]},
+        "",
     )
     assert messages[0]["content"] == parts
 
