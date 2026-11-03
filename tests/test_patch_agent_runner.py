@@ -1,6 +1,7 @@
 """Verify case selection, seed isolation, and durable runner output without Docker."""
 
 import asyncio
+import hashlib
 import importlib
 import json
 import sys
@@ -118,6 +119,9 @@ def test_case_selection_is_explicit_and_recorded(
     )
     args.cve = cve
     args.seed_directory = str(tmp_path)
+    snapshot = {"reasoning_effort": {"requested": "low", "configured": "low"}}
+    args.launch_config = tmp_path / "launch.json"
+    args.launch_config.write_text(json.dumps(snapshot))
 
     async def run_one(sample, index, args, sem, mounts):
         return runner.GenerationResult(
@@ -140,6 +144,8 @@ def test_case_selection_is_explicit_and_recorded(
     assert asyncio.run(runner._generate(args)) == 1
     record = json.loads((Path(args.run_root) / "run_metadata.json").read_text())
     assert record["selected_cves"] == expected
+    assert record["launch_config"] == snapshot
+    assert record["dataset_sha256"] == hashlib.sha256(dataset.read_bytes()).hexdigest()
     assert [
         json.loads(line)["cve"]
         for line in (Path(args.run_root) / "results.jsonl").read_text().splitlines()
@@ -182,6 +188,94 @@ def test_runner_exports_selected_agent_identity(runner, tmp_path, monkeypatch, a
         )
     )
     assert export.call_args.kwargs["agent_kind"] == agent
+
+
+@pytest.mark.parametrize("agent", ["codex", "traecli", "opencode"])
+@pytest.mark.parametrize("probe_failed", [False, True, "spawn_error"])
+def test_generated_case_records_actual_runtime(
+    runner, tmp_path, monkeypatch, agent, probe_failed
+):
+    """Probe the case container, and retain explicit unknowns if probes fail."""
+    dataset = tmp_path / "dataset.json"
+    dataset.write_text(
+        json.dumps(
+            [
+                {
+                    "cve_id": "CVE-test",
+                    "image_url": "mutable:latest",
+                    "workdir": "/workspace/project",
+                }
+            ]
+        )
+    )
+    args = runner.build_parser().parse_args(
+        [
+            "--input",
+            str(dataset),
+            "--output-dir",
+            str(tmp_path / "output"),
+            "--agent",
+            agent,
+            "--agent-command",
+            "fixture",
+            "--model-api-upstream",
+            "http://localhost/v1",
+            "--expect-model",
+            "test-model",
+        ]
+    )
+    args.seed_directory = str(tmp_path)
+    image_id = "sha256:" + "a" * 64
+    version_command = (
+        f"/usr/local/bin/{'traex' if agent == 'traecli' else agent} --version"
+    )
+    probes = []
+
+    async def run(command, **kwargs):
+        if "inspect" in command:
+            probes.append(command)
+            if probe_failed == "spawn_error":
+                raise OSError("synthetic spawn failure")
+            return runner.CommandResult(
+                command, 1 if probe_failed else 0, image_id, "", 0
+            )
+        return runner.CommandResult(command, 0, "", "", 0)
+
+    async def exec_container(container, command, **kwargs):
+        if command == version_command:
+            probes.append(command)
+            if probe_failed == "spawn_error":
+                raise OSError("synthetic spawn failure")
+            return runner.CommandResult(
+                [], 1 if probe_failed else 0, "CLI 1.2.3\n", "", 0
+            )
+        if "git diff HEAD" in command:
+            work = next((Path(args.run_root) / ".work").iterdir())
+            (work / "llm.patch").write_text("fixture patch")
+        return runner.CommandResult([], 0, "", "", 0)
+
+    async def agent_run(*args, **kwargs):
+        return runner.CommandResult([], 0, "", "", 0)
+
+    monkeypatch.setattr(runner, "_run", run)
+    monkeypatch.setattr(runner, "_docker_exec", exec_container)
+    monkeypatch.setattr(runner, "_run_agent", agent_run)
+    assert asyncio.run(runner._generate(args)) == 0
+    result = json.loads((Path(args.run_root) / "results.jsonl").read_text())
+    assert result["status"] == "generated"
+    assert result["image"] == "mutable:latest"
+    assert result["runtime"] == {
+        "image_id": None if probe_failed else image_id,
+        "cli_version": None if probe_failed else "1.2.3",
+        "capture_errors": (
+            ["image_id_unavailable", "cli_version_unavailable"] if probe_failed else []
+        ),
+    }
+    assert len(probes) == 2
+    assert probes[0][-1] == result["container_name"]
+    assert probes[1] == version_command
+    metadata = json.loads((Path(args.run_root) / "run_metadata.json").read_text())
+    assert metadata["launch_config"] is None
 
 
 @pytest.mark.parametrize("agent", ["codex", "traecli", "opencode"])

@@ -9,13 +9,14 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import hashlib
 import json
 import os
 import re
 import shlex
 import shutil
-import time
 import tempfile
+import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Optional
@@ -52,6 +53,7 @@ class GenerationResult:
     duration_s: float
     patch_path: str
     error: str = ""
+    runtime: dict[str, Any] | None = None
 
 
 def _safe_name(value: str, max_len: int = 100) -> str:
@@ -355,6 +357,42 @@ async def _remove_container(container: str) -> None:
     await _run(["docker", "rm", "-f", container], timeout_s=120)
 
 
+async def _capture_runtime(container: str, agent: str) -> dict[str, Any]:
+    """Record the running image and mounted CLI, not a mutable tag or host CLI.
+
+    Failed probes remain explicit unknowns without discarding a usable patch.
+    Configured reasoning effort is recorded separately; these probes do not
+    establish what the upstream model actually honored.
+    """
+    runtime = {"image_id": None, "cli_version": None, "capture_errors": []}
+    try:
+        image = await _run(
+            ["docker", "container", "inspect", "--format", "{{.Image}}", container],
+            timeout_s=30,
+        )
+        if image.exit_code == 0 and re.fullmatch(
+            r"sha256:[a-f0-9]{64}", image.stdout.strip()
+        ):
+            runtime["image_id"] = image.stdout.strip()
+    except OSError:
+        pass
+    if runtime["image_id"] is None:
+        runtime["capture_errors"].append("image_id_unavailable")
+    executable = "traex" if agent == "traecli" else agent
+    try:
+        version = await _docker_exec(
+            container, f"/usr/local/bin/{executable} --version", timeout_s=30
+        )
+        match = re.search(r"\b\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?\b", version.stdout)
+        if version.exit_code == 0 and match:
+            runtime["cli_version"] = match.group()
+    except OSError:
+        pass
+    if runtime["cli_version"] is None:
+        runtime["capture_errors"].append("cli_version_unavailable")
+    return runtime
+
+
 async def _run_one(sample: dict[str, Any], index: int, args: argparse.Namespace, sem: asyncio.Semaphore, mounts: list[tuple[str, str, str]]) -> GenerationResult:
     async with sem:
         started = time.monotonic()
@@ -372,6 +410,7 @@ async def _run_one(sample: dict[str, Any], index: int, args: argparse.Namespace,
         workdir = "/workspace"
         agent_result: Optional[CommandResult] = None
         timed_out = False
+        runtime = None
         try:
             env = {"PATCHAGENT_SESSION_ID": container, "PATCHAGENT_MODEL_API_BASE_URL": "http://127.0.0.1:18080/v1"}
             if args.opencode_provider:
@@ -379,6 +418,7 @@ async def _run_one(sample: dict[str, Any], index: int, args: argparse.Namespace,
             run_result = await _run(_docker_run_args(container, image, work, mounts), timeout_s=1200)
             if run_result.exit_code != 0:
                 raise RuntimeError(f"docker run failed: {run_result.stderr or run_result.stdout}")
+            runtime = await _capture_runtime(container, args.agent)
             workdir = await _detect_workdir(container, sample)
             await _hide_workspace_payload(container, workdir, container)
             prompt = _prompt(sample, workdir)
@@ -412,6 +452,7 @@ async def _run_one(sample: dict[str, Any], index: int, args: argparse.Namespace,
         except Exception as exc:
             _log(f"{run_id}: trajectory export failed: {exc}")
         result = GenerationResult(index, cve, instance_id, image, workdir, container, status, status == "generated", agent_result.exit_code if agent_result else None, timed_out, time.monotonic() - started, str(patch_path), error)
+        result.runtime = runtime
         return result
 
 
@@ -443,6 +484,10 @@ async def _generate(args: argparse.Namespace) -> int:
             "host_state": "config_auth_runtime_only",
             "cross_case_memory": "disabled",
             "model_api_transport": "unix_socket",
+            "dataset_sha256": hashlib.sha256(Path(args.input).read_bytes()).hexdigest(),
+            "launch_config": (
+                _read_json(Path(args.launch_config)) if args.launch_config else None
+            ),
         },
     )
     mounts = isolated_agent_mounts(_parse_mounts(args.mount), Path(args.seed_directory))
@@ -504,6 +549,10 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p.add_argument("--agent-timeout", type=int, default=DEFAULT_AGENT_TIMEOUT_S)
     p.add_argument("--container-prefix", default="patcheval-agent")
+    p.add_argument(
+        "--launch-config",
+        help="Credential-free configuration snapshot supplied by run_model.py",
+    )
     return p
 
 

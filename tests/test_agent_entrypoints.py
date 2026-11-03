@@ -48,6 +48,7 @@ def test_shell_entrypoint_uses_cleaned_input_and_proxy(
         MODEL_API_UPSTREAM="https://provider.example/v1",
         MODEL_API_MODEL="test-model",
         MODEL_API_PROVIDER="deepseek",
+        PATCHAGENT_LAUNCH_CONFIG=str(tmp_path / "launch.json"),
     )
     if agent == "codex":
         env.update(
@@ -93,6 +94,10 @@ def test_shell_entrypoint_uses_cleaned_input_and_proxy(
         arguments[arguments.index("--model-provider") + 1] == env["MODEL_API_PROVIDER"]
     )
     assert arguments[arguments.index("--agent") + 1] == agent
+    assert (
+        arguments[arguments.index("--launch-config") + 1]
+        == env["PATCHAGENT_LAUNCH_CONFIG"]
+    )
     command = arguments[arguments.index("--agent-command") + 1]
     mounts = [
         arguments[i + 1] for i, value in enumerate(arguments) if value == "--mount"

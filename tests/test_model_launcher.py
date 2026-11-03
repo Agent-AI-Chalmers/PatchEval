@@ -59,6 +59,18 @@ def test_model_uses_temporary_private_config(
     def run(command, *, env, check):
         config = Path(env[prefix + "_CONFIG"])
         configs.append(config)
+        snapshot_path = Path(env["PATCHAGENT_LAUNCH_CONFIG"])
+        configs.append(snapshot_path)
+        snapshot = json.loads(snapshot_path.read_text())
+        assert "synthetic-secret" not in snapshot_path.read_text()
+        assert snapshot["reasoning_effort"] == {
+            "requested": "low",
+            "configured": None if agent == "traecli" else "low",
+        }
+        public_config = snapshot["config"]
+        assert public_config["model"] == (
+            "model-api/test-model" if agent == "opencode" else "test-model"
+        )
         assert os.stat(config).st_mode & 0o777 == 0o600
         if agent == "opencode":
             data = json.loads(config.read_text())
@@ -72,6 +84,8 @@ def test_model_uses_temporary_private_config(
             assert data["provider"]["model-api"]["models"]["test-model"]["options"] == {
                 "reasoningEffort": "low"
             }
+            del data["provider"]["model-api"]["options"]["apiKey"]
+            assert public_config == data
         else:
             data = tomllib.loads(config.read_text())
             assert data["model"] == "test-model"
@@ -85,6 +99,8 @@ def test_model_uses_temporary_private_config(
                 data["model_providers"]["model-api"]["experimental_bearer_token"]
                 == "synthetic-secret"
             )
+            del data["model_providers"]["model-api"]["experimental_bearer_token"]
+            assert public_config == data
         assert env["MODEL_API_MODEL"] == "test-model"
         assert env["MODEL_API_PROVIDER"] == "deepseek"
         assert env["LIMIT"] == ("3" if explicit_batch else "-1")
@@ -96,7 +112,7 @@ def test_model_uses_temporary_private_config(
 
     monkeypatch.setattr(module.subprocess, "run", run)
     assert module.main() == 1
-    assert not configs[0].exists()
+    assert all(not config.exists() for config in configs)
 
 
 def test_documented_quickstart_reaches_generation(monkeypatch):

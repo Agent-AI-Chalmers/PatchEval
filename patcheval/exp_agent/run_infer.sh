@@ -31,6 +31,9 @@ OUTPUT_BASE="${OUTPUT_BASE:-${SCRIPT_DIR}/agent_runs}"
 if [[ -n "${CVE:-}" ]]; then
   AGENT_EXTRA_ARGS+=(--cve "$CVE")
 fi
+if [[ -n "${PATCHAGENT_LAUNCH_CONFIG:-}" ]]; then
+  AGENT_EXTRA_ARGS+=(--launch-config "$PATCHAGENT_LAUNCH_CONFIG")
+fi
 
 mount_args=()
 for mount in "${AGENT_MOUNTS[@]:-}"; do

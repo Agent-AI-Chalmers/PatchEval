@@ -7,6 +7,7 @@ import json
 import os
 import shutil
 import subprocess
+import sys
 import tempfile
 import uuid
 from pathlib import Path
@@ -27,7 +28,7 @@ def main():
     parser.add_argument(
         "--reasoning-effort",
         required=True,
-        help="Reasoning effort sent by both agents; the frozen matrix uses low",
+        help="Requested reasoning effort; Trae cannot currently pin this setting",
     )
     parser.add_argument("--cve", help="Select one exact CVE")
     parser.add_argument(
@@ -92,6 +93,8 @@ def main():
                     },
                 }
             )
+            public_config = json.loads(content)
+            del public_config["provider"]["model-api"]["options"]["apiKey"]
             environment.update(
                 OPENCODE_BIN=binary,
                 OPENCODE_CONFIG=str(config),
@@ -118,6 +121,19 @@ def main():
                 'wire_api = "responses"\n'
                 f"experimental_bearer_token = {json.dumps(key)}\n"
             )
+            public_config = {
+                "model": args.model,
+                "model_provider": "model-api",
+                "model_providers": {
+                    "model-api": {
+                        "name": "Model API",
+                        "base_url": args.base_url,
+                        "wire_api": "responses",
+                    }
+                },
+            }
+            if args.agent == "codex":
+                public_config["model_reasoning_effort"] = args.reasoning_effort
             prefix = "TRAE" if args.agent == "traecli" else "CODEX"
             environment.update(
                 {
@@ -128,6 +144,30 @@ def main():
             )
         config.touch(mode=0o600)
         config.write_text(content)
+        snapshot = home / "launch.json"
+        snapshot.write_text(
+            json.dumps(
+                {
+                    "source": "run_model.py",
+                    "config": public_config,
+                    "reasoning_effort": {
+                        "requested": args.reasoning_effort,
+                        "configured": (
+                            None if args.agent == "traecli" else args.reasoning_effort
+                        ),
+                    },
+                }
+            )
+        )
+        environment["PATCHAGENT_LAUNCH_CONFIG"] = str(snapshot)
+        if args.agent == "traecli":
+            print(
+                "Warning: Trae reasoning effort is not pinned; "
+                f"requested {args.reasoning_effort!r}, configured null. "
+                "This run does not establish equal reasoning effort across agents.",
+                file=sys.stderr,
+                flush=True,
+            )
         result = subprocess.run(
             ["bash", str(directory / "run_infer.sh"), args.agent, label],
             env=environment,

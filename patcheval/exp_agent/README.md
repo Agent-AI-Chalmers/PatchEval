@@ -67,6 +67,9 @@ The command prompts for the API key without displaying it. For noninteractive ru
 
 `--agent` also accepts `codex` and `opencode`. Every adapter uses the Responses transport: Codex and Trae select it through `wire_api = "responses"`, OpenCode through the pinned `@ai-sdk/openai` provider. `--reasoning-effort` is required and is written into the Codex profile and the OpenCode model options; OpenCode's `small_model` is pinned to the same deployment so auxiliary requests cannot reach another model. Provider dependencies must be cached. Existing profile-based commands below remain available for advanced settings.
 
+<!-- doc-default: run_model.reasoning_effort; source=patcheval/exp_agent/run_model.py -->
+For Trae, the launcher warns that the requested effort is not configured. Such a run does not establish equal reasoning effort across agents; see [Trae CLI](#trae-cli) for the tested limitation.
+
 ## Layout
 
 ```text
@@ -249,7 +252,10 @@ bash run_eval.sh trae_my_profile
 
 The adapter copies a filtered configuration/authentication seed into each container, overrides the selected provider's base URL, and disables web search. It preserves the configured model.
 
-Trae is kept as an additional adapter and is not part of the frozen comparison matrix: it cannot reach the DeepSeek deployment, and its reasoning effort is not forwarded. Verified on 2026-11-02 with traecli 0.213.1: `model_reasoning_effort = "low"` passes config validation (`--strict-config` accepts it) but the outgoing Responses request still carries `"reasoning": null` for `gpt-5`, `o3`, `gpt-5-codex` and `gpt-4.1`, with both the profile key and a `-c` override. `run_model.py` therefore does not write the key for `traecli`.
+Trae remains an additional adapter outside the frozen comparison matrix.
+
+<!-- doc-time-sensitive: traex-gpt-reasoning-effort; checked=2026-11-03; source=patcheval/exp_agent/run_model.py -->
+TraeX is currently a poor fit for GPT evaluations that require controlled reasoning effort. In a local custom-provider Responses probe, TraeX 0.213.1 sent `reasoning: null` for `gpt-6.1-sol` despite `model_reasoning_effort="low"`. This observation does not establish behavior for other versions or built-in providers. `run_model.py` leaves Trae's effort unconfigured and warns at launch.
 
 Use API credentials available inside the container; account login and provider discovery that require other network endpoints are not supported by the inference proxy.
 
@@ -310,6 +316,12 @@ agent_runs/<timestamp>-<prefix>/
 ├── run_metadata.json
 └── summary.json
 ```
+
+<!-- doc-default: run_metadata.launch_config; source=patcheval/exp_agent/patch_agent_runner.py -->
+`run_metadata.json` records the selected cases, timeout, concurrency, upstream model/provider, dataset SHA-256, and `launch_config`. When started through `run_model.py`, `launch_config` contains the generated configuration without its credential fields and separates requested from configured reasoning effort. It describes launcher input, not proof of what the upstream model honored. The adapters route inference through the recorded loopback bridge instead of the generated upstream URL. A manual profile-based invocation without a supplied snapshot records `launch_config: null`; its profile is not reconstructed from a path that may later disappear.
+
+<!-- doc-default: GenerationResult.runtime; source=patcheval/exp_agent/patch_agent_runner.py -->
+Each `results.jsonl` row includes `runtime`, captured from the case container before inference: its immutable Docker `image_id`, the mounted CLI's `cli_version`, and `capture_errors` for unavailable measurements. If no container starts, `runtime` is null. Probe failures leave unknown fields and do not discard an otherwise usable patch. These records support configuration comparison; they do not make model output deterministic or identify an upstream deployment revision behind a model alias.
 
 ## Transcript and usage contract
 
