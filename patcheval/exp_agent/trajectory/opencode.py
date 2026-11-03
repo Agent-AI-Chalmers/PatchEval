@@ -229,16 +229,16 @@ def _opencode_usage(raw):
     creation = validate_token_count(cache.get("write"))
     reasoning = validate_token_count(raw.get("reasoning"))
     return normalize_usage(
-        (
+        input_tokens=(
             None
             if ordinary_input is None
             else ordinary_input + (read or 0) + (creation or 0)
         ),
-        read,
-        creation,
-        None if ordinary_output is None else ordinary_output + (reasoning or 0),
-        reasoning,
-        raw.get("total"),
+        cache_read=read,
+        cache_creation=creation,
+        output=None if ordinary_output is None else ordinary_output + (reasoning or 0),
+        reasoning=reasoning,
+        total=raw.get("total"),
     )
 
 

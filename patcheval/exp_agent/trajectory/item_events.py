@@ -165,12 +165,12 @@ def messages_from_events(
             # Codex input_tokens already includes the cached subset.
             usages.append(
                 normalize_usage(
-                    raw.get("input_tokens"),
-                    raw.get("cached_input_tokens"),
-                    raw.get(cache_creation_field),
-                    raw.get("output_tokens"),
-                    raw.get("reasoning_output_tokens"),
-                    raw.get("total_tokens"),
+                    input_tokens=raw.get("input_tokens"),
+                    cache_read=raw.get("cached_input_tokens"),
+                    cache_creation=raw.get(cache_creation_field),
+                    output=raw.get("output_tokens"),
+                    reasoning=raw.get("reasoning_output_tokens"),
+                    total=raw.get("total_tokens"),
                 )
             )
             source_usage.append(raw)

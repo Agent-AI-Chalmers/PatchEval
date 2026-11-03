@@ -128,12 +128,12 @@ def _rollout_records(events, filename):
         else:
             raw = completion.get("usage") or {}
             usage = normalize_usage(
-                raw.get("input_tokens"),
-                raw.get("cached_input_tokens"),
-                raw.get("cache_creation_input_tokens"),
-                raw.get("output_tokens"),
-                raw.get("reasoning_output_tokens"),
-                raw.get("total_tokens"),
+                input_tokens=raw.get("input_tokens"),
+                cache_read=raw.get("cached_input_tokens"),
+                cache_creation=raw.get("cache_creation_input_tokens"),
+                output=raw.get("output_tokens"),
+                reasoning=raw.get("reasoning_output_tokens"),
+                total=raw.get("total_tokens"),
             )
             message.update(id=completion["response_id"], usage_metadata=usage)
             message["response_metadata"]["token_usage_record"] = completion

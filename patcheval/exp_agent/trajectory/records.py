@@ -22,7 +22,9 @@ def validate_token_count(value):
     return value
 
 
-def normalize_usage(input_tokens, cache_read, cache_creation, output, reasoning, total):
+def normalize_usage(
+    *, input_tokens, cache_read, cache_creation, output, reasoning, total
+):
     """Normalize inclusive totals and subsets without inventing measurements.
 
     The caller owns source-specific addition of exclusive buckets. A reported
