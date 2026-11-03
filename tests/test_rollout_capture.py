@@ -1,20 +1,30 @@
-"""Exercise real CLI capture against a local Responses endpoint, without credentials."""
+"""Exercise Codex and Trae captures against a local Responses endpoint, without credentials."""
 
-import importlib.util
 import json
 import os
 import shutil
 import subprocess
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from pathlib import Path
 
 import pytest
+from trajectory import build_trajectory
 
 
-@pytest.mark.skipif(shutil.which("codex") is None, reason="Codex CLI is not installed")
-def test_real_codex_rollout_preserves_two_response_measurements(tmp_path):
+@pytest.mark.parametrize(
+    "agent,binary,home_variable,sessions_directory",
+    [
+        ("codex", "codex", "CODEX_HOME", "codex-sessions"),
+        ("traecli", "traex", "TRAE_HOME", "trae-sessions"),
+    ],
+)
+def test_real_cli_rollout_preserves_two_response_measurements(
+    tmp_path, agent, binary, home_variable, sessions_directory
+):
     """Stdout has one turn total; rollouts must retain both upstream responses."""
+    executable = shutil.which(binary)
+    if executable is None:
+        pytest.skip(f"{binary} CLI is not installed")
     requests = []
 
     class Handler(BaseHTTPRequestHandler):
@@ -87,18 +97,20 @@ def test_real_codex_rollout_preserves_two_response_measurements(tmp_path):
     home = tmp_path / "private-home"
     home.mkdir()
     work = tmp_path / "case"
-    sessions = work / "codex-sessions"
+    sessions = work / sessions_directory
     sessions.mkdir(parents=True)
-    (home / "sessions").symlink_to(sessions, target_is_directory=True)
+    session_root = home / "cli" if agent == "traecli" else home
+    session_root.mkdir(exist_ok=True)
+    (session_root / "sessions").symlink_to(sessions, target_is_directory=True)
     server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
     thread = threading.Thread(target=server.serve_forever, daemon=True)
     thread.start()
     try:
         result = subprocess.run(
             [
-                shutil.which("codex"),
+                executable,
                 "exec",
-                "--ignore-user-config",
+                "--ignore-rules",
                 "--skip-git-repo-check",
                 "--json",
                 "--disable",
@@ -123,7 +135,12 @@ def test_real_codex_rollout_preserves_two_response_measurements(tmp_path):
                 'web_search="disabled"',
                 "Reply briefly.",
             ],
-            env=dict(os.environ, CODEX_HOME=str(home)),
+            env={
+                **os.environ,
+                home_variable: str(home),
+                "HOME": str(tmp_path / "user-home"),
+                "RUST_LOG": "off",
+            },
             capture_output=True,
             text=True,
             timeout=45,
@@ -136,11 +153,7 @@ def test_real_codex_rollout_preserves_two_response_measurements(tmp_path):
     assert result.returncode == 0, result.stderr
     assert requests == ["probe-model", "probe-model"]
     (work / "agent_stdout.txt").write_text(result.stdout)
-    source = Path(__file__).resolve().parents[1] / "patcheval/exp_agent/trajectory.py"
-    spec = importlib.util.spec_from_file_location("codex_capture_trajectory", source)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    records, metrics = module.build_trajectory(work, "codex")
+    records, metrics = build_trajectory(work, agent)
     responses = [record for record in records if record.get("call_id")]
     assert [
         record["message"]["usage_metadata"]["total_tokens"] for record in responses

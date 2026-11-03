@@ -4,11 +4,12 @@ set -euo pipefail
 
 rm -rf /tmp/trae-home
 cp -a /opt/trae-home-src /tmp/trae-home
+mkdir -p /tmp/trae-home/cli /results/trae-sessions
+ln -s /results/trae-sessions /tmp/trae-home/cli/sessions
 
 RUST_LOG=off TRAE_HOME=/tmp/trae-home exec /usr/local/bin/traex exec \
   --profile "${PATCHAGENT_PROFILE}" \
   --json \
-  --ephemeral \
   --ignore-rules \
   --disable memories \
   --disable external_agent_memory_import \

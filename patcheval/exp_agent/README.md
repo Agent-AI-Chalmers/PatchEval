@@ -81,7 +81,14 @@ exp_agent/
 ├── process_data.py
 ├── run_infer.sh
 ├── run_eval.sh
-└── trajectory.py      # CLI event streams -> trajectory.jsonl + metrics.json
+└── trajectory/        # CLI captures -> trajectory.jsonl + metrics.json
+    ├── __init__.py    # source selection, provenance, artifact writing
+    ├── records.py     # capture parsing, identities, canonical token rules
+    ├── responses.py   # content/tool projection shared by Codex and Trae
+    ├── codex.py       # Codex response-first rollouts
+    ├── trae.py        # Trae completion-first history journal
+    ├── item_events.py # shared item events and separately scoped turn totals
+    └── opencode.py    # OpenCode database, export and event recovery
 ```
 
 ## Data and images
@@ -297,7 +304,7 @@ A generation run contains:
 ```text
 agent_runs/<timestamp>-<prefix>/
 ├── patches/           # CVE-keyed patches for process_data.py
-├── .work/             # prompt, stdout/stderr, codex-sessions/, opencode-session.json
+├── .work/             # prompt, stdout/stderr, codex-sessions/, trae-sessions/, opencode.db + WAL, session export
 ├── trajectories/      # per case: <CVE>.trajectory.jsonl + <CVE>.metrics.json
 ├── results.jsonl
 ├── run_metadata.json
@@ -306,7 +313,7 @@ agent_runs/<timestamp>-<prefix>/
 
 ## Transcript and usage contract
 
-`trajectory.py` implements sec-review-bot's `agent-transcript/v1` contract independently. It does not import the agents runtime, experiment reports, or their test fixtures. Trajectories are message-only JSONL recordings: each record has an increasing `seq`, `event: "message"`, and the CLI identity in `agent`. Messages have a unique nonempty `id`, a canonical `role` (`system`, `user`, `assistant`, or `tool`), and their text or content blocks. Available source IDs are retained; missing IDs receive deterministic local identities. Repeated identical messages are retained once; conflicting observations of an identity fail export.
+`trajectory` implements sec-review-bot's `agent-transcript/v1` contract independently. It does not import the agents runtime, experiment reports, or their test fixtures. Trajectories are message-only JSONL recordings: each record has an increasing `seq`, `event: "message"`, and the CLI identity in `agent`. Messages have a unique nonempty `id`, a canonical `role` (`system`, `user`, `assistant`, or `tool`), and their text or content blocks. Available source IDs are retained; missing IDs receive deterministic local identities. Repeated identical messages are retained once; conflicting observations of an identity fail export.
 
 Non-null `message.usage_metadata` contains exactly six nullable fields: `input_tokens`, `output_tokens`, `total_tokens`, `cache_read_input_tokens`, `cache_creation_input_tokens`, and `reasoning_tokens`. Input includes cache reads and writes; output includes reasoning. Cache and reasoning are subsets, never additional charges to these totals. Canonical total is derived from input and output when both are known. A conflicting source total produces a warning, and the original observation remains available outside canonical usage. Invalid counts and impossible subsets fail export.
 
@@ -314,23 +321,32 @@ Missing measurements remain null, including unreported cache creation or reasoni
 
 Codex writes this case's raw rollout files directly under `.work/<case>/codex-sessions/` while it runs. The files survive process failure, timeout, and container removal; config and authentication files remain in the private container home. Host histories are not imported. The canonical projection prefers these rollouts over `--json` stdout. Each `token_usage_record` identifies an upstream response and carries its own usage; sequential assistant output items before that completion form one response, including reasoning and tool requests. The response ID is retained in the message and `call_id`, with original output items and usage evidence in response metadata. Tool results remain separate. The projection does not combine output across tool results, input messages, or compaction boundaries.
 
+Trae CLI writes its rollouts and associated artifacts under `.work/<case>/trae-sessions/`, mounted through its private `$TRAE_HOME/cli/sessions` directory. Each response's `token_usage_record` precedes its assistant output in appended `history_mutation` items, so its reader matches completions to the following output rather than the preceding output. It maps `cache_creation_input_tokens` directly to the canonical cache creation subset. Original input messages, tool requests/results, response IDs and usage observations are retained. Repeated history commits, display completions and token-count snapshots do not add usage. Non-append history mutations remain in `metrics.source_history_mutations`; they are not replayed as new model responses, and their unknown usage keeps aggregate totals unknown.
+
 Metrics distinguish the available observation scopes:
 
-- Codex rollouts populate per-response `usage_metadata` and metrics with `usage_scope: "recorded-responses"`. Metrics count these responses once; repeated completion observations and `token_count` snapshots do not add usage. Stdout turn totals are not added to rollout totals. `model_responses_with_usage_count` counts measured responses without claiming that every model request was captured. Original response usage records are retained in `metrics.source_usage`.
+- Codex and Trae rollouts populate per-response `usage_metadata` and metrics with `usage_scope: "recorded-responses"`. Metrics count these responses once; repeated completion observations and `token_count` snapshots do not add usage. Stdout turn totals are not added to rollout totals. `model_responses_with_usage_count` counts measured responses without claiming that every model request was captured. Original response usage records are retained in `metrics.source_usage`.
 - Without rollout files, Codex/Trae-compatible stdout is projected as message-only observations, with `turn.completed` usage summed in metrics under `usage_scope: "recorded-turns"`. These turn aggregates are not assigned to an individual response.
-- OpenCode session totals, when available, populate metrics with `usage_scope: "session"`. They are not added to message usage. Individual message usage remains on its response, with original observations in `response_metadata.token_usage`.
-- Without session totals, OpenCode metrics aggregate recorded assistant messages with `usage_scope: "recorded-messages"`. Interrupted exports recover persisted parts, retaining the latest update for an identified part. Unfinished tools retain their requests without fabricated result messages.
+- OpenCode metrics aggregate recorded assistant responses with `usage_scope: "recorded-responses"`. Original session totals remain separately in `metrics.source_usage` and are not added to response usage. Individual usage remains on its response, with original observations in `response_metadata.token_usage`. Completed step measurements take precedence over message counters, which may not yet have been updated when execution stops. Zero-filled counters on unfinished responses remain unknown. Interrupted event captures retain the latest update for an identified part; unfinished tools retain their requests without fabricated results.
 
-Codex projections retain available base instructions, system/developer inputs, original user content, tool requests/results, and compaction summaries. Thread IDs namespace message/call identities; available parent threads establish branch ancestry. Copied parent history in a child rollout is excluded from its projection and accounting. Incoming inter-agent messages are retained as user context with their original sender and recipient in response metadata. A truncated final JSON fragment is treated as interrupted capture, while malformed complete lines fail export. Pending output, unfinished turns, unmeasured compactions and truncated capture keep aggregate fields unknown. Raw rollouts remain available for inspection.
+OpenCode writes its case-local SQLite database and journal files directly into `.work/<case>/` through `OPENCODE_DB`; configuration and authentication remain in private container directories. The projection reads this database before considering the root-session JSON export or the JSON event stream. It includes messages owned by each stored session, including child sessions, and retains session IDs, ancestry, response identities, compaction source, and original message/part metadata. Session totals are source evidence rather than the basis for response aggregation. Corrupt complete event lines fail export; a truncated final fragment preserves preceding records and leaves aggregate usage unknown.
+
+OpenCode's native database does not establish coverage of every upstream request. In particular, title generation may consume tokens without appearing as a recorded assistant response. Metrics describe recorded responses and keep `usage_complete: false`; they do not claim to equal provider billing totals.
+
+Codex and Trae projections retain available base instructions, system/developer inputs, original user content, tool requests/results, and compaction summaries. Thread IDs namespace message/call identities; available parent threads establish branch ancestry. Copied parent history in a child rollout is excluded from its projection and accounting. Incoming inter-agent messages are retained as user context with their original sender and recipient in response metadata. A truncated final JSON fragment is treated as interrupted capture, while malformed complete lines fail export. Pending output, unfinished turns, unmeasured compactions and truncated capture keep aggregate fields unknown. Raw rollouts remain available for inspection.
 
 `usage_complete` is false for these external recordings: response completions do not establish complete coverage of request starts, including requests that failed before emitting a response. Turn or session totals and successful CLI execution do not prove complete call recording. The adapter does not invent call lifecycle events, system instructions, or per-call allocation. Reported CLI cost is retained as source evidence; this adapter does not calculate prices.
 
-Run the local adapter regressions with `python -m pytest tests/test_trajectory.py` from the PatchEval root, using an environment with pytest installed. The tests use PatchEval's own CLI samples. `python -m pytest tests/test_codex_rollout_capture.py` additionally exercises an installed Codex CLI against a local mock Responses server without contacting a model provider; it skips when Codex is unavailable.
+Run the local adapter regressions with `python -m pytest tests/test_trajectory.py tests/test_codex_trajectory.py tests/test_opencode_trajectory.py tests/test_trae_trajectory.py` from the PatchEval root, using an environment with pytest installed. These test files cover shared artifact rules and source-specific behavior, using PatchEval's own samples in `tests/fixtures/`.
+
+`tests/test_model_api_proxy.py`, `tests/test_patch_agent_runner.py`, and `tests/test_agent_entrypoints.py` separately exercise the network boundary, runner lifecycle, and executable launch scripts. The launch-script tests run the maintained scripts inside bubblewrap with the recording CLI in `tests/fixtures/recording_cli.py`.
+
+`python -m pytest tests/test_rollout_capture.py` exercises installed Codex and Trae CLIs against a local mock Responses server without contacting a model provider. It checks that their raw files persist through the actual session paths, their two recorded responses stay separate, and their cache creation measurements use the same canonical field. Each case skips when its CLI is unavailable. `python -m pytest tests/test_opencode_capture.py` checks an installed OpenCode CLI against a local mock server, including inclusive token conversion, database recovery without an export, and the coverage boundary for auxiliary requests; it skips when OpenCode is unavailable.
 
 ## Notes
 
 - `patch_url` metadata should not be used by agents as a repair source.
-- Each case also writes `trajectories/<CVE>.trajectory.jsonl` in the project trajectory schema (one `{seq, event, message}` record per line) plus `<CVE>.metrics.json` with token usage, tool-call count and cost when available. `trajectory.py` maps Codex item events and OpenCode session exports onto that schema; the OpenCode adapter runs `opencode export <sessionID>` before the container is removed.
+- Each case also writes `trajectories/<CVE>.trajectory.jsonl` in the project trajectory schema (one `{seq, event, message}` record per line) plus `<CVE>.metrics.json` with token usage, tool-call count and cost when available. `trajectory` projects Codex/Trae rollouts and OpenCode sessions onto that schema; the OpenCode adapter persists its case-local database during execution and also runs `opencode export <sessionID>` before the container is removed.
 - When a tool reports a real unified diff (OpenCode does for `edit` and `apply_patch`), it is stored on the tool message as `additional_kwargs.diff` with `diff_truncated`; viewers render that rather than reconstructing from arguments. Codex file-change events are retained as `apply_patch` calls with the reported file paths, change kinds and completion status; these events do not provide a unified diff.
 - Trajectories carry provenance: every `assistant` message gets `response_metadata.model_provider` and `model_name` from `MODEL_API_PROVIDER` / `MODEL_API_MODEL`, and `metrics.json` repeats both. Neither CLI reports the upstream vendor in its event stream, so this is the only per-artifact provenance.
 - During patch generation, the CLI prints case-level progress when a case finishes. Detailed agent logs are written under `.work/<case>/agent_stdout.txt` and `.work/<case>/agent_stderr.txt`.

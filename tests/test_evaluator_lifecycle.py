@@ -23,7 +23,9 @@ def evaluator(monkeypatch):
 
 def test_evaluation_labels_containers(evaluator):
     module, client = evaluator
-    manager = module.DockerManager(logging.getLogger("test"), "CVE-test", "example.owner=owner")
+    manager = module.DockerManager(
+        logging.getLogger("test"), "CVE-test", "example.owner=owner"
+    )
     assert manager.start_container("image", "container", "") == "container"
     assert client.containers.run.call_args.kwargs["labels"] == {
         "example.owner": "owner"
@@ -35,7 +37,9 @@ def test_evaluation_reclaims_container_and_exposes_infrastructure_failure(
     evaluator, failure
 ):
     module, client = evaluator
-    evaluation = module.Evaluation(logging.getLogger("test"), container_label="example.owner=owner")
+    evaluation = module.Evaluation(
+        logging.getLogger("test"), container_label="example.owner=owner"
+    )
     manager = evaluation.docker_manager
     manager.start_container = Mock(
         return_value="container" if failure != "start" else None
@@ -61,3 +65,10 @@ def test_evaluation_rejects_invalid_label(evaluator, label):
     module, _ = evaluator
     with pytest.raises(ValueError, match="KEY=VALUE"):
         module.DockerManager(logging.getLogger("test"), "CVE-test", label)
+
+
+def test_evaluation_container_has_no_network(evaluator):
+    module, client = evaluator
+    manager = module.DockerManager(Mock(), "CVE-test")
+    assert manager.start_container("image", "container", "patch") == "container"
+    assert client.containers.run.call_args.kwargs["network_mode"] == "none"

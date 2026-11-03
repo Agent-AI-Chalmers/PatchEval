@@ -13,8 +13,10 @@ def by_cve(name):
     return {entry["cve_id"]: entry for entry in load(name)}
 
 
-DANGLING = re.compile(r"referenced (?:GitHub Security Advisory|GitHub Advisory|GHSA)(?![-\w])")
-FIX_HINT = re.compile(r"before version|patched in|fixed in|upgrade to", re.I)
+DANGLING = re.compile(
+    r"referenced (?:GitHub Security Advisory|GitHub Advisory|GHSA)(?![-\w])"
+)
+FIX_HINT = re.compile(r"before version|patched in|fixed in|upgrade to", re.IGNORECASE)
 
 
 def test_descriptions_are_complete_after_in_place_fixes():
@@ -41,7 +43,7 @@ def test_answer_fields_are_metadata_not_prompt_input():
     """Answer metadata is expected; the prompt boundary is what must hold.
 
     If a future upstream refresh drops these fields, DATASET_NOTES.md must be
-    updated. The prompt-side guarantee lives in test_offline_agents.py.
+    updated. The prompt-side guarantee lives in test_patch_agent_runner.py.
     """
     entries = load("patcheval_verified.json")
 

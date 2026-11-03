@@ -18,14 +18,15 @@ export OPENCODE_DISABLE_EXTERNAL_SKILLS=true
 export OPENCODE_DISABLE_DEFAULT_PLUGINS=true
 export XDG_CONFIG_HOME=/tmp/opencode-config
 export XDG_DATA_HOME=/tmp/opencode-data
+export OPENCODE_DB=/results/opencode.db
 
 opencode run --pure --format json --auto \
   < "$PATCHAGENT_PROMPT_FILE" > /results/agent_events.jsonl
 status=$?
 cat /results/agent_events.jsonl
 
-# The session database lives in XDG_DATA_HOME and dies with the container, so
-# export the structured session next to the patch while it still exists.
+# Keep a convenient root-session export alongside the durable database. The
+# database also retains child sessions and writes made before an interruption.
 session=$(grep -o '"sessionID":"[^"]*"' /results/agent_events.jsonl \
   | head -1 \
   | cut -d: -f2 \
