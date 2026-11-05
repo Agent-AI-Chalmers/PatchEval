@@ -38,3 +38,19 @@ class DownloadImagesMainTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_streamed_docker_error_is_failure(monkeypatch):
+    from unittest.mock import Mock
+
+    client = Mock()
+    api = Mock()
+    api.pull.return_value = iter([{"errorDetail": {"message": "registry denied"}}])
+    monkeypatch.setattr(download_images.docker, "from_env", lambda: client)
+    monkeypatch.setattr(download_images.docker, "APIClient", lambda **kwargs: api)
+    logger = Mock()
+    assert download_images.pull_one_image("ghcr.io/example:test", logger) == (
+        False,
+        "ghcr.io/example:test",
+    )
+    logger.error.assert_called_once()

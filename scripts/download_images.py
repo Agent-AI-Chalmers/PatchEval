@@ -29,6 +29,9 @@ def pull_one_image(image, logger):
         pull_log = low_api.pull(image, stream=True, decode=True)
         last_status = None
         for line in pull_log:
+            error = line.get("error") or line.get("errorDetail", {}).get("message")
+            if error:
+                raise RuntimeError(error)
             status = line.get("status", "").strip()
             if status and status != last_status:
                 logger.info(f"{image}: {status}")
