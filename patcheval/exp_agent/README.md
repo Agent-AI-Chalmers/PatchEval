@@ -117,7 +117,7 @@ Codex requires `CODEX_MODEL_PROVIDER`, and Trae CLI requires `TRAE_MODEL_PROVIDE
 
 All dependencies must already exist in the image or mounted runtime/data seed. Automatic downloads, package installation, external MCP servers and other network-dependent tools cannot work offline. OpenCode configuration must be JSON and its provider dependencies must be cached.
 
-Each case uses a fresh container and private HOME. Host session histories, personal instruction files and memory directories are excluded from the mounted seeds. Codex and Trae memory/import and hooks are explicitly disabled; OpenCode runs without project configuration, external plugins or external skill discovery. Both external agents therefore ignore repository instruction files such as `AGENTS.md` and `CLAUDE.md`, matching the frozen comparison protocol; the task prompt and the repository itself remain available. Model requests are the permitted network exception; direct internet access is blocked.
+Each case uses a fresh container and private HOME. Host session histories, personal instruction files and memory directories are excluded from the mounted seeds. Codex and Trae memory/import and hooks are explicitly disabled; OpenCode disables external plugins and external skill discovery while allowing repository configuration and instruction files. Codex and OpenCode load task-repository instructions according to their native CLI rules; repository-owned files such as `AGENTS.md` and `CLAUDE.md` are task inputs, not host personal state. The fixed-model proxy still rejects requests for a different deployment. Model requests are the permitted network exception; direct internet access is blocked.
 
 ## Step 1: Generate patches
 
@@ -353,7 +353,7 @@ Run the local adapter regressions with `python -m pytest tests/test_trajectory.p
 
 `tests/test_model_api_proxy.py`, `tests/test_patch_agent_runner.py`, and `tests/test_agent_entrypoints.py` separately exercise the network boundary, runner lifecycle, and executable launch scripts. The launch-script tests run the maintained scripts inside bubblewrap with the recording CLI in `tests/fixtures/recording_cli.py`.
 
-`python -m pytest tests/test_rollout_capture.py` exercises installed Codex and Trae CLIs against a local mock Responses server without contacting a model provider. It checks that their raw files persist through the actual session paths, their two recorded responses stay separate, and their cache creation measurements use the same canonical field. Each case skips when its CLI is unavailable. `python -m pytest tests/test_opencode_capture.py` checks an installed OpenCode CLI against a local mock server, including inclusive token conversion, database recovery without an export, and the coverage boundary for auxiliary requests; it skips when OpenCode is unavailable.
+`python -m pytest tests/test_rollout_capture.py` exercises installed Codex and Trae CLIs against a local mock Responses server without contacting a model provider. It checks that their raw files persist through the actual session paths, their two recorded responses stay separate, and their cache creation measurements use the same canonical field. Each case skips when its CLI is unavailable. `python -m pytest tests/test_opencode_capture.py` checks an installed OpenCode CLI against a local mock server, including inclusive token conversion, database recovery without an export, the coverage boundary for auxiliary requests, and task-repository instruction loading; it skips when OpenCode is unavailable.
 
 ## Notes
 

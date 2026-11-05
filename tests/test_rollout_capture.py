@@ -33,7 +33,7 @@ def test_real_cli_rollout_preserves_two_response_measurements(
 
         def do_POST(self):
             body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
-            requests.append(body["model"])
+            requests.append(body)
             index = len(requests)
             if index == 1:
                 # A nonexistent tool produces a local error and another model call,
@@ -97,6 +97,10 @@ def test_real_cli_rollout_preserves_two_response_measurements(
     home = tmp_path / "private-home"
     home.mkdir()
     work = tmp_path / "case"
+    work.mkdir()
+    (work / "AGENTS.md").write_text(
+        "Repository instruction sentinel: repo-guide-731.\n"
+    )
     sessions = work / sessions_directory
     sessions.mkdir(parents=True)
     session_root = home / "cli" if agent == "traecli" else home
@@ -110,7 +114,7 @@ def test_real_cli_rollout_preserves_two_response_measurements(
             [
                 executable,
                 "exec",
-                "--ignore-rules",
+                *(["--ignore-rules"] if agent == "traecli" else []),
                 "--skip-git-repo-check",
                 "--json",
                 "--disable",
@@ -151,7 +155,9 @@ def test_real_cli_rollout_preserves_two_response_measurements(
         server.server_close()
         thread.join(timeout=5)
     assert result.returncode == 0, result.stderr
-    assert requests == ["probe-model", "probe-model"]
+    assert [body["model"] for body in requests] == ["probe-model", "probe-model"]
+    if agent == "codex":
+        assert "repo-guide-731" in json.dumps(requests[0])
     (work / "agent_stdout.txt").write_text(result.stdout)
     records, metrics = build_trajectory(work, agent)
     responses = [record for record in records if record.get("call_id")]

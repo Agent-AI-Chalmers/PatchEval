@@ -251,7 +251,7 @@ def test_codex_and_trae_entrypoints_isolate_configuration(
     argv = first["argv"]
     assert argv[argv.index("--profile") + 1] == "profile"
     assert "--ephemeral" not in argv
-    assert "--ignore-rules" in argv
+    assert ("--ignore-rules" in argv) == (agent == "traecli")
     disabled = [argv[i + 1] for i, arg in enumerate(argv) if arg == "--disable"]
     assert set(disabled) == {"memories", "external_agent_memory_import", "hooks"}
     overrides = [argv[i + 1] for i, arg in enumerate(argv) if arg == "-c"]
@@ -285,12 +285,13 @@ def test_opencode_entrypoint_persists_database_and_exports_session(
     )
     for name in (
         "AUTOUPDATE",
-        "PROJECT_CONFIG",
-        "CLAUDE_CODE",
+        "CLAUDE_CODE_SKILLS",
         "EXTERNAL_SKILLS",
         "DEFAULT_PLUGINS",
     ):
         assert first["env"]["OPENCODE_DISABLE_" + name] == "true"
+    for name in ("PROJECT_CONFIG", "CLAUDE_CODE", "CLAUDE_CODE_PROMPT"):
+        assert first["env"].get("OPENCODE_DISABLE_" + name) not in {"true", "1"}
     assert first["env"]["XDG_CONFIG_HOME"] == "/tmp/opencode-config"
     assert first["env"]["XDG_DATA_HOME"] == "/tmp/opencode-data"
     assert first["env"]["OPENCODE_DB"] == "/results/opencode.db"

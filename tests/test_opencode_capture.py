@@ -14,7 +14,10 @@ from trajectory import build_trajectory
 @pytest.mark.skipif(
     shutil.which("opencode") is None, reason="OpenCode CLI is not installed"
 )
-def test_real_opencode_database_usage_and_auxiliary_coverage(tmp_path):
+@pytest.mark.parametrize("instruction_file", ["AGENTS.md", "CLAUDE.md"])
+def test_real_opencode_database_usage_and_auxiliary_coverage(
+    tmp_path, instruction_file
+):
     """Title generation consumes tokens but is absent from native session recording."""
     requests = []
 
@@ -100,6 +103,9 @@ def test_real_opencode_database_usage_and_auxiliary_coverage(tmp_path):
             }
         )
     )
+    (tmp_path / instruction_file).write_text(
+        "Repository instruction sentinel: repo-guide-731.\n"
+    )
     models = tmp_path / "models.json"
     models.write_text("{}")
     env = dict(
@@ -114,11 +120,12 @@ def test_real_opencode_database_usage_and_auxiliary_coverage(tmp_path):
         OPENCODE_MODELS_PATH=str(models),
         OPENCODE_DISABLE_MODELS_FETCH="true",
         OPENCODE_DISABLE_AUTOUPDATE="true",
-        OPENCODE_DISABLE_PROJECT_CONFIG="true",
         OPENCODE_DISABLE_DEFAULT_PLUGINS="true",
         OPENCODE_DISABLE_EXTERNAL_SKILLS="true",
-        OPENCODE_DISABLE_CLAUDE_CODE="true",
+        OPENCODE_DISABLE_CLAUDE_CODE_SKILLS="true",
     )
+    for name in ("PROJECT_CONFIG", "CLAUDE_CODE", "CLAUDE_CODE_PROMPT"):
+        env.pop("OPENCODE_DISABLE_" + name, None)
     try:
         result = subprocess.run(
             [
@@ -147,6 +154,8 @@ def test_real_opencode_database_usage_and_auxiliary_coverage(tmp_path):
     assert len(requests) == 2
     assert {r["model"] for r in requests} == {"probe-model"}
     assert sum(bool(r.get("tools")) for r in requests) == 1
+    main_request = next(r for r in requests if r.get("tools"))
+    assert "repo-guide-731" in json.dumps(main_request)
     assert (tmp_path / "opencode.db").is_file()
     assert not (tmp_path / "opencode-session.json").exists()
     records, metrics = build_trajectory(tmp_path, "opencode")

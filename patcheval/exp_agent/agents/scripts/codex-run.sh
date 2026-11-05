@@ -17,7 +17,6 @@ ln -s /results/codex-sessions /tmp/codex-home/sessions
 CODEX_HOME=/tmp/codex-home exec /usr/local/bin/codex exec \
   --profile "${PATCHAGENT_PROFILE}" \
   --json \
-  --ignore-rules \
   --disable memories \
   --disable external_agent_memory_import \
   --disable hooks \

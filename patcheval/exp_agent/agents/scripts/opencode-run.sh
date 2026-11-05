@@ -12,8 +12,9 @@ cp -a /opt/opencode-data-src/. /tmp/opencode-data/
 python3 /opt/model-api-bridge.py --configure-opencode
 
 export OPENCODE_DISABLE_AUTOUPDATE=true
-export OPENCODE_DISABLE_PROJECT_CONFIG=true
-export OPENCODE_DISABLE_CLAUDE_CODE=true
+# Repository instructions remain enabled independently of skill/plugin restrictions.
+unset OPENCODE_DISABLE_PROJECT_CONFIG OPENCODE_DISABLE_CLAUDE_CODE OPENCODE_DISABLE_CLAUDE_CODE_PROMPT
+export OPENCODE_DISABLE_CLAUDE_CODE_SKILLS=true
 export OPENCODE_DISABLE_EXTERNAL_SKILLS=true
 export OPENCODE_DISABLE_DEFAULT_PLUGINS=true
 export XDG_CONFIG_HOME=/tmp/opencode-config
